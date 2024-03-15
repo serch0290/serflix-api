@@ -1,0 +1,15 @@
+{
+  "apps": [{
+    "name": "api-arbitraje",
+    "script": "dist/bundle.js",
+    "instances": 1,
+    "exec_mode": "fork_mode",
+    "watch": false,
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 6007,
+      "PREFIX": "arbitraje"
+    },
+    "env_production": "production"
+  }]
+}

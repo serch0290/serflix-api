@@ -1,0 +1,54 @@
+{
+   "header":{
+        "logo" : {
+           "img": "/serflix-seo/assets/images/logo.png"
+        },
+        "buscador": true,
+        "menu" : [
+            {
+            "name": "Inicio",
+            "root": true,
+            "menu": true,
+            "footer": true
+            },
+            { 
+            "name":  "Menu A",
+            "root": false,
+            "menu": true,
+            "footer": true
+            },
+            {
+            "name": "Sobre Mí",
+            "sobreMi": true,
+            "menu": true,
+            "footer": true
+            },
+            {
+            "name": "Contacto",
+            "contacto": true,
+            "menu": true,
+            "footer": true
+            },
+            {
+            "name" : "Policica de Privacidad",
+            "politica": true,
+            "menu": true,
+            "footer": true
+            },
+            {
+            "name" : "Policica de Cookies",
+            "cookies": true,
+            "menu": false,
+            "footer": true
+            }
+        ]
+    },
+   "entradas": [
+      {
+        "ruta": "/serflix-seo/",
+        "nameFile": "sp_index.php",
+        "descripcion": "Página principal"
+      }
+   ]
+
+}
