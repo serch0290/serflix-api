@@ -44,7 +44,7 @@ const generateProyecto = (req, res) => {
 /**
  * Función que genera el archivos con las rutas de la página 
  */
-generarFileRouting = async (entradas) => {
+const generarFileRouting = async (entradas) => {
   let html = `<?php 
                   $rutas = [`;
   for(let entrada of entradas){
@@ -56,15 +56,61 @@ generarFileRouting = async (entradas) => {
   fs.writeFileSync('routing.php', html);
 }
 
-/**
- * Función que genera el menu del sitio
- */
-generarHeader = async(header) =>{
-  
 
-}//Fin del metodo
+const generarCapetasProyecto = async(req, res) =>{
 
+   try{
+	let proyecto = 'server/nichos/programacion';
+
+	if (!fs.existsSync(proyecto)){
+		 fs.mkdirSync(proyecto);
+	}
+
+	//Generamos la carpeta de assets
+	let assets = proyecto + '/assets';
+	fs.mkdirSync(assets);
+
+	//Generamos la carpeta de assets/css
+	let css = assets + '/css';
+	fs.mkdirSync(css);
+
+	//Generamos la carpeta de assets/css
+	let fonts = assets + '/fonts';
+	fs.mkdirSync(fonts);
+
+	//Generamos la carpeta de assets/css
+	let images = assets + '/images';
+	fs.mkdirSync(images);
+
+	//Generamos la carpeta de assets/css
+	let js = assets + '/js';
+	fs.mkdirSync(js);
+
+	//Generamos la carpeta de assets/css
+	let json = assets + '/json';
+	fs.mkdirSync(json);
+
+	//Generamos la carpeta de assets/css
+	let php = assets + '/php';
+	fs.mkdirSync(php);
+
+	//Generamos la carpeta de componentes
+	let componentes = proyecto + '/componentes';
+	fs.mkdirSync(componentes);
+
+	//Generamos la carpeta de componentes
+	let pages = proyecto + '/pages';
+	fs.mkdirSync(pages);
+
+	
+	res.status(200).send({msj: 'Carpeta creada correctamente'});
+   }catch(error){
+	log.fatal('Metodo: generarCapetasProyecto', error);
+	res.status(500).send({ error: 'Ocurrió un error al generar las carpeta contenedoras del proyecto' });
+   }
+}
 
 module.exports = {
-	generateProyecto
+	generateProyecto,
+	generarCapetasProyecto
 }

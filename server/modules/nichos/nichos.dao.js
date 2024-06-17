@@ -1,22 +1,46 @@
 const conexion = require('../../lib/conexion-mongo');
 const mongoose = conexion.init();
-const Nicho = require('../../models/nicho');
+const models = require('../../models/nicho');
 
 
 const getListadoNichos = params => {
-   return Nicho.find();
+   return models.nicho.find();
 }
 
 const guardarNicho = params => {
-    return Nicho.create(params);
+    return models.nicho.create(params);
 }
 
 const consultarNicho = params =>{
-    return Nicho.findOne({_id: params.id});
+    return models.nicho.findOne({_id: params.id});
+}
+
+const consultaConfigBD = async params =>{
+    return await models.bd.findOne({nicho: params.id});
+}
+
+const patchConfigBD = async params =>{
+    return await models.bd.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
+const patchConexionBD = async params =>{
+    return await models.bd.findByIdAndUpdate(
+        params._id,
+        { $set: { conexion: params.conn } },
+        { new: true, runValidators: true }
+    );
+}
+
+const guardarBD = async params =>{
+    return models.bd.create(params);
 }
 
 module.exports = {
     getListadoNichos,
     guardarNicho,
-    consultarNicho
+    consultarNicho,
+    guardarBD,
+    consultaConfigBD,
+    patchConfigBD,
+    patchConexionBD
 }

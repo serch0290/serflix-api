@@ -6,6 +6,7 @@ const dbName = "Serflix_Nichos";
 
 
 const init = () =>{
+    mongoose.set('strictQuery', false);
     const uri = `mongodb+srv://${usuario}:${password}@cluster0.yh70p4t.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Cluster0`;
 
     mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })

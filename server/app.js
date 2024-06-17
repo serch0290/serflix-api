@@ -48,11 +48,7 @@ app.disable('x-powered-by');
 
 // Configure CORS
 app.use((req, res, next) => {
-    let allowedOrigins = ['http://localhost:6020', 'http://localhost:4200', 'http://localhost:6003', 'http://10.3.14.64:6020', 'http://dev.extranet.fmf.mx', 'http://10.3.14.64:6035', 'http://10.3.14.64:6036', 'http://localhost:6035', 'http://localhost:6036'];
-    let origin = req.headers.origin;
-    if (allowedOrigins.indexOf(origin) > -1) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Idl");
     res.header('Access-Control-Allow-Credentials', 'true');
     if (req.method === 'OPTIONS') {

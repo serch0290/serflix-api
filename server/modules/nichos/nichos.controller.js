@@ -49,18 +49,73 @@ const saveNicho = async (req, res) => {
  */
 const getNicho = async (req, res) => {
     try {
-      const response = await nichosDao.consultarNicho(req.params);
-      res.status(200).send(response);
+      let nicho = await nichosDao.consultarNicho(req.params);
+      let database = await nichosDao.consultaConfigBD(req.params);
+      res.status(200).send({nicho, database});
     } catch (error) {
       console.log('error: ', error);
       res.status(500).send({ error: 'Ocurrió un error al consultar el nicho' + JSON.stringify(req.params), e: error });
     }
 };
 
+/**
+ *
+ * @author Sergio Cruz Flores
+ * @returns {object} objeto con los datos del menu
+ */
+const saveConfigBD = async (req, res) => {
+  try {
+    const data = req.body;
+    data.nicho = req.params.id;
+    let response = {};
+
+    if(data._id){
+       response = await nichosDao.patchConfigBD(data);
+    }else{
+       response = await nichosDao.guardarBD(data);
+    }
+    
+    res.status(200).send(response);
+  } catch (error) {
+    console.log('error: ', error);
+    res.status(500).send({ error: 'Ocurrió un error al guardar la configuracion de la BD' + JSON.stringify(req.body), e: error });
+  }
+};
+
+/**
+ *
+ * @author Sergio Cruz Flores
+ * @returns {object} objeto con los datos del menu
+ */
+const testBD = async (req, res) => {
+  try {
+    const conexion = require('../../lib/conexion-mysql');
+    let conn = await conexion.conexion(req.body);
+    req.body.conn = !(conn == undefined);
+    let response = {};
+    console.log('params: ', req.body);
+    let patch = await nichosDao.patchConexionBD(req.body).then(res=>{
+      console.log('res: ', res)
+    });
+    console.log(patch);
+    if(conn){
+       response = {conn: true, msj: 'Conexión exitosa'};
+       conn.end();
+    }else{
+       response = {conn: false, msj: 'Conexión NO exitosa'};
+    }
+    res.status(200).send(response);
+  } catch (error) {
+    console.log('error: ', error);
+    res.status(500).send({ error: 'Se valida si se puede realizar la conexión a la BD en mysql' + JSON.stringify(req.body), e: error });
+  }
+};
 
 module.exports = {
     getListadoNichos,
     saveNicho,
-    getNicho
+    getNicho,
+    saveConfigBD,
+    testBD
 }
 
