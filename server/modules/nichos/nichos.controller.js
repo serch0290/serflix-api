@@ -51,7 +51,8 @@ const getNicho = async (req, res) => {
     try {
       let nicho = await nichosDao.consultarNicho(req.params);
       let database = await nichosDao.consultaConfigBD(req.params);
-      res.status(200).send({nicho, database});
+      let general = await nichosDao.consultaConfiguracionGeneral(req.params);
+      res.status(200).send({nicho, database, general});
     } catch (error) {
       console.log('error: ', error);
       res.status(500).send({ error: 'Ocurrió un error al consultar el nicho' + JSON.stringify(req.params), e: error });
@@ -93,11 +94,7 @@ const testBD = async (req, res) => {
     let conn = await conexion.conexion(req.body);
     req.body.conn = !(conn == undefined);
     let response = {};
-    console.log('params: ', req.body);
-    let patch = await nichosDao.patchConexionBD(req.body).then(res=>{
-      console.log('res: ', res)
-    });
-    console.log(patch);
+    let patch = await nichosDao.patchConexionBD(req.body).then(res=>{});
     if(conn){
        response = {conn: true, msj: 'Conexión exitosa'};
        conn.end();

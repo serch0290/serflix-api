@@ -7,8 +7,8 @@
     "watch": false,
     "env": {
       "NODE_ENV": "development",
-      "PORT": 6007,
-      "PREFIX": "arbitraje"
+      "PORT": 5007,
+      "PREFIX": "nchs"
     },
     "env_production": "production"
   }]

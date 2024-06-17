@@ -8,6 +8,8 @@ const log = log4js.getLogger('arbitraje');
 const fs = require('fs');
 const { generatePrime } = require('crypto');
 
+const nichosDao = require('./../nichos/nichos.dao');
+
 /**
  * @function generateProyecto [Función que genera las carpetas del todo el proyecto]
  * @return {[type]}                     [Retorna adeudos]
@@ -60,57 +62,103 @@ const generarFileRouting = async (entradas) => {
 const generarCapetasProyecto = async(req, res) =>{
 
    try{
-	let proyecto = 'server/nichos/programacion';
+	const data = req.body;
+
+	let proyecto = 'server/nichos/' + req.params.nombre;
 
 	if (!fs.existsSync(proyecto)){
-		 fs.mkdirSync(proyecto);
+		 fs.mkdirSync(proyecto, { recursive: true });
 	}
 
 	//Generamos la carpeta de assets
 	let assets = proyecto + '/assets';
-	fs.mkdirSync(assets);
+	if (!fs.existsSync(assets)){
+	     fs.mkdirSync(assets);
+    }
 
 	//Generamos la carpeta de assets/css
 	let css = assets + '/css';
-	fs.mkdirSync(css);
+	if (!fs.existsSync(css)){
+	   fs.mkdirSync(css);
+    }
 
 	//Generamos la carpeta de assets/css
 	let fonts = assets + '/fonts';
-	fs.mkdirSync(fonts);
+	if (!fs.existsSync(fonts)){
+	    fs.mkdirSync(fonts);
+    }
 
 	//Generamos la carpeta de assets/css
 	let images = assets + '/images';
-	fs.mkdirSync(images);
+	if (!fs.existsSync(images)){
+	     fs.mkdirSync(images);
+    }
 
 	//Generamos la carpeta de assets/css
 	let js = assets + '/js';
-	fs.mkdirSync(js);
+	if (!fs.existsSync(js)){
+	     fs.mkdirSync(js);
+    }
 
 	//Generamos la carpeta de assets/css
 	let json = assets + '/json';
-	fs.mkdirSync(json);
+	if (!fs.existsSync(json)){
+	     fs.mkdirSync(json);
+    }
 
 	//Generamos la carpeta de assets/css
 	let php = assets + '/php';
-	fs.mkdirSync(php);
+	if (!fs.existsSync(php)){
+	     fs.mkdirSync(php);
+    }
 
 	//Generamos la carpeta de componentes
 	let componentes = proyecto + '/componentes';
-	fs.mkdirSync(componentes);
+	if (!fs.existsSync(componentes)){
+	     fs.mkdirSync(componentes);
+    }
 
 	//Generamos la carpeta de componentes
 	let pages = proyecto + '/pages';
-	fs.mkdirSync(pages);
+	if (!fs.existsSync(pages)){
+	     fs.mkdirSync(pages);
+    }
 
+	let response = {};
+	req.body.carpetas = true;
+	req.body.nicho = req.params.id;
+	if(data._id){
+	    response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
+	}else{
+		response = await nichosDao.guardarConfiguracionGeneral(req.body);
+	}
 	
-	res.status(200).send({msj: 'Carpeta creada correctamente'});
+	res.status(200).send({response, msj: 'Carpeta creada correctamente'});
    }catch(error){
 	log.fatal('Metodo: generarCapetasProyecto', error);
 	res.status(500).send({ error: 'Ocurrió un error al generar las carpeta contenedoras del proyecto' });
    }
 }
 
+const patchGeneralSitio = async (req, res) => {
+	try{
+		let response = {};
+	    req.body.nicho = req.params.id;
+		if(data._id){
+			response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
+		}else{
+			response = await nichosDao.guardarConfiguracionGeneral(req.body);
+		}
+		
+		res.status(200).send({response, msj: 'Carpeta creada correctamente'});
+	}catch(error){
+	  log.fatal('Metodo: patchColorSitio', error);
+	  res.status(500).send({ error: 'Ocurrió un error al actualizar datos generales del proyecto' });
+	}
+}
+
 module.exports = {
 	generateProyecto,
-	generarCapetasProyecto
+	generarCapetasProyecto,
+	patchGeneralSitio
 }

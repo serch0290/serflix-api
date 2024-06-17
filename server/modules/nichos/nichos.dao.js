@@ -35,6 +35,18 @@ const guardarBD = async params =>{
     return models.bd.create(params);
 }
 
+const guardarConfiguracionGeneral = params=> {
+   return models.general.create(params);
+}
+
+const actualizarConfiguracionGeneral = params =>{
+    return models.general.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
+const consultaConfiguracionGeneral = async params => {
+    return await models.general.findOne({nicho: params.id});
+}
+
 module.exports = {
     getListadoNichos,
     guardarNicho,
@@ -42,5 +54,8 @@ module.exports = {
     guardarBD,
     consultaConfigBD,
     patchConfigBD,
-    patchConexionBD
+    patchConexionBD,
+    guardarConfiguracionGeneral,
+    consultaConfiguracionGeneral,
+    actualizarConfiguracionGeneral
 }
