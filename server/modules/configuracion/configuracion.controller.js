@@ -149,7 +149,7 @@ const patchGeneralSitio = async (req, res) => {
 		}else{
 			response = await nichosDao.guardarConfiguracionGeneral(req.body);
 		}
-		
+
 		res.status(200).send({response, msj: 'Carpeta creada correctamente'});
 	}catch(error){
 	  log.fatal('Metodo: patchColorSitio', error);
@@ -157,8 +157,31 @@ const patchGeneralSitio = async (req, res) => {
 	}
 }
 
+const guardarFuenteNicho = async(req, res) =>{
+	try{
+		let data = req.body;
+		data.id = req.params.id;
+		let response = await nichosDao.guardarFuentes(req.body);
+		res.status(200).send(response);
+	}catch(error){
+	  log.fatal('Metodo: guardarFuenteNicho ' + JSON.stringify(req.body), error);
+	  res.status(500).send({ error: 'Ocurrió un error al agregar fuente' });
+	}
+}
+
+const subirArchivosProyecto = async(req, res) =>{
+	try{
+
+	}catch(error){
+	  log.fatal('Metodo: subirArchivosProyecto ' + JSON.stringify(req.body), error);
+	  res.status(500).send({ error: 'Ocurrió un error al subir los archivos del proyecto' });
+	}
+}
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
-	patchGeneralSitio
+	patchGeneralSitio,
+	guardarFuenteNicho,
+	subirArchivosProyecto
 }

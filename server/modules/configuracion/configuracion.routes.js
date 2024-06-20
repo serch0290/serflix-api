@@ -9,6 +9,7 @@ routes.get('/proyecto', controller.generateProyecto);
 
 routes.post('/generar/carpetas/:nombre/:id', controller.generarCapetasProyecto);
 routes.post('/actualizar/general/:id', controller.patchGeneralSitio);
+routes.post('/actualizar/fuente/:id', controller.guardarFuenteNicho);
 
 module.exports = routes;
 

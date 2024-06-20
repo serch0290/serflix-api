@@ -12,8 +12,6 @@ const path = require('path');
 const fs = require('fs');
 var busboy = require('connect-busboy');
 const app = express();
-
-
 app.use(busboy());
 
 
@@ -26,41 +24,27 @@ if (_.has(config, 'log.format')) {
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true }));
 app.use(bodyParser.json({limit: '50mb'}));
 
-//Configure helmet
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'", 'maxcdn.bootstrapcdn.com']
-    }
-}));
-
-app.use(helmet.frameguard());
-app.use(helmet.xssFilter());
-app.use(helmet.noSniff());
-app.use(helmet.ieNoOpen());
-app.use(helmet.hsts({
-    maxAge: 15778476,
-    includeSubDomains: true,
-    force: true
-}));
 
 app.disable('x-powered-by');
 
 // Configure CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization, Idl");
-    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo');
+    res.header('Access-Control-Allow-Credentials', 'false');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PATCH, DELETE');
+
     if (req.method === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-        res.header('Access-Control-Allow-Headers', "Origin, X-Requested-With, Content-Type, Accept, Authorization, Idl");
-        res.header('Access-Control-Allow-Credentials', 'true');
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo');
+        res.header('Access-Control-Allow-Credentials', 'false');
         return res.status(200).json({});
     }
-
     next();
 });
 
+app.use(busboy());
 
 // Routes
 // Modificación para hacer recursiva la estructura de los archivos

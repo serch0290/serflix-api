@@ -47,6 +47,15 @@ const consultaConfiguracionGeneral = async params => {
     return await models.general.findOne({nicho: params.id});
 }
 
+const guardarFuentes = async params =>{
+    
+    return await models.general.findByIdAndUpdate(
+        params.id,
+        { $push: { fuentes: params.fuente } },
+        { new: true, runValidators: true }
+    );
+}
+ 
 module.exports = {
     getListadoNichos,
     guardarNicho,
@@ -57,5 +66,6 @@ module.exports = {
     patchConexionBD,
     guardarConfiguracionGeneral,
     consultaConfiguracionGeneral,
-    actualizarConfiguracionGeneral
+    actualizarConfiguracionGeneral,
+    guardarFuentes
 }
