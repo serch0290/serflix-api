@@ -6,9 +6,9 @@ log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 
 const fs = require('fs');
-const { generatePrime } = require('crypto');
-
+const consultas  = require('./configuracion.dao');
 const nichosDao = require('./../nichos/nichos.dao');
+const path = require('path');
 
 /**
  * @function generateProyecto [Función que genera las carpetas del todo el proyecto]
@@ -171,7 +171,20 @@ const guardarFuenteNicho = async(req, res) =>{
 
 const subirArchivosProyecto = async(req, res) =>{
 	try{
-
+		const filtro = { tipo: { $eq: 0 } };
+		let files = await consultas.consultaFileRepositorio(filtro);
+		let path = 'server/nichos/';
+		for(let file of files){
+			try{
+				let origen = fs.readFileSync(path + 'respositorio/' + file.file);
+				let destino = path.join(path + req.params.nombre + file.path);
+				let data = await fs.writeFileSync(origen, destino);
+				console.log('data_', data);
+			}catch(error){
+			 console.log('Error: ', error);
+			}
+		}
+		res.status(200).send('Listo y gracias');
 	}catch(error){
 	  log.fatal('Metodo: subirArchivosProyecto ' + JSON.stringify(req.body), error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir los archivos del proyecto' });

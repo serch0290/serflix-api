@@ -42,6 +42,9 @@ const general =  mongoose.model('General', generalSchema);
 
 const filesSchema =  new Schema({
     file: String,
+    dynamic: Boolean,
+    tipo: Number,
+    path: String,
     estatus: {
         type: Boolean,
         default: true
