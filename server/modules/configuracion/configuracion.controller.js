@@ -173,28 +173,54 @@ const subirArchivosProyecto = async(req, res) =>{
 	try{
 		const filtro = { tipo: { $eq: 0 } };
 		let files = await consultas.consultaFileRepositorio(filtro);
-		let path = 'server/nichos/';
+		let path_nichos = 'server/nichos/';
 		for(let file of files){
 			try{
-				let origen = fs.readFileSync(path + 'respositorio/' + file.file);
-				let destino = path.join(path + req.params.nombre + file.path);
-				let data = await fs.writeFileSync(origen, destino);
-				console.log('data_', data);
+				let pathFile = file.path + file.file;
+				let origen = path.join(path_nichos + 'respositorio' + pathFile);
+				let destino = path.join(path_nichos + req.params.nombre + pathFile);
+				await fs.copyFileSync(origen, destino);
 			}catch(error){
-			 console.log('Error: ', error);
+			 throw error;
 			}
 		}
-		res.status(200).send('Listo y gracias');
+		res.status(200).send({status: true});
 	}catch(error){
 	  log.fatal('Metodo: subirArchivosProyecto ' + JSON.stringify(req.body), error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir los archivos del proyecto' });
 	}
 }
 
+const guardarLogoNicho = async(req, res) =>{
+   try{
+	let data = req.body;
+	data.id = req.params.id;
+	let logo = await consultas.guardarLogoNicho(data);
+	res.status(200).send(logo);
+   }catch(error){
+	  log.fatal('Metodo: guardarLogoNicho ' + JSON.stringify(req.body), error);
+	  res.status(500).send({ error: 'Ocurrió un error al guardar el logo del nicho' });
+   }
+}
+
+const guardarIconNicho = async(req, res) =>{
+	try{
+	 let data = req.body;
+	 data.id = req.params.id;
+	 let logo = await consultas.guardarIconNicho(data);
+	 res.status(200).send(logo);
+	}catch(error){
+	   log.fatal('Metodo: guardarIconNicho ' + JSON.stringify(req.body), error);
+	   res.status(500).send({ error: 'Ocurrió un error el icon del nicho' });
+	}
+ }
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
 	patchGeneralSitio,
 	guardarFuenteNicho,
-	subirArchivosProyecto
+	subirArchivosProyecto,
+	guardarLogoNicho,
+	guardarIconNicho
 }

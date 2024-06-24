@@ -6,7 +6,25 @@ const consultaFileRepositorio = async params => {
     return await models.files.find(params);
 }
 
+const guardarLogoNicho = async params =>{
+    return await models.general.findByIdAndUpdate(
+        params.id,
+        { $set: { logo: params.logo } },
+        { new: true, runValidators: true }
+    );
+}
+
+const guardarIconNicho = async params =>{
+    return await models.general.findByIdAndUpdate(
+        params.id,
+        { $set: { icon: params.icon } },
+        { new: true, runValidators: true }
+    );
+}
+
 
 module.exports = {
-    consultaFileRepositorio
+    consultaFileRepositorio,
+    guardarLogoNicho,
+    guardarIconNicho
 }

@@ -33,8 +33,8 @@ const generalSchema = new Schema({
    }],
    background: String,
    filesProyecto: Boolean,
-   logo: String,
-   icon: String,
+   logo: {file: String, fileCMS: String},
+   icon: {file: String, fileCMS: String},
    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 

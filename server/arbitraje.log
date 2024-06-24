@@ -30,3 +30,14 @@
   code: 'EEXIST',
   path: 'server/nichos/programacion/assets'
 }
+[2024-06-23T18:42:59.503] [FATAL] arbitraje - Metodo: guardarLogoNicho {"logo":{"file":"images/logo.png","fileCMS":"images/666b73bcda05a8af3d7ae081/logo.png"}} ReferenceError: red is not defined
+    at guardarLogoNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:197:31)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)

@@ -11,6 +11,8 @@ routes.post('/generar/carpetas/:nombre/:id', controller.generarCapetasProyecto);
 routes.post('/actualizar/general/:id', controller.patchGeneralSitio);
 routes.post('/actualizar/fuente/:id', controller.guardarFuenteNicho);
 routes.get('/subir/files/:id/:nombre', controller.subirArchivosProyecto);
+routes.post('/guardar/logo/:id', controller.guardarLogoNicho);
+routes.post('/guardar/icon/:id', controller.guardarIconNicho);
 
 module.exports = routes;
 
