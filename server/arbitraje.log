@@ -41,3 +41,102 @@
     at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
     at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-06-24T16:59:24.846] [FATAL] arbitraje - Metodo: patchColorSitio ReferenceError: data is not defined
+    at patchGeneralSitio (webpack:///./server/modules/configuracion/configuracion.controller.js?:147:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-06-25T17:39:06.042] [FATAL] arbitraje - Metodo: consultaListadoCategoria {}undefined ReferenceError: models is not defined
+    at Object.consultaListadoCategorias (webpack:///./server/modules/blog/blog.dao.js?:9:5)
+    at consultaListadoCategoria (webpack:///./server/modules/blog/blog.controller.js?:26:42)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-06-25T17:41:11.195] [FATAL] arbitraje - Metodo: consultaListadoCategoria {}undefined ReferenceError: models is not defined
+    at Object.consultaListadoCategorias (webpack:///./server/modules/blog/blog.dao.js?:9:5)
+    at consultaListadoCategoria (webpack:///./server/modules/blog/blog.controller.js?:26:42)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-06-25T17:48:55.481] [FATAL] arbitraje - Metodo: consultaListadoCategoria {}undefined ReferenceError: models is not defined
+    at Object.consultaListadoCategorias (webpack:///./server/modules/blog/blog.dao.js?:9:5)
+    at consultaListadoCategoria (webpack:///./server/modules/blog/blog.controller.js?:26:42)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-06-25T17:49:02.366] [FATAL] arbitraje - Metodo: consultaListadoCategoria {}undefined ReferenceError: models is not defined
+    at Object.consultaListadoCategorias (webpack:///./server/modules/blog/blog.dao.js?:9:5)
+    at consultaListadoCategoria (webpack:///./server/modules/blog/blog.controller.js?:26:42)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-06-25T17:49:10.586] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"idSQL":0,"nombre":"Java","url":"/java","nicho":"666b73bcda05a8af3d7ae081"}666b73bcda05a8af3d7ae081 ReferenceError: models is not defined
+    at Object.guardarCategoriaBlog (webpack:///./server/modules/blog/blog.dao.js?:5:5)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:15:38)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-06-25T17:51:02.191] [FATAL] arbitraje - Metodo: consultaListadoCategoria {}undefined CastError: Cast to ObjectId failed for value "undefined" (type string) at path "nicho" for model "Categorias"
+    at model.Query.exec (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:4921:21)
+    at model.Query.Query.then (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5020:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  messageFormat: undefined,
+  stringValue: '"undefined"',
+  kind: 'ObjectId',
+  value: 'undefined',
+  path: 'nicho',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/error.js:41:28)
+      at new ObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/objectid.js:67:23)
+      at castObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1651:15)
+      at ObjectId.SchemaType.castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1639:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1615:20)
+      at cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast.js:346:32)
+      at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
+  valueType: 'string'
+}
+[2024-06-27T17:14:26.081] [FATAL] arbitraje - Metodo: consultaNicho {"id":"667b49bf20ce49795f2fb230"}667b49bf20ce49795f2fb230 TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/response.js:1159:12)
+    at ServerResponse.json (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/response.js:272:14)
+    at ServerResponse.send (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/response.js:163:21)
+    at consultaNicho (webpack:///./server/modules/blog/blog.controller.js?:50:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

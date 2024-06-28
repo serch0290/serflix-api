@@ -143,16 +143,16 @@ const generarCapetasProyecto = async(req, res) =>{
 const patchGeneralSitio = async (req, res) => {
 	try{
 		let response = {};
-	    req.body.nicho = req.params.id;
+		let data = req.body;
+	    data.nicho = req.params.id;
 		if(data._id){
 			response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
 		}else{
 			response = await nichosDao.guardarConfiguracionGeneral(req.body);
 		}
-
 		res.status(200).send({response, msj: 'Carpeta creada correctamente'});
 	}catch(error){
-	  log.fatal('Metodo: patchColorSitio', error);
+	  log.fatal('Metodo: patchGeneralSitio', error);
 	  res.status(500).send({ error: 'Ocurrió un error al actualizar datos generales del proyecto' });
 	}
 }

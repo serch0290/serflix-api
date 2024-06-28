@@ -59,7 +59,7 @@ const upload = async (req, res) =>{
  */
 copiarArchivoCMS = async (id, path, file, busboy) =>{
     try{
-       let pathAbsolute = `../server-imagenes/public/images/${id}`;
+       let pathAbsolute = `../../server-images/public/images/${id}`;
 
         if (!fs.existsSync(pathAbsolute)){
             fs.mkdirSync(pathAbsolute, { recursive: true });

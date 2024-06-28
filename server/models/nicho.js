@@ -53,9 +53,31 @@ const filesSchema =  new Schema({
 
 const files =  mongoose.model('Files', filesSchema);
 
+const categoriaSchema = new Schema({
+    nombre: String,
+    menu: Boolean,
+    url: String,
+    idSQL: Number,
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
+});
+
+const categoria = mongoose.model('Categorias', categoriaSchema);
+
+const noticiaSchema = new Schema({
+    nombre: String,
+    descripcion: String,
+    url: String,
+    estatusPublicacion: Number,
+    categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
+});
+
+const noticia = mongoose.model('Noticias', noticiaSchema);
+
 module.exports = {
     nicho,
     bd,
     general,
-    files
+    files,
+    categoria,
+    noticia
 }
