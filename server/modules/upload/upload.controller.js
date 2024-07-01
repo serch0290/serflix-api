@@ -6,6 +6,7 @@ const upload = async (req, res) =>{
 	let path = req.headers.path;
     let tipo = req.headers.tipo;
     let id = req.headers.id;
+    let name = req.headers.name;
 
     req.pipe(req.busboy);
 
@@ -21,19 +22,26 @@ const upload = async (req, res) =>{
     req.busboy.on('file', function (fieldname, file, filename) {
         let saved_filename = filename.filename;
 
-        let path_adicional = '';
+        let path_adicional = '', url = '';
         switch(tipo){
             case '1':
               path_adicional = 'fonts/';
+              url = `server/nichos/${path}/${path_adicional}`;
               break;
             case '2':
             case '3':
               path_adicional = 'images/';
+              url = `server/nichos/${path}/${path_adicional}`;
               copiarArchivoCMS(id, path_adicional, saved_filename, file);
               break;
+            case '4':
+                url = `server/nichos/${path}/`;
+                copiarArchivoCMS(id, path, saved_filename, file);
         }
 
-        let url = `server/nichos/${path}/${path_adicional}`;
+        if (!fs.existsSync(url)){
+            fs.mkdirSync(url, { recursive: true });
+        }
         
         fstream = fs.createWriteStream(url + filename.filename);
         
@@ -46,8 +54,7 @@ const upload = async (req, res) =>{
             res.status(200).send({
                 message:        'El archivo se ha subido con éxito.',
                 filename:       saved_filename,
-                url:    path_adicional  + saved_filename,
-                cms:    'images/' + id + '/' + saved_filename,
+                url:    path + '/' + saved_filename,
                 tipo:  tipo
             });
         });
@@ -59,7 +66,7 @@ const upload = async (req, res) =>{
  */
 copiarArchivoCMS = async (id, path, file, busboy) =>{
     try{
-       let pathAbsolute = `../../server-images/public/images/${id}`;
+       let pathAbsolute = `../server-imagenes/public/${path}`;
 
         if (!fs.existsSync(pathAbsolute)){
             fs.mkdirSync(pathAbsolute, { recursive: true });

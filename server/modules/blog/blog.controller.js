@@ -54,9 +54,33 @@ const guardarCategoriaBlog = async(req, res) =>{
    }
  }
 
+ const guardarNoticia = async(req, res) =>{
+   try{
+      let data = req.body;
+      data.categoria = req.params.id;
+      let noticia = await consultas.guardarNoticia(req.body);
+      res.status(200).send(noticia);
+   }catch(error){
+      log.fatal('Metodo: guardarNoticia ' + JSON.stringify(req.body) + req.params.id, error);
+      res.status(500).send({ error: 'Ocurrió un error al guardar noticia' });
+   }
+ }
+
+ const consultaNoticiaById = async(req, res)=>{
+   try{
+      let noticia = await consultas.consultaNoticiaById({id: req.params.id});
+      res.status(200).send(noticia);
+   }catch(error){
+      log.fatal('Metodo: consultaNoticiaById ' + JSON.stringify(req.params) + req.params.id, error);
+      res.status(500).send({ error: 'Ocurrió un error al consultar noticia' });
+   }
+ }
+
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
     consultaListadoNoticias,
-    consultaNicho
+    consultaNicho,
+    guardarNoticia,
+    consultaNoticiaById
  }

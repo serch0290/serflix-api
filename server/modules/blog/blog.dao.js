@@ -17,9 +17,19 @@ const consultaCategoriaById = async params =>{
     return await models.categoria.findOne({_id: params.id})
 }
 
+const guardarNoticia = async params=>{
+    return await models.noticia.create(params);
+}
+
+const consultaNoticiaById = async params =>{
+    return await models.noticia.findOne({_id: params.id})
+}
+
 module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategorias,
     consultaListadoNoticias,
-    consultaCategoriaById
+    consultaCategoriaById,
+    guardarNoticia,
+    consultaNoticiaById
 }

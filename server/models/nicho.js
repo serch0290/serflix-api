@@ -68,6 +68,9 @@ const noticiaSchema = new Schema({
     descripcion: String,
     url: String,
     estatusPublicacion: Number,
+    h1: String,
+    author: {type: Schema.Types.Mixed},
+    detalle: {type: [Schema.Types.Mixed]},
     categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
 });
 

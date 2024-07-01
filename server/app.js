@@ -30,14 +30,14 @@ app.disable('x-powered-by');
 // Configure CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo, id');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo, id, name');
     res.header('Access-Control-Allow-Credentials', 'false');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PATCH, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PATCH, DELETE');
 
     if (req.method === 'OPTIONS') {
         res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
-        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo, id');
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method, path, tipo, id, name');
         res.header('Access-Control-Allow-Credentials', 'false');
         return res.status(200).json({});
     }
