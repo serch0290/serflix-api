@@ -10,6 +10,9 @@ log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 
 
+const json = require('./../configuracion/configuracion.jsons');
+
+
 /**
  *
  * @author Sergio Cruz Flores
@@ -66,7 +69,7 @@ const getNicho = async (req, res) => {
  */
 const saveConfigBD = async (req, res) => {
   try {
-    const data = req.body;
+    const data = req.body.bd;
     data.nicho = req.params.id;
     let response = {};
 
@@ -75,7 +78,9 @@ const saveConfigBD = async (req, res) => {
     }else{
        response = await nichosDao.guardarBD(data);
     }
-    
+
+    let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/conexion.json';
+    json.generarJsonNoticia(response, path);
     res.status(200).send(response);
   } catch (error) {
     console.log('error: ', error);

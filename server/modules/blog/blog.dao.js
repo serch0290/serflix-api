@@ -6,7 +6,7 @@ const guardarCategoriaBlog = async params => {
 }
 
 const consultaListadoCategorias = async params =>{
-    return await models.categoria.find({nicho: params.id});
+    return await models.categoria.find({nicho: params.id}).lean();
 }
 
 const consultaListadoNoticias = async params =>{
@@ -25,11 +25,16 @@ const consultaNoticiaById = async params =>{
     return await models.noticia.findOne({_id: params.id})
 }
 
+const actualizarNoticia = async params =>{
+    return await models.noticia.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
 module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategorias,
     consultaListadoNoticias,
     consultaCategoriaById,
     guardarNoticia,
-    consultaNoticiaById
+    consultaNoticiaById,
+    actualizarNoticia
 }

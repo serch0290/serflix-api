@@ -8,6 +8,7 @@ const log = log4js.getLogger('arbitraje');
 const fs = require('fs');
 const consultas  = require('./configuracion.dao');
 const nichosDao = require('./../nichos/nichos.dao');
+const noticiasDao = require('./../blog/blog.dao');
 const path = require('path');
 
 /**
@@ -215,6 +216,48 @@ const guardarIconNicho = async(req, res) =>{
 	}
  }
 
+ const generarRouting = async(req, res) =>{
+	let data = null;
+	try{
+		data = req.params;
+		let categorias = await noticiasDao.consultaListadoCategorias(data);
+
+		let routing = [];
+		routing.push({url: '/' + req.body.dominio, descripcion: '-', file: 'sp_index.php'});
+		routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
+
+		for(let categoria of categorias){
+			routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
+			categoria.noticias = await noticiasDao.consultaListadoNoticias({id: categoria._id});
+			for(let noticia of categoria.noticias){
+				routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+			}
+		}
+
+		let path = 'server/nichos/' + req.body.proyecto;
+		generarFileRoutingReal(routing, path);
+		res.status(200).send({msj: 'Archivo routing generado correctamente'});
+	}catch(error){
+		log.fatal('Metodo: generarRouring ' + JSON.stringify(req.body), error);
+	   res.status(500).send({ error: 'Ocurrió un error al generar las rutas del proyecto' });
+	}
+ }
+
+ /**
+ * Función que genera el archivos con las rutas de la página 
+ */
+const generarFileRoutingReal = async (entradas, path) => {
+	let html = `<?php 
+					$rutas = [`;
+	for(let entrada of entradas){
+		html += `'${entrada.url}' => ['${entrada.descripcion}', '${entrada.file}'],`;
+	}
+	html += `  ];
+			?>`;
+  
+	fs.writeFileSync(path + '/routing.php', html);
+  }
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
@@ -222,5 +265,6 @@ module.exports = {
 	guardarFuenteNicho,
 	subirArchivosProyecto,
 	guardarLogoNicho,
-	guardarIconNicho
+	guardarIconNicho,
+	generarRouting
 }

@@ -7,13 +7,18 @@ const log = log4js.getLogger('arbitraje');
 
 const consultas  = require('./blog.dao');
 const nichosDao = require('./../nichos/nichos.dao');
+const json = require('./../configuracion/configuracion.jsons');
 
 
 const guardarCategoriaBlog = async(req, res) =>{
     try{
-     let data = req.body;
+     let data = req.body.categoria;
      data.nicho = req.params.id;
      let categoria = await consultas.guardarCategoriaBlog(data);
+
+     let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
+     json.generarJsonNoticia(noticia, path);
+
      res.status(200).send(categoria);
     }catch(error){
        log.fatal('Metodo: guardarCategoriaBlog ' + JSON.stringify(req.body) + req.params.id, error);
@@ -47,7 +52,8 @@ const guardarCategoriaBlog = async(req, res) =>{
    try{
       let categoria = await consultas.consultaCategoriaById({id: req.params.id});
       let nicho = await nichosDao.consultarNicho({id: categoria.nicho});
-      res.status(200).send({nicho, categoria});
+      let general = await nichosDao.consultaConfiguracionGeneral({id: categoria.nicho});
+      res.status(200).send({nicho, categoria, general});
    }catch(error){
       log.fatal('Metodo: consultaNicho ' + JSON.stringify(req.params) + req.params.id, error);
       res.status(500).send({ error: 'Ocurrió un error al consultar los datos del nicho' });
@@ -56,9 +62,17 @@ const guardarCategoriaBlog = async(req, res) =>{
 
  const guardarNoticia = async(req, res) =>{
    try{
-      let data = req.body;
+      let data = req.body.noticia;
       data.categoria = req.params.id;
-      let noticia = await consultas.guardarNoticia(req.body);
+      let noticia = null;
+      if(data._id){
+         noticia = await consultas.actualizarNoticia(data);
+      }else{
+         noticia = await consultas.guardarNoticia(data);
+      }
+
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '.json';
+      json.generarJsonNoticia(noticia, path);
       res.status(200).send(noticia);
    }catch(error){
       log.fatal('Metodo: guardarNoticia ' + JSON.stringify(req.body) + req.params.id, error);
