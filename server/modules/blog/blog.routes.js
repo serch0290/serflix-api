@@ -9,6 +9,8 @@ routes.get('/listado/noticias/:id', controller.consultaListadoNoticias);
 routes.get('/consuta/datos/nicho/:id', controller.consultaNicho);
 routes.post('/guardar/noticia/:id', controller.guardarNoticia);
 routes.get('/consulta/noticia/:id', controller.consultaNoticiaById);
+routes.post('/guardar/home', controller.saveHomeConfiguracion);
+routes.get('/consulta/home/:id', controller.consultahomeConfiguracion);
 
 module.exports = routes;
 

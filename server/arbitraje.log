@@ -211,3 +211,14 @@
 [2024-07-07T21:28:25.301] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"home","url":"/","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 ReferenceError: noticia is not defined
     at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:20:30)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-08T18:06:45.775] [FATAL] arbitraje - Metodo: consultahomeConfiguracion {} TypeError: models.find is not a function
+    at Object.getHome (webpack:///./server/modules/blog/blog.dao.js?:37:25)
+    at consultahomeConfiguracion (webpack:///./server/modules/blog/blog.controller.js?:105:34)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)

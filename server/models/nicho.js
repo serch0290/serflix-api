@@ -91,11 +91,24 @@ const noticiaSchema = new Schema({
 
 const noticia = mongoose.model('Noticias', noticiaSchema);
 
+
+const homeSchema = new Schema({
+   h1: String,
+   noticias_style1: {
+    type: Schema.Types.Mixed
+   },
+   paginador: Boolean,
+   categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
+})
+
+const home = mongoose.model('Home', homeSchema);
+
 module.exports = {
     nicho,
     bd,
     general,
     files,
     categoria,
-    noticia
+    noticia,
+    home
 }

@@ -90,11 +90,35 @@ const guardarCategoriaBlog = async(req, res) =>{
    }
  }
 
+ const saveHomeConfiguracion = async(req, res)=>{
+   try{
+      let noticia = await consultas.guardarHome(req.body);
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home.json';
+      json.generarJsonNoticia(noticia, path);
+      res.status(200).send(noticia);
+   }catch(error){
+      log.fatal('Metodo: saveHomeConfiguracion ' + JSON.stringify(req.body), error);
+      res.status(500).send({ error: 'Ocurrió un error al guardar la home' });
+   }
+ }
+
+ const consultahomeConfiguracion = async(req, res)=>{
+   try{
+      let home = await consultas.getHome(req.params);
+      res.status(200).send(home);
+   }catch(error){
+      log.fatal('Metodo: consultahomeConfiguracion ' + JSON.stringify(req.body), error);
+      res.status(500).send({ error: 'Ocurrió un error al consultar la configuracion del home' });
+   }
+ }
+
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
     consultaListadoNoticias,
     consultaNicho,
     guardarNoticia,
-    consultaNoticiaById
+    consultaNoticiaById,
+    saveHomeConfiguracion,
+    consultahomeConfiguracion
  }

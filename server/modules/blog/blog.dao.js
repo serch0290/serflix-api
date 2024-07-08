@@ -29,6 +29,14 @@ const actualizarNoticia = async params =>{
     return await models.noticia.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
 }
 
+const guardarHome = async params =>{
+    return await models.home.create(params) 
+}
+
+const getHome = async params =>{
+    return await models.home.findOne({categoria: params.id});
+}
+
 module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategorias,
@@ -36,5 +44,7 @@ module.exports = {
     consultaCategoriaById,
     guardarNoticia,
     consultaNoticiaById,
-    actualizarNoticia
+    actualizarNoticia,
+    guardarHome,
+    getHome
 }
