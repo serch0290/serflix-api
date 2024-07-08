@@ -10,6 +10,8 @@ const consultas  = require('./configuracion.dao');
 const nichosDao = require('./../nichos/nichos.dao');
 const noticiasDao = require('./../blog/blog.dao');
 const path = require('path');
+const handlebars = require('handlebars');
+
 
 /**
  * @function generateProyecto [Función que genera las carpetas del todo el proyecto]
@@ -144,13 +146,34 @@ const generarCapetasProyecto = async(req, res) =>{
 const patchGeneralSitio = async (req, res) => {
 	try{
 		let response = {};
-		let data = req.body;
+		let data = req.body.general;
 	    data.nicho = req.params.id;
 		if(data._id){
-			response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
+			response = await nichosDao.actualizarConfiguracionGeneral(data);	
 		}else{
-			response = await nichosDao.guardarConfiguracionGeneral(req.body);
+			response = await nichosDao.guardarConfiguracionGeneral(data);
 		}
+
+		/**
+		 * Generamos el archivo css con los colores del sitio y tambien ponemos la fuente
+		 */
+		let fuente = data.fuentes.find(item=> !item.negrita);
+		let negrita = data.fuentes.find(item=> item.negrita);
+		let path_nichos = 'server/nichos/' + req.body.nicho.name;
+		let dynamicCss = fs.readFileSync('server/templates/dynamic.hbs', 'utf8');
+		let template = handlebars.compile(dynamicCss);
+		let content = template({background: data.background, fuente: fuente.file, negrita: negrita.file});
+		fs.writeFileSync(path_nichos + '/assets/css/dynamic.css', content);
+
+		/**
+		 * Generamos el json de configuracion general
+		 */
+		let configuracionGeneral = {
+			logo: 'assets/' + data.logo.file,
+			icon: 'assets/' + data.icon.file
+		}
+
+		fs.writeFileSync(path_nichos + '/assets/json/configuracionGeneral.json', JSON.stringify(configuracionGeneral));
 		res.status(200).send({response, msj: 'Carpeta creada correctamente'});
 	}catch(error){
 	  log.fatal('Metodo: patchGeneralSitio', error);

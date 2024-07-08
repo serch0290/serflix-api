@@ -29,7 +29,8 @@ const generalSchema = new Schema({
    carpetas: Boolean,
    fuentes: [{
       file: String,
-      name: String
+      name: String,
+      negrita: Boolean
    }],
    background: String,
    filesProyecto: Boolean,
@@ -56,6 +57,7 @@ const files =  mongoose.model('Files', filesSchema);
 const categoriaSchema = new Schema({
     h1: String,
     menu: Boolean,
+    home: Boolean,
     url: String,
     idSQL: Number,
     title: String,

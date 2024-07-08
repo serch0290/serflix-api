@@ -185,3 +185,29 @@
 [2024-07-03T17:32:10.736] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"_id":"6681d32109c8a0915dff3d32","url":"prueba-de-noticia-de-programacion-update","h1":"Prueba de noticia de programación update","author":{"nombre":"Sergio Cruz Flores","descripcion":"Soy programador y estoy buscando el homeoffice pero con ansias, y dejar la fede.","foto":"programacion/assets/images/author/author.jpg"},"detalle":[{"type":"img","img":"programacion/assets/images/noticias/noticia_1719784186842.jpg"},{"type":"html","html":"<p>gfsdgfdsgfdsgfsgfds</p>\n","edit":false},{"type":"table-content","list":[{"hash":"#gfsgfsdgfdsgfds","name":"gfsgfsdgfdsgfds","sublist":[{"hash":"#gfsdgfdsgfsdgfds","name":"gfsdgfdsgfsdgfds"}]}]},{"type":"h2","data":"gfsgfsdgfdsgfds","hash":"gfsgfsdgfdsgfds"},{"type":"h3","data":"gfsdgfdsgfsdgfds","hash":"gfsdgfdsgfsdgfds"},{"type":"list","list":[{"name":"1"},{"name":"2"},{"name":"3"}],"name":""},{"type":"list-number","list":[{"name":"1"},{"name":"2"},{"name":"3"}],"name":""},{"type":"video","video":"link y a la sheet"}],"categoria":"667b49bf20ce49795f2fb230","__v":0,"breadcrumb":[{"name":"Inicio","link":"/programacion"},{"name":"Java","link":"/programacion/java"},{"name":"Prueba de noticia de programación update"}],"comentarios":true,"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba de noticia de programación update&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba de noticia de programación update%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba de noticia de programación update&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba de noticia de programación update&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba de noticia de programación update&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}]},"nicho":{"nombre":"programacion"}}667b49bf20ce49795f2fb230 TypeError: Cannot read property 'url' of null
     at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:71:87)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-07T01:21:04.062] [FATAL] arbitraje - Metodo: patchGeneralSitio ReferenceError: template is not defined
+    at patchGeneralSitio (webpack:///./server/modules/configuracion/configuracion.controller.js?:162:12)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-07T01:22:44.698] [FATAL] arbitraje - Metodo: patchGeneralSitio Error: ENOENT: no such file or directory, open 'server/nichos/programacion/css/dynamic.css'
+    at Object.openSync (fs.js:462:3)
+    at Object.writeFileSync (fs.js:1375:35)
+    at patchGeneralSitio (webpack:///./server/modules/configuracion/configuracion.controller.js?:164:6)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/nichos/programacion/css/dynamic.css'
+}
+[2024-07-07T01:22:52.796] [FATAL] arbitraje - Metodo: patchGeneralSitio Error: ENOENT: no such file or directory, open 'server/nichos/programacion/css/dynamic.css'
+    at Object.openSync (fs.js:462:3)
+    at Object.writeFileSync (fs.js:1375:35)
+    at patchGeneralSitio (webpack:///./server/modules/configuracion/configuracion.controller.js?:164:6)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/nichos/programacion/css/dynamic.css'
+}
+[2024-07-07T21:28:25.301] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"home","url":"/","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 ReferenceError: noticia is not defined
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:20:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

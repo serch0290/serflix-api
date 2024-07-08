@@ -15,10 +15,10 @@ const guardarCategoriaBlog = async(req, res) =>{
      let data = req.body.categoria;
      data.nicho = req.params.id;
      let categoria = await consultas.guardarCategoriaBlog(data);
-
+     
      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
-     json.generarJsonNoticia(noticia, path);
-
+     json.generarJsonNoticia(categoria, path);
+     
      res.status(200).send(categoria);
     }catch(error){
        log.fatal('Metodo: guardarCategoriaBlog ' + JSON.stringify(req.body) + req.params.id, error);
