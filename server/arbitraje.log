@@ -222,3 +222,20 @@
     at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
     at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-07-09T22:07:03.478] [FATAL] arbitraje - Metodo: saveHomeConfiguracion {"home":{"_id":"668df99b710adabf0c477079","h1":"El rincón perfecto para los amantes de las adorables mascotas domésticas h1","noticias_style1":{"title":"Todas las noticias","dominio":"http://localhost","prefijo":"/programacion","mascara":"/programacion/pagina/{idPagina}","pagination":{"name":"pagina","mask":"/programacion/pagina/#","prefix":"/programacion/pagina/","dominio":"http://localhost","paginasMostrar":6}},"paginador":true,"categoria":"668c64ea86f040360b2a253c","__v":0},"nicho":{"nombre":"programacion"}} MongoServerError: E11000 duplicate key error collection: Serflix_Nichos.homes index: _id_ dup key: { _id: ObjectId('668df99b710adabf0c477079') }
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/operations/insert.js:53:33
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/cmap/connection_pool.js:333:25
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/sdam/server.js:207:17
+    at handleOperationResult (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/sdam/server.js:323:20)
+    at Connection.onMessage (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/cmap/connection.js:243:9)
+    at MessageStream.<anonymous> (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/cmap/connection.js:61:60)
+    at MessageStream.emit (events.js:315:20)
+    at processIncomingData (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/cmap/message_stream.js:125:16)
+    at MessageStream._write (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongodb/lib/cmap/message_stream.js:33:9)
+    at writeOrBuffer (_stream_writable.js:378:12) {
+  index: 0,
+  code: 11000,
+  keyPattern: { _id: 1 },
+  keyValue: { _id: new ObjectId("668df99b710adabf0c477079") },
+  [Symbol(errorLabels)]: Set(0) {}
+}

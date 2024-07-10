@@ -11,6 +11,7 @@ routes.post('/guardar/noticia/:id', controller.guardarNoticia);
 routes.get('/consulta/noticia/:id', controller.consultaNoticiaById);
 routes.post('/guardar/home', controller.saveHomeConfiguracion);
 routes.get('/consulta/home/:id', controller.consultahomeConfiguracion);
+routes.post('/guardar/busqueda', controller.saveBuscadorConfiguracion);
 
 module.exports = routes;
 

@@ -12,7 +12,7 @@ const guardarNicho = params => {
 }
 
 const consultarNicho = params =>{
-    return models.nicho.findOne({_id: params.id});
+    return models.nicho.findOne({_id: params.id}).lean();
 }
 
 const consultaConfigBD = async params =>{

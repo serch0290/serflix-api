@@ -14,7 +14,7 @@ const consultaListadoNoticias = async params =>{
 }
 
 const consultaCategoriaById = async params =>{
-    return await models.categoria.findOne({_id: params.id})
+    return await models.categoria.findOne({_id: params.id}).lean();
 }
 
 const guardarNoticia = async params=>{
@@ -34,7 +34,23 @@ const guardarHome = async params =>{
 }
 
 const getHome = async params =>{
-    return await models.home.findOne({categoria: params.id});
+    return await models.home.findOne({categoria: params.id}).lean();
+}
+
+const actualizarHome = async params =>{
+    return await models.home.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
+const guardarBuscador = async params =>{
+    return await models.buscador.create(params); 
+}
+
+const actualizarBuscador = async params =>{
+    return await models.buscador.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
+const getBuscador = async params =>{
+    return await models.buscador.findOne({categoria: params.id}).lean();
 }
 
 module.exports = {
@@ -46,5 +62,9 @@ module.exports = {
     consultaNoticiaById,
     actualizarNoticia,
     guardarHome,
-    getHome
+    getHome,
+    actualizarHome,
+    guardarBuscador,
+    actualizarBuscador,
+    getBuscador
 }

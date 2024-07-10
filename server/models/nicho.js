@@ -103,6 +103,15 @@ const homeSchema = new Schema({
 
 const home = mongoose.model('Home', homeSchema);
 
+const schemaBuscador = new Schema({
+    noticias_style1: {
+        type: Schema.Types.Mixed
+    },
+    categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
+});
+
+const buscador = mongoose.model('Buscador', schemaBuscador);
+
 module.exports = {
     nicho,
     bd,
@@ -110,5 +119,6 @@ module.exports = {
     files,
     categoria,
     noticia,
-    home
+    home,
+    buscador
 }

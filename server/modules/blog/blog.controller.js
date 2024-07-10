@@ -92,7 +92,13 @@ const guardarCategoriaBlog = async(req, res) =>{
 
  const saveHomeConfiguracion = async(req, res)=>{
    try{
-      let noticia = await consultas.guardarHome(req.body);
+      let home = req.body.home;
+      let noticia = null;
+      if(!home._id){
+         noticia = await consultas.guardarHome(home);
+      }else{
+         noticia = await consultas.actualizarHome(home);
+      }
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home.json';
       json.generarJsonNoticia(noticia, path);
       res.status(200).send(noticia);
@@ -104,14 +110,37 @@ const guardarCategoriaBlog = async(req, res) =>{
 
  const consultahomeConfiguracion = async(req, res)=>{
    try{
+      let categoria = await consultas.consultaCategoriaById(req.params);
+      let nicho = await nichosDao.consultarNicho({id: categoria.nicho});
       let home = await consultas.getHome(req.params);
-      res.status(200).send(home);
+      let busqueda = await consultas.getBuscador(req.params);
+      nicho.home = home;
+      nicho.categoria = categoria;
+      nicho.busqueda = busqueda;
+      res.status(200).send(nicho);
    }catch(error){
       log.fatal('Metodo: consultahomeConfiguracion ' + JSON.stringify(req.body), error);
       res.status(500).send({ error: 'Ocurrió un error al consultar la configuracion del home' });
    }
  }
 
+ const saveBuscadorConfiguracion = async(req, res)=>{
+   try{
+      let buscador = req.body.busqueda;
+      let busca = null;
+      if(!buscador._id){
+         busca = await consultas.guardarBuscador(buscador);
+      }else{
+         busca = await consultas.actualizarBuscador(buscador);
+      }
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/busqueda.json';
+      json.generarJsonNoticia(busca, path);
+      res.status(200).send(busca);
+   }catch(error){
+      log.fatal('Metodo: saveHomeConfiguracion ' + JSON.stringify(req.body), error);
+      res.status(500).send({ error: 'Ocurrió un error al guardar la busqueda' });
+   }
+ }
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
@@ -120,5 +149,6 @@ const guardarCategoriaBlog = async(req, res) =>{
     guardarNoticia,
     consultaNoticiaById,
     saveHomeConfiguracion,
-    consultahomeConfiguracion
+    consultahomeConfiguracion,
+    saveBuscadorConfiguracion
  }
