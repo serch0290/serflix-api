@@ -19,6 +19,10 @@ const consultaConfigBD = async params =>{
     return await models.bd.findOne({nicho: params.id});
 }
 
+const consultaConfigBDbyId = async params =>{
+    return await models.bd.findOne({_id: params.id});
+}
+
 const patchConfigBD = async params =>{
     return await models.bd.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
 }
@@ -55,6 +59,33 @@ const guardarFuentes = async params =>{
         { new: true, runValidators: true }
     );
 }
+
+const crearEstructuraBD = async params =>{
+    const fs = require('fs');
+    const sqlScript = fs.readFileSync('./server/nichos/repositorio/assets/php/lib/estructura-bd.sql', 'utf8');
+    const sqlStatements = sqlScript.split(';');
+
+    return new Promise( async (resolve, reject) => {
+        let result;
+        for(let statement of sqlStatements){
+            if (statement.trim() !== '') {
+                await params.conn.query(statement, {}, (error, result) => {
+                    if (error) reject(error);
+                    result = result;
+                });
+            }  
+        }
+        resolve(result);
+    });
+}
+
+const patchConexionBD2 = async params =>{
+    return await models.bd.findByIdAndUpdate(
+        params._id,
+        { $set:  params.estructura },
+        { new: true, runValidators: true }
+    );
+}
  
 module.exports = {
     getListadoNichos,
@@ -67,5 +98,8 @@ module.exports = {
     guardarConfiguracionGeneral,
     consultaConfiguracionGeneral,
     actualizarConfiguracionGeneral,
-    guardarFuentes
+    guardarFuentes,
+    consultaConfigBDbyId,
+    crearEstructuraBD,
+    patchConexionBD2
 }

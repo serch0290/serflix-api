@@ -8,18 +8,40 @@ const log = log4js.getLogger('arbitraje');
 const consultas  = require('./blog.dao');
 const nichosDao = require('./../nichos/nichos.dao');
 const json = require('./../configuracion/configuracion.jsons');
+const daoMysql = require('../nichos/nichos-mysql.dao');
 
 
 const guardarCategoriaBlog = async(req, res) =>{
     try{
      let data = req.body.categoria;
      data.nicho = req.params.id;
+
+     /**
+      * guardar Categoria en mysql
+      */
+     if(!data.home){
+        console.log('data: ', data);
+        let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
+        const conexion = require('../../lib/conexion-mysql');
+        console.log('data conexion: ', dataConexion);
+        let conn = await conexion.conexion(dataConexion);
+        if(conn){
+           let categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
+           console.log(categoriaMysql);
+        }
+      }
+
+      res.status(200).send('prueba categoria');
+
+/*
      let categoria = await consultas.guardarCategoriaBlog(data);
      
      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
      json.generarJsonNoticia(categoria, path);
+
      
      res.status(200).send(categoria);
+     */
     }catch(error){
        log.fatal('Metodo: guardarCategoriaBlog ' + JSON.stringify(req.body) + req.params.id, error);
        res.status(500).send({ error: 'Ocurrió un error al guardar la categoria.' });

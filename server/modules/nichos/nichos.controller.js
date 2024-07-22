@@ -9,7 +9,6 @@ const log4js = require('log4js');
 log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 
-
 const json = require('./../configuracion/configuracion.jsons');
 
 
@@ -113,11 +112,38 @@ const testBD = async (req, res) => {
   }
 };
 
+/**
+ * 
+ * Se crean las tablas necesarias para el nicho 
+ */
+const crearEstructuraEnBD = async(req, res) =>{
+  let params = null;
+  try{
+    params = req.params;
+    const conexion = require('../../lib/conexion-mysql');
+    let dataConexion = await nichosDao.consultaConfigBDbyId({id: params.id});
+    let conn = await conexion.conexion(dataConexion);
+    if(conn){
+       let bd = await nichosDao.crearEstructuraBD({conn: conn});
+       let actualizaEstructura = await nichosDao.patchConexionBD2({_id:params.id, estructura: {estructura: true}});  
+       res.status(200).send(actualizaEstructura);
+    }else{
+      res.status(500).send({ error: 'No se pudo realizar la conexión a la base de datos'});
+    }
+  }catch(error){
+    log.fatal('Metodo: crearEstructuraEnBD ' + JSON.stringify(req.body), error);
+    res.status(500).send({ error: 'Ocurrió un error al crear la estructura en BD', e: error });
+  }
+}
+
+
+
 module.exports = {
     getListadoNichos,
     saveNicho,
     getNicho,
     saveConfigBD,
-    testBD
+    testBD,
+    crearEstructuraEnBD
 }
 

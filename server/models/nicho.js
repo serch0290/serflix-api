@@ -19,6 +19,7 @@ const conexionSchema = new Schema({
     password: String,
     database: String,
     conexion: Boolean,
+    estructura: Boolean,
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 

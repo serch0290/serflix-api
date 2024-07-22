@@ -239,3 +239,1229 @@
   keyValue: { _id: new ObjectId("668df99b710adabf0c477079") },
   [Symbol(errorLabels)]: Set(0) {}
 }
+[2024-07-22T13:48:55.123] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} CastError: Cast to ObjectId failed for value ":id" (type string) at path "_id" for model "BD"
+    at model.Query.exec (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:4921:21)
+    at model.Query.Query.then (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5020:15)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  messageFormat: undefined,
+  stringValue: '":id"',
+  kind: 'ObjectId',
+  value: ':id',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/error.js:41:28)
+      at new ObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/objectid.js:67:23)
+      at castObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1651:15)
+      at ObjectId.SchemaType.castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1639:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1615:20)
+      at cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast.js:346:32)
+      at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
+  valueType: 'string'
+}
+[2024-07-22T13:49:26.244] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} TypeError: conexion.conexion is not a function
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:125:31)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-22T13:52:25.203] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} ReferenceError: fs is not defined
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:64:23)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:128:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-22T13:53:22.426] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ENOENT: no such file or directory, open './server/nichos/repositorio/assets/lib/estructura-bd.sql'
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:65:26)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: './server/nichos/repositorio/assets/lib/estructura-bd.sql'
+}
+[2024-07-22T13:54:20.418] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SE...' at line 11
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:67:21)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:66:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'START TRANSACTION;\n" +
+    'SET time_zone = "+00:00";\n' +
+    '\n' +
+    '\n' +
+    "/*!40101 SET @OLD_CHARACTER_SE...' at line 11",
+  sqlState: '42000',
+  index: 0,
+  sql: '-- phpMyAdmin SQL Dump\n' +
+    '-- version 5.2.1\n' +
+    '-- https://www.phpmyadmin.net/\n' +
+    '--\n' +
+    '-- Servidor: localhost\n' +
+    '-- Tiempo de generación: 22-07-2024 a las 19:12:54\n' +
+    '-- Versión del servidor: 10.4.28-MariaDB\n' +
+    '-- Versión de PHP: 8.2.4\n' +
+    '\n' +
+    'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";\n' +
+    'START TRANSACTION;\n' +
+    'SET time_zone = "+00:00";\n' +
+    '\n' +
+    '\n' +
+    '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n' +
+    '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n' +
+    '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n' +
+    '/*!40101 SET NAMES utf8mb4 */;\n' +
+    '\n' +
+    '--\n' +
+    '-- Base de datos: `serflix`\n' +
+    '--\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Categoria` (\n' +
+    '  `Ctgr_IDCategoria` int(11) NOT NULL,\n' +
+    '  `Ctgr_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Ctgr_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ctgr_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ctgr_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Comentarios` (\n' +
+    '  `Cmnt_IDComentario` int(11) NOT NULL,\n' +
+    '  `Cmnt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_Comentario` text NOT NULL,\n' +
+    '  `Cmnt_Email` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_EsttCmnt` smallint(6) NOT NULL,\n' +
+    "  `Cmnt_Estatus` bit(1) NOT NULL DEFAULT b'1',\n" +
+    '  `Cmnt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cmnt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Contacto` (\n' +
+    '  `Cntc_IDContacto` int(11) NOT NULL,\n' +
+    '  `Cntc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Asunto` varchar(800) NOT NULL,\n' +
+    '  `Cntc_Email` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Descripcion` text NOT NULL,\n' +
+    '  `Cntc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Cntc_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cntc_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_CtEsttPblc` (\n' +
+    '  `EsPl_IDCtEsttPblc` int(11) NOT NULL,\n' +
+    '  `EsPl_Nombre` varchar(500) NOT NULL,\n' +
+    '  `EsPl_Estatus` tinyint(4) NOT NULL,\n' +
+    '  `EsPl_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '--\n' +
+    '-- Volcado de datos para la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtEsttPblc` (`EsPl_IDCtEsttPblc`, `EsPl_Nombre`, `EsPl_Estatus`, `EsPl_FchaCrcn`) VALUES\n' +
+    "(1, 'Generada', 1, '2024-04-25 00:00:00'),\n" +
+    "(2, 'Publicada', 1, '2024-04-25 00:00:00'),\n" +
+    "(3, 'Cancelada', 1, '2024-04-25 00:00:00');\n" +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_CtlgTipoCtgr` (\n' +
+    '  `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL,\n' +
+    '  `TpCt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `TpCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `TpCt_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '--\n' +
+    '-- Volcado de datos para la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtlgTipoCtgr` (`TpCt_IDCtlgTipoCtgr`, `TpCt_Nombre`, `TpCt_Estatus`, `TpCt_FchaCrcn`) VALUES\n' +
+    "(1, 'Portada', b'1', '2024-04-24 00:00:00'),\n" +
+    "(2, 'Publicada', b'0', '2024-04-24 00:00:00'),\n" +
+    "(3, 'Cancelada', b'0', '2024-04-24 00:00:00');\n" +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Imagenes` (\n' +
+    '  `Imgn_IDImagen` int(11) NOT NULL,\n' +
+    '  `Imgn_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Imgn_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Imgn_Url` varchar(500) NOT NULL,\n' +
+    '  `Imgn_Resolucion` varchar(200) NOT NULL,\n' +
+    '  `Imgn_Estatus` bit(1) NOT NULL,\n' +
+    '  `Imgn_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Imgn_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Noticias` (\n' +
+    '  `Ntcs_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Ntcs_Titulo` varchar(1000) NOT NULL,\n' +
+    '  `Ntcs_Descripcion` text NOT NULL,\n' +
+    '  `Ntcs_Url` varchar(500) NOT NULL,\n' +
+    '  `Ntcs_EsttPblc` tinyint(4) NOT NULL,\n' +
+    '  `Ntcs_TipoCtgr` tinyint(4) DEFAULT NULL,\n' +
+    '  `Ntcs_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ntcs_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ntcs_FchaPblc` datetime DEFAULT NULL,\n' +
+    '  `Ntcs_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_NtcsCtgr` (\n' +
+    '  `NtCt_IDNtcsCtgr` int(11) NOT NULL,\n' +
+    '  `NtCt_IDNoticia` int(11) NOT NULL,\n' +
+    '  `NtCt_IDCategoria` int(11) NOT NULL,\n' +
+    '  `NtCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `NtCt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `NtCt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Resoluciones` (\n' +
+    '  `Rslc_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Rslc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Rslc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Rslc_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    '--\n' +
+    '-- Índices para tablas volcadas\n' +
+    '--\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  ADD PRIMARY KEY (`Ctgr_IDCategoria`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  ADD PRIMARY KEY (`Cmnt_IDComentario`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  ADD PRIMARY KEY (`Cntc_IDContacto`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  ADD PRIMARY KEY (`EsPl_IDCtEsttPblc`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  ADD PRIMARY KEY (`TpCt_IDCtlgTipoCtgr`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  ADD PRIMARY KEY (`Imgn_IDImagen`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  ADD PRIMARY KEY (`Ntcs_IDNoticia`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  ADD PRIMARY KEY (`NtCt_IDNtcsCtgr`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  ADD PRIMARY KEY (`Rslc_IDResolucion`);\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de las tablas volcadas\n' +
+    '--\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  MODIFY `Ctgr_IDCategoria` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  MODIFY `Cmnt_IDComentario` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  MODIFY `Cntc_IDContacto` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  MODIFY `EsPl_IDCtEsttPblc` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  MODIFY `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  MODIFY `Imgn_IDImagen` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  MODIFY `Ntcs_IDNoticia` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  MODIFY `NtCt_IDNtcsCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  MODIFY `Rslc_IDResolucion` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    'COMMIT;\n' +
+    '\n' +
+    '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n' +
+    '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n' +
+    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n'
+}
+[2024-07-22T13:55:22.642] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTE...' at line 11
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:67:21)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:66:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: `You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SET time_zone = "+00:00";\n` +
+    '\n' +
+    '\n' +
+    "/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTE...' at line 11",
+  sqlState: '42000',
+  index: 0,
+  sql: '-- phpMyAdmin SQL Dump\n' +
+    '-- version 5.2.1\n' +
+    '-- https://www.phpmyadmin.net/\n' +
+    '--\n' +
+    '-- Servidor: localhost\n' +
+    '-- Tiempo de generación: 22-07-2024 a las 19:12:54\n' +
+    '-- Versión del servidor: 10.4.28-MariaDB\n' +
+    '-- Versión de PHP: 8.2.4\n' +
+    '\n' +
+    'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";\n' +
+    'SET time_zone = "+00:00";\n' +
+    '\n' +
+    '\n' +
+    '/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;\n' +
+    '/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;\n' +
+    '/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;\n' +
+    '/*!40101 SET NAMES utf8mb4 */;\n' +
+    '\n' +
+    '--\n' +
+    '-- Base de datos: `serflix`\n' +
+    '--\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Categoria` (\n' +
+    '  `Ctgr_IDCategoria` int(11) NOT NULL,\n' +
+    '  `Ctgr_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Ctgr_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ctgr_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ctgr_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Comentarios` (\n' +
+    '  `Cmnt_IDComentario` int(11) NOT NULL,\n' +
+    '  `Cmnt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_Comentario` text NOT NULL,\n' +
+    '  `Cmnt_Email` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_EsttCmnt` smallint(6) NOT NULL,\n' +
+    "  `Cmnt_Estatus` bit(1) NOT NULL DEFAULT b'1',\n" +
+    '  `Cmnt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cmnt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Contacto` (\n' +
+    '  `Cntc_IDContacto` int(11) NOT NULL,\n' +
+    '  `Cntc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Asunto` varchar(800) NOT NULL,\n' +
+    '  `Cntc_Email` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Descripcion` text NOT NULL,\n' +
+    '  `Cntc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Cntc_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cntc_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_CtEsttPblc` (\n' +
+    '  `EsPl_IDCtEsttPblc` int(11) NOT NULL,\n' +
+    '  `EsPl_Nombre` varchar(500) NOT NULL,\n' +
+    '  `EsPl_Estatus` tinyint(4) NOT NULL,\n' +
+    '  `EsPl_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '--\n' +
+    '-- Volcado de datos para la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtEsttPblc` (`EsPl_IDCtEsttPblc`, `EsPl_Nombre`, `EsPl_Estatus`, `EsPl_FchaCrcn`) VALUES\n' +
+    "(1, 'Generada', 1, '2024-04-25 00:00:00'),\n" +
+    "(2, 'Publicada', 1, '2024-04-25 00:00:00'),\n" +
+    "(3, 'Cancelada', 1, '2024-04-25 00:00:00');\n" +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_CtlgTipoCtgr` (\n' +
+    '  `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL,\n' +
+    '  `TpCt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `TpCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `TpCt_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '--\n' +
+    '-- Volcado de datos para la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtlgTipoCtgr` (`TpCt_IDCtlgTipoCtgr`, `TpCt_Nombre`, `TpCt_Estatus`, `TpCt_FchaCrcn`) VALUES\n' +
+    "(1, 'Portada', b'1', '2024-04-24 00:00:00'),\n" +
+    "(2, 'Publicada', b'0', '2024-04-24 00:00:00'),\n" +
+    "(3, 'Cancelada', b'0', '2024-04-24 00:00:00');\n" +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Imagenes` (\n' +
+    '  `Imgn_IDImagen` int(11) NOT NULL,\n' +
+    '  `Imgn_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Imgn_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Imgn_Url` varchar(500) NOT NULL,\n' +
+    '  `Imgn_Resolucion` varchar(200) NOT NULL,\n' +
+    '  `Imgn_Estatus` bit(1) NOT NULL,\n' +
+    '  `Imgn_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Imgn_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Noticias` (\n' +
+    '  `Ntcs_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Ntcs_Titulo` varchar(1000) NOT NULL,\n' +
+    '  `Ntcs_Descripcion` text NOT NULL,\n' +
+    '  `Ntcs_Url` varchar(500) NOT NULL,\n' +
+    '  `Ntcs_EsttPblc` tinyint(4) NOT NULL,\n' +
+    '  `Ntcs_TipoCtgr` tinyint(4) DEFAULT NULL,\n' +
+    '  `Ntcs_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ntcs_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ntcs_FchaPblc` datetime DEFAULT NULL,\n' +
+    '  `Ntcs_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_NtcsCtgr` (\n' +
+    '  `NtCt_IDNtcsCtgr` int(11) NOT NULL,\n' +
+    '  `NtCt_IDNoticia` int(11) NOT NULL,\n' +
+    '  `NtCt_IDCategoria` int(11) NOT NULL,\n' +
+    '  `NtCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `NtCt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `NtCt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '-- --------------------------------------------------------\n' +
+    '\n' +
+    '--\n' +
+    '-- Estructura de tabla para la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Resoluciones` (\n' +
+    '  `Rslc_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Rslc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Rslc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Rslc_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    '--\n' +
+    '-- Índices para tablas volcadas\n' +
+    '--\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  ADD PRIMARY KEY (`Ctgr_IDCategoria`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  ADD PRIMARY KEY (`Cmnt_IDComentario`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  ADD PRIMARY KEY (`Cntc_IDContacto`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  ADD PRIMARY KEY (`EsPl_IDCtEsttPblc`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  ADD PRIMARY KEY (`TpCt_IDCtlgTipoCtgr`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  ADD PRIMARY KEY (`Imgn_IDImagen`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  ADD PRIMARY KEY (`Ntcs_IDNoticia`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  ADD PRIMARY KEY (`NtCt_IDNtcsCtgr`);\n' +
+    '\n' +
+    '--\n' +
+    '-- Indices de la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  ADD PRIMARY KEY (`Rslc_IDResolucion`);\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de las tablas volcadas\n' +
+    '--\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Categoria`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  MODIFY `Ctgr_IDCategoria` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Comentarios`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  MODIFY `Cmnt_IDComentario` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Contacto`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  MODIFY `Cntc_IDContacto` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_CtEsttPblc`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  MODIFY `EsPl_IDCtEsttPblc` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_CtlgTipoCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  MODIFY `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Imagenes`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  MODIFY `Imgn_IDImagen` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Noticias`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  MODIFY `Ntcs_IDNoticia` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_NtcsCtgr`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  MODIFY `NtCt_IDNtcsCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '--\n' +
+    '-- AUTO_INCREMENT de la tabla `Srfl_Resoluciones`\n' +
+    '--\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  MODIFY `Rslc_IDResolucion` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    'COMMIT;\n' +
+    '\n' +
+    '/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;\n' +
+    '/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;\n' +
+    '/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;\n'
+}
+[2024-07-22T13:57:15.538] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE `Srfl_Comentarios` (
+  `Cmnt_IDComentario` int(11) NOT NULL,
+  `...' at line 9
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:67:21)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:66:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE `Srfl_Comentarios` (\n" +
+    '  `Cmnt_IDComentario` int(11) NOT NULL,\n' +
+    "  `...' at line 9",
+  sqlState: '42000',
+  index: 0,
+  sql: 'CREATE TABLE `Srfl_Categoria` (\n' +
+    '  `Ctgr_IDCategoria` int(11) NOT NULL,\n' +
+    '  `Ctgr_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Ctgr_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ctgr_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ctgr_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Comentarios` (\n' +
+    '  `Cmnt_IDComentario` int(11) NOT NULL,\n' +
+    '  `Cmnt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_Comentario` text NOT NULL,\n' +
+    '  `Cmnt_Email` varchar(500) NOT NULL,\n' +
+    '  `Cmnt_EsttCmnt` smallint(6) NOT NULL,\n' +
+    "  `Cmnt_Estatus` bit(1) NOT NULL DEFAULT b'1',\n" +
+    '  `Cmnt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cmnt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Contacto` (\n' +
+    '  `Cntc_IDContacto` int(11) NOT NULL,\n' +
+    '  `Cntc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Asunto` varchar(800) NOT NULL,\n' +
+    '  `Cntc_Email` varchar(500) NOT NULL,\n' +
+    '  `Cntc_Descripcion` text NOT NULL,\n' +
+    '  `Cntc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Cntc_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Cntc_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_CtEsttPblc` (\n' +
+    '  `EsPl_IDCtEsttPblc` int(11) NOT NULL,\n' +
+    '  `EsPl_Nombre` varchar(500) NOT NULL,\n' +
+    '  `EsPl_Estatus` tinyint(4) NOT NULL,\n' +
+    '  `EsPl_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtEsttPblc` (`EsPl_IDCtEsttPblc`, `EsPl_Nombre`, `EsPl_Estatus`, `EsPl_FchaCrcn`) VALUES\n' +
+    "(1, 'Generada', 1, '2024-04-25 00:00:00'),\n" +
+    "(2, 'Publicada', 1, '2024-04-25 00:00:00'),\n" +
+    "(3, 'Cancelada', 1, '2024-04-25 00:00:00');\n" +
+    '\n' +
+    'CREATE TABLE `Srfl_CtlgTipoCtgr` (\n' +
+    '  `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL,\n' +
+    '  `TpCt_Nombre` varchar(500) NOT NULL,\n' +
+    '  `TpCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `TpCt_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'INSERT INTO `Srfl_CtlgTipoCtgr` (`TpCt_IDCtlgTipoCtgr`, `TpCt_Nombre`, `TpCt_Estatus`, `TpCt_FchaCrcn`) VALUES\n' +
+    "(1, 'Portada', b'1', '2024-04-24 00:00:00'),\n" +
+    "(2, 'Publicada', b'0', '2024-04-24 00:00:00'),\n" +
+    "(3, 'Cancelada', b'0', '2024-04-24 00:00:00');\n" +
+    '\n' +
+    'CREATE TABLE `Srfl_Imagenes` (\n' +
+    '  `Imgn_IDImagen` int(11) NOT NULL,\n' +
+    '  `Imgn_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Imgn_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Imgn_Url` varchar(500) NOT NULL,\n' +
+    '  `Imgn_Resolucion` varchar(200) NOT NULL,\n' +
+    '  `Imgn_Estatus` bit(1) NOT NULL,\n' +
+    '  `Imgn_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Imgn_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Noticias` (\n' +
+    '  `Ntcs_IDNoticia` int(11) NOT NULL,\n' +
+    '  `Ntcs_Titulo` varchar(1000) NOT NULL,\n' +
+    '  `Ntcs_Descripcion` text NOT NULL,\n' +
+    '  `Ntcs_Url` varchar(500) NOT NULL,\n' +
+    '  `Ntcs_EsttPblc` tinyint(4) NOT NULL,\n' +
+    '  `Ntcs_TipoCtgr` tinyint(4) DEFAULT NULL,\n' +
+    '  `Ntcs_Estatus` bit(1) NOT NULL,\n' +
+    '  `Ntcs_FchaCrcn` datetime NOT NULL,\n' +
+    '  `Ntcs_FchaPblc` datetime DEFAULT NULL,\n' +
+    '  `Ntcs_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_NtcsCtgr` (\n' +
+    '  `NtCt_IDNtcsCtgr` int(11) NOT NULL,\n' +
+    '  `NtCt_IDNoticia` int(11) NOT NULL,\n' +
+    '  `NtCt_IDCategoria` int(11) NOT NULL,\n' +
+    '  `NtCt_Estatus` bit(1) NOT NULL,\n' +
+    '  `NtCt_FchaCrcn` datetime NOT NULL,\n' +
+    '  `NtCt_FchaMdfc` datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE `Srfl_Resoluciones` (\n' +
+    '  `Rslc_IDResolucion` int(11) NOT NULL,\n' +
+    '  `Rslc_Nombre` varchar(500) NOT NULL,\n' +
+    '  `Rslc_Estatus` bit(1) NOT NULL,\n' +
+    '  `Rslc_FchaCrcn` datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  ADD PRIMARY KEY (`Ctgr_IDCategoria`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  ADD PRIMARY KEY (`Cmnt_IDComentario`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  ADD PRIMARY KEY (`Cntc_IDContacto`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  ADD PRIMARY KEY (`EsPl_IDCtEsttPblc`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  ADD PRIMARY KEY (`TpCt_IDCtlgTipoCtgr`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  ADD PRIMARY KEY (`Imgn_IDImagen`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  ADD PRIMARY KEY (`Ntcs_IDNoticia`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  ADD PRIMARY KEY (`NtCt_IDNtcsCtgr`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  ADD PRIMARY KEY (`Rslc_IDResolucion`);\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Categoria`\n' +
+    '  MODIFY `Ctgr_IDCategoria` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Comentarios`\n' +
+    '  MODIFY `Cmnt_IDComentario` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Contacto`\n' +
+    '  MODIFY `Cntc_IDContacto` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_CtEsttPblc`\n' +
+    '  MODIFY `EsPl_IDCtEsttPblc` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_CtlgTipoCtgr`\n' +
+    '  MODIFY `TpCt_IDCtlgTipoCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Imagenes`\n' +
+    '  MODIFY `Imgn_IDImagen` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Noticias`\n' +
+    '  MODIFY `Ntcs_IDNoticia` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_NtcsCtgr`\n' +
+    '  MODIFY `NtCt_IDNtcsCtgr` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE `Srfl_Resoluciones`\n' +
+    '  MODIFY `Rslc_IDResolucion` int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n'
+}
+[2024-07-22T13:57:55.191] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE Srfl_Comentarios (
+  Cmnt_IDComentario int(11) NOT NULL,
+  Cmnt_...' at line 9
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:67:21)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:66:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE Srfl_Comentarios (\n" +
+    '  Cmnt_IDComentario int(11) NOT NULL,\n' +
+    "  Cmnt_...' at line 9",
+  sqlState: '42000',
+  index: 0,
+  sql: 'CREATE TABLE Srfl_Categoria (\n' +
+    '  Ctgr_IDCategoria int(11) NOT NULL,\n' +
+    '  Ctgr_Nombre varchar(500) NOT NULL,\n' +
+    '  Ctgr_Estatus bit(1) NOT NULL,\n' +
+    '  Ctgr_FchaCrcn datetime NOT NULL,\n' +
+    '  Ctgr_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE Srfl_Comentarios (\n' +
+    '  Cmnt_IDComentario int(11) NOT NULL,\n' +
+    '  Cmnt_Nombre varchar(500) NOT NULL,\n' +
+    '  Cmnt_Comentario text NOT NULL,\n' +
+    '  Cmnt_Email varchar(500) NOT NULL,\n' +
+    '  Cmnt_EsttCmnt smallint(6) NOT NULL,\n' +
+    "  Cmnt_Estatus bit(1) NOT NULL DEFAULT b'1',\n" +
+    '  Cmnt_FchaCrcn datetime NOT NULL,\n' +
+    '  Cmnt_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE Srfl_Contacto (\n' +
+    '  Cntc_IDContacto int(11) NOT NULL,\n' +
+    '  Cntc_Nombre varchar(500) NOT NULL,\n' +
+    '  Cntc_Asunto varchar(800) NOT NULL,\n' +
+    '  Cntc_Email varchar(500) NOT NULL,\n' +
+    '  Cntc_Descripcion text NOT NULL,\n' +
+    '  Cntc_Estatus bit(1) NOT NULL,\n' +
+    '  Cntc_FchaCrcn datetime NOT NULL,\n' +
+    '  Cntc_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'CREATE TABLE Srfl_CtEsttPblc (\n' +
+    '  EsPl_IDCtEsttPblc int(11) NOT NULL,\n' +
+    '  EsPl_Nombre varchar(500) NOT NULL,\n' +
+    '  EsPl_Estatus tinyint(4) NOT NULL,\n' +
+    '  EsPl_FchaCrcn datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'INSERT INTO Srfl_CtEsttPblc (EsPl_IDCtEsttPblc, EsPl_Nombre, EsPl_Estatus, EsPl_FchaCrcn) VALUES\n' +
+    "(1, 'Generada', 1, '2024-04-25 00:00:00'),\n" +
+    "(2, 'Publicada', 1, '2024-04-25 00:00:00'),\n" +
+    "(3, 'Cancelada', 1, '2024-04-25 00:00:00');\n" +
+    '\n' +
+    'CREATE TABLE Srfl_CtlgTipoCtgr (\n' +
+    '  TpCt_IDCtlgTipoCtgr int(11) NOT NULL,\n' +
+    '  TpCt_Nombre varchar(500) NOT NULL,\n' +
+    '  TpCt_Estatus bit(1) NOT NULL,\n' +
+    '  TpCt_FchaCrcn datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    'INSERT INTO Srfl_CtlgTipoCtgr (TpCt_IDCtlgTipoCtgr, TpCt_Nombre, TpCt_Estatus, TpCt_FchaCrcn) VALUES\n' +
+    "(1, 'Portada', b'1', '2024-04-24 00:00:00'),\n" +
+    "(2, 'Publicada', b'0', '2024-04-24 00:00:00'),\n" +
+    "(3, 'Cancelada', b'0', '2024-04-24 00:00:00');\n" +
+    '\n' +
+    'CREATE TABLE Srfl_Imagenes (\n' +
+    '  Imgn_IDImagen int(11) NOT NULL,\n' +
+    '  Imgn_IDNoticia int(11) NOT NULL,\n' +
+    '  Imgn_IDResolucion int(11) NOT NULL,\n' +
+    '  Imgn_Url varchar(500) NOT NULL,\n' +
+    '  Imgn_Resolucion varchar(200) NOT NULL,\n' +
+    '  Imgn_Estatus bit(1) NOT NULL,\n' +
+    '  Imgn_FchaCrcn datetime NOT NULL,\n' +
+    '  Imgn_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE Srfl_Noticias (\n' +
+    '  Ntcs_IDNoticia int(11) NOT NULL,\n' +
+    '  Ntcs_Titulo varchar(1000) NOT NULL,\n' +
+    '  Ntcs_Descripcion text NOT NULL,\n' +
+    '  Ntcs_Url varchar(500) NOT NULL,\n' +
+    '  Ntcs_EsttPblc tinyint(4) NOT NULL,\n' +
+    '  Ntcs_TipoCtgr tinyint(4) DEFAULT NULL,\n' +
+    '  Ntcs_Estatus bit(1) NOT NULL,\n' +
+    '  Ntcs_FchaCrcn datetime NOT NULL,\n' +
+    '  Ntcs_FchaPblc datetime DEFAULT NULL,\n' +
+    '  Ntcs_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE Srfl_NtcsCtgr (\n' +
+    '  NtCt_IDNtcsCtgr int(11) NOT NULL,\n' +
+    '  NtCt_IDNoticia int(11) NOT NULL,\n' +
+    '  NtCt_IDCategoria int(11) NOT NULL,\n' +
+    '  NtCt_Estatus bit(1) NOT NULL,\n' +
+    '  NtCt_FchaCrcn datetime NOT NULL,\n' +
+    '  NtCt_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'CREATE TABLE Srfl_Resoluciones (\n' +
+    '  Rslc_IDResolucion int(11) NOT NULL,\n' +
+    '  Rslc_Nombre varchar(500) NOT NULL,\n' +
+    '  Rslc_Estatus bit(1) NOT NULL,\n' +
+    '  Rslc_FchaCrcn datetime NOT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;\n' +
+    '\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Categoria\n' +
+    '  ADD PRIMARY KEY (Ctgr_IDCategoria);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Comentarios\n' +
+    '  ADD PRIMARY KEY (Cmnt_IDComentario);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Contacto\n' +
+    '  ADD PRIMARY KEY (Cntc_IDContacto);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_CtEsttPblc\n' +
+    '  ADD PRIMARY KEY (EsPl_IDCtEsttPblc);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_CtlgTipoCtgr\n' +
+    '  ADD PRIMARY KEY (TpCt_IDCtlgTipoCtgr);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Imagenes\n' +
+    '  ADD PRIMARY KEY (Imgn_IDImagen);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Noticias\n' +
+    '  ADD PRIMARY KEY (Ntcs_IDNoticia);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_NtcsCtgr\n' +
+    '  ADD PRIMARY KEY (NtCt_IDNtcsCtgr);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Resoluciones\n' +
+    '  ADD PRIMARY KEY (Rslc_IDResolucion);\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Categoria\n' +
+    '  MODIFY Ctgr_IDCategoria int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Comentarios\n' +
+    '  MODIFY Cmnt_IDComentario int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Contacto\n' +
+    '  MODIFY Cntc_IDContacto int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_CtEsttPblc\n' +
+    '  MODIFY EsPl_IDCtEsttPblc int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_CtlgTipoCtgr\n' +
+    '  MODIFY TpCt_IDCtlgTipoCtgr int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Imagenes\n' +
+    '  MODIFY Imgn_IDImagen int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Noticias\n' +
+    '  MODIFY Ntcs_IDNoticia int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    '\n' +
+    'ALTER TABLE Srfl_NtcsCtgr\n' +
+    '  MODIFY NtCt_IDNtcsCtgr int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n' +
+    'ALTER TABLE Srfl_Resoluciones\n' +
+    '  MODIFY Rslc_IDResolucion int(11) NOT NULL AUTO_INCREMENT;\n' +
+    '\n'
+}
+[2024-07-22T14:03:39.172] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_TABLEACCESS_DENIED_ERROR: CREATE command denied to user 'usu_serflix'@'localhost' for table `programacion`.`srfl_categoria`
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:71:29)
+    at Array.forEach (<anonymous>)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:69:23)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:68:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_TABLEACCESS_DENIED_ERROR',
+  errno: 1142,
+  sqlMessage: "CREATE command denied to user 'usu_serflix'@'localhost' for table `programacion`.`srfl_categoria`",
+  sqlState: '42000',
+  index: 0,
+  sql: 'CREATE TABLE Srfl_Categoria (\n' +
+    '  Ctgr_IDCategoria int(11) NOT NULL,\n' +
+    '  Ctgr_Nombre varchar(500) NOT NULL,\n' +
+    '  Ctgr_Estatus bit(1) NOT NULL,\n' +
+    '  Ctgr_FchaCrcn datetime NOT NULL,\n' +
+    '  Ctgr_FchaMdfc datetime DEFAULT NULL\n' +
+    ') ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci'
+}
+[2024-07-22T14:11:16.994] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} Error: ER_NO_SUCH_TABLE: Table 'programacion.srfl_ctesttpblc' doesn't exist
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:71:29)
+    at Array.forEach (<anonymous>)
+    at eval (webpack:///./server/modules/nichos/nichos.dao.js?:69:23)
+    at new Promise (<anonymous>)
+    at Object.crearEstructuraBD (webpack:///./server/modules/nichos/nichos.dao.js?:68:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:127:33)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sqlMessage: "Table 'programacion.srfl_ctesttpblc' doesn't exist",
+  sqlState: '42S02',
+  index: 0,
+  sql: '\n' +
+    '\n' +
+    '\n' +
+    'INSERT INTO Srfl_CtEsttPblc (EsPl_IDCtEsttPblc, EsPl_Nombre, EsPl_Estatus, EsPl_FchaCrcn) VALUES\n' +
+    "(1, 'Generada', 1, '2024-04-25 00:00:00'),\n" +
+    "(2, 'Publicada', 1, '2024-04-25 00:00:00'),\n" +
+    "(3, 'Cancelada', 1, '2024-04-25 00:00:00')"
+}
+[2024-07-22T15:45:13.723] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {} ReferenceError: TRUE is not defined
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:129:108)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-22T16:44:51.675] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 TypeError: consultas.consultaConfigBD is not a function
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:23:44)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-07-22T16:46:07.390] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 TypeError: Cannot read property 'host' of null
+    at Object.conexion (webpack:///./server/lib/conexion-mysql.js?:5:23)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:25:35)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-22T16:46:55.591] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 TypeError: Cannot read property 'host' of null
+    at Object.conexion (webpack:///./server/lib/conexion-mysql.js?:5:23)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:26:35)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-22T16:47:37.849] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID()' at line 1
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:5:20)
+    at new Promise (<anonymous>)
+    at Object.guardarCategoriaNicho (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:4:12)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:28:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID()' at line 1",
+  sqlState: '42000',
+  index: 0,
+  sql: 'INSERT INTO Srfl_Categoria(Ctgr_Nombre, Ctgr_Estatus, Ctgr_FchaCrcn) VALUES(NULL, 1, CURRENT_TIMESTAMP()); SELECT LAST_INSERT_ID()'
+}
+[2024-07-22T16:48:20.758] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID()' at line 1
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:5:20)
+    at new Promise (<anonymous>)
+    at Object.guardarCategoriaNicho (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:4:12)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:28:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID()' at line 1",
+  sqlState: '42000',
+  index: 0,
+  sql: 'INSERT INTO Srfl_Categoria(Ctgr_Nombre, Ctgr_Estatus, Ctgr_FchaCrcn) VALUES(NULL, 1, CURRENT_TIMESTAMP()) SELECT LAST_INSERT_ID()'
+}
+[2024-07-22T16:51:02.352] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID() as id' at line 1
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:5:20)
+    at new Promise (<anonymous>)
+    at Object.guardarCategoriaNicho (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:4:12)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:28:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_PARSE_ERROR',
+  errno: 1064,
+  sqlMessage: "You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'SELECT LAST_INSERT_ID() as id' at line 1",
+  sqlState: '42000',
+  index: 0,
+  sql: 'INSERT INTO Srfl_Categoria(Ctgr_Nombre, Ctgr_Estatus, Ctgr_FchaCrcn) VALUES(NULL, 1, CURRENT_TIMESTAMP()); SELECT LAST_INSERT_ID() as id;'
+}
