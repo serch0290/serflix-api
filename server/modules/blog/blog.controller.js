@@ -81,7 +81,7 @@ const guardarCategoriaBlog = async(req, res) =>{
       let noticia = null;
 
       if(data._id){
-         //noticia = await consultas.actualizarNoticia(data);
+         noticia = await consultas.actualizarNoticia(data);
       }else{
          let dataConexion = await nichosDao.consultaConfigBD({id: req.body.nicho.id});
          const conexion = require('../../lib/conexion-mysql');
@@ -91,12 +91,12 @@ const guardarCategoriaBlog = async(req, res) =>{
             data.idSQL = noticiaMysql.insertId;
             await daoMysql.guardarCategoria(conn, {idNoticia: noticiaMysql.insertId, idCategoria: req.body.nicho.idCategoria});
          }
-         //noticia = await consultas.guardarNoticia(data);
+         noticia = await consultas.guardarNoticia(data);
       }
 
-      //let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '.json';
-      //json.generarJsonNoticia(noticia, path);
-      //res.status(200).send(noticia);
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '.json';
+      json.generarJsonNoticia(noticia, path);
+      res.status(200).send(noticia);
       res.status(200).send({msj: 'Nada'});
    }catch(error){
       log.fatal('Metodo: guardarNoticia ' + JSON.stringify(req.body) + req.params.id, error);
