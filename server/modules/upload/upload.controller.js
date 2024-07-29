@@ -1,5 +1,10 @@
 const fs = require('fs');
 
+/** Log4js */
+const log4js = require('log4js');
+log4js.configure('./server/lib/log4js.json');
+const log = log4js.getLogger('arbitraje');
+const sharp = require('sharp');
 
 const upload = async (req, res) =>{
     var fstream;
@@ -61,6 +66,25 @@ const upload = async (req, res) =>{
     });
 }
 
+const transformarImagenesResoluciones = async (req, res) =>{
+
+    try{
+        const inputPath = req.body.url;
+        // Leer la imagen de entrada
+        const image = sharp(inputPath);
+
+        // Redimensionar y convertir la imagen a WebP
+        await image
+        .resize({ width: 800 }) // Redimensionar a 800px de ancho, ajusta según sea necesario
+        .webp({ quality: 100 }) // Convertir a WebP con calidad de 100
+        .toFile('output_image_800px.webp');
+        res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
+    }catch(error){
+        log.fatal('Ocurrió un error al generar imagenes', error);
+        res.status(500).send({ error: 'Ocurrió un error al generar imagenes' });
+    }
+}
+
 /**
  * Enviamos el archivo al CMS para poder visualizarlo desde ahi
  */
@@ -84,5 +108,6 @@ copiarArchivoCMS = async (id, path, file, busboy) =>{
 }
 
 module.exports = {
-    upload
+    upload,
+    transformarImagenesResoluciones
 };
