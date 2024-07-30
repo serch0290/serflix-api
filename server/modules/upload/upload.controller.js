@@ -4,7 +4,7 @@ const fs = require('fs');
 const log4js = require('log4js');
 log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
-const sharp = require('sharp');
+const Jimp = require('jimp');
 
 const upload = async (req, res) =>{
     var fstream;
@@ -69,16 +69,28 @@ const upload = async (req, res) =>{
 const transformarImagenesResoluciones = async (req, res) =>{
 
     try{
-        const inputPath = req.body.url;
-        // Leer la imagen de entrada
-        const image = sharp(inputPath);
+        const sharp = require('sharp');
+        const inputPath = 'server/nichos/' + req.body.url;
+        await sharp(inputPath)
+            .resize(400) // Redimensionar imagen
+            .webp({ quality: 80 }) // Convertir a WebP
+            .toFile('prueba.webp');
+            res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
 
-        // Redimensionar y convertir la imagen a WebP
-        await image
-        .resize({ width: 800 }) // Redimensionar a 800px de ancho, ajusta según sea necesario
-        .webp({ quality: 100 }) // Convertir a WebP con calidad de 100
-        .toFile('output_image_800px.webp');
-        res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
+        /*Jimp.read(inputPath)
+        .then(image => {
+           image
+            .resize(800, Jimp.AUTO) // Redimensionar la imagen
+            .quality(80) // Cambiar la calidad de la imagen
+            .write('output.webp'); // Guardar la imagen
+            res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
+        })
+        .catch(err => {
+            log.fatal('Ocurrió un error al generar imagenes JIMP-READ', err);
+            res.status(500).send({error: 'Ocurrió un error al generar imagenes'});
+        });*/
+
+        
     }catch(error){
         log.fatal('Ocurrió un error al generar imagenes', error);
         res.status(500).send({ error: 'Ocurrió un error al generar imagenes' });
