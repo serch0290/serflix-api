@@ -14,6 +14,7 @@ routes.get('/subir/files/:id/:nombre', controller.subirArchivosProyecto);
 routes.post('/guardar/logo/:id', controller.guardarLogoNicho);
 routes.post('/guardar/icon/:id', controller.guardarIconNicho);
 routes.post('/generar/routing/:id', controller.generarRouting);
+routes.post('/subir/modificacion', controller.subirModificaciones)
 
 module.exports = routes;
 

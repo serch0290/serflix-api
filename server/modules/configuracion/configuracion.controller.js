@@ -11,6 +11,7 @@ const nichosDao = require('./../nichos/nichos.dao');
 const noticiasDao = require('./../blog/blog.dao');
 const path = require('path');
 const handlebars = require('handlebars');
+const uploads = require('./configuracion.upload');
 
 
 /**
@@ -128,7 +129,7 @@ const generarCapetasProyecto = async(req, res) =>{
     }
 
 	let response = {};
-	req.body.carpetas = true;
+	req.body.carpetas.local = true;
 	req.body.nicho = req.params.id;
 	if(data._id){
 	    response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
@@ -141,6 +142,19 @@ const generarCapetasProyecto = async(req, res) =>{
 	log.fatal('Metodo: generarCapetasProyecto', error);
 	res.status(500).send({ error: 'Ocurrió un error al generar las carpeta contenedoras del proyecto' });
    }
+}
+
+const subirModificaciones = async(req, res) =>{
+	try{
+		const command = `cp -r server/nichos/${req.body.nombre} /Applications/XAMPP/htdocs`;
+		await uploads.subirCarpetasPruebas(command);
+		req.body.general.carpetas.dev = true;
+		let general = nichosDao.actualizarConfiguracionCampoGeneral({_id: req.body.general._id, campo: {'carpetas.dev': true }});
+	    res.status(200).send({general, msj: 'Se subieron carpetas a pruebas correctamente'});
+	}catch(error){
+	  log.fatal('Metodo: subirModificaciones', error);
+	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones a dev o prod' });
+	}
 }
 
 const patchGeneralSitio = async (req, res) => {
@@ -289,5 +303,6 @@ module.exports = {
 	subirArchivosProyecto,
 	guardarLogoNicho,
 	guardarIconNicho,
-	generarRouting
+	generarRouting,
+	subirModificaciones
 }

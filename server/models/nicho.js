@@ -27,7 +27,11 @@ const bd =  mongoose.model('BD', conexionSchema);
 
 const generalSchema = new Schema({
    dominio: String,
-   carpetas: Boolean,
+   carpetas: {
+     dev: Boolean,
+     prod: Boolean,
+     local: Boolean
+   },
    fuentes: [{
       file: String,
       name: String,
