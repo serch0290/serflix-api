@@ -3,7 +3,7 @@
 *.log
 *.log.*
 app.log
-server/intranet.log
+server/arbitraje.log
 
 # compiled output
 /dist

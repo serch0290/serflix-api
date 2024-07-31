@@ -1,3 +1,4 @@
+const { addAbortListener } = require('events');
 const conexion = require('../../lib/conexion-mongo');
 const mongoose = conexion.init();
 const models = require('../../models/nicho');
