@@ -2061,3 +2061,34 @@ Possible solutions:
     at require (internal/modules/cjs/helpers.js:72:18)
     at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
     at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T21:23:13.499] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/imagemin/index.js from /Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js not supported.
+Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js to a dynamic import() which is available in all CommonJS modules.
+    at Hook._require.Module.require (/Users/sergio/.nvm/versions/node/v18.20.3/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at eval (webpack:///external_%22imagemin%22?:1:18)
+    at Object.imagemin (/Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js:478:1)
+    at __webpack_require__ (/Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js:20:30)
+    at compressImage (webpack:///./server/modules/upload/upload.controller.js?:91:22)
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:81:15) {
+  code: 'ERR_REQUIRE_ESM'
+}
+[2024-07-30T21:23:48.043] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error [ERR_REQUIRE_ESM]: require() of ES Module /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/imagemin/index.js from /Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js not supported.
+Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js to a dynamic import() which is available in all CommonJS modules.
+    at Hook._require.Module.require (/Users/sergio/.nvm/versions/node/v18.20.3/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at eval (webpack:///external_%22imagemin%22?:1:18)
+    at Object.imagemin (/Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js:478:1)
+    at __webpack_require__ (/Users/sergio/Documents/admin-nichos/serflix-api/dist/bundle.js:20:30)
+    at compressImage (webpack:///./server/modules/upload/upload.controller.js?:91:22)
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:81:15) {
+  code: 'ERR_REQUIRE_ESM'
+}
+[2024-07-30T21:49:27.535] [FATAL] arbitraje - Ocurrió un error al generar imagenes ReferenceError: read is not defined
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:75:50)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:47:12)

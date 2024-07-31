@@ -60,6 +60,7 @@ const upload = async (req, res) =>{
                 message:        'El archivo se ha subido con éxito.',
                 filename:       saved_filename,
                 url:    path + '/' + saved_filename,
+                path: path,
                 tipo:  tipo
             });
         });
@@ -71,26 +72,15 @@ const transformarImagenesResoluciones = async (req, res) =>{
     try{
         const sharp = require('sharp');
         const inputPath = 'server/nichos/' + req.body.url;
+        let name = req.body.filename.split('.')[0];
+        const outputPath400 = 'server/nichos/' + req.body.path +'/' + name + '_400.webp';
+
         await sharp(inputPath)
             .resize(400) // Redimensionar imagen
-            .webp({ quality: 80 }) // Convertir a WebP
-            .toFile('prueba.webp');
-            res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
-
-        /*Jimp.read(inputPath)
-        .then(image => {
-           image
-            .resize(800, Jimp.AUTO) // Redimensionar la imagen
-            .quality(80) // Cambiar la calidad de la imagen
-            .write('output.webp'); // Guardar la imagen
-            res.status(200).send({msj: 'Se hizo redimencion de imagenes'});
-        })
-        .catch(err => {
-            log.fatal('Ocurrió un error al generar imagenes JIMP-READ', err);
-            res.status(500).send({error: 'Ocurrió un error al generar imagenes'});
-        });*/
-
-        
+            .webp({ quality: 75 }) // Comprimir a WebP con calidad 75%
+            .toFile(outputPath400);
+            
+        res.status(200).send({ message: 'Imagenes creadas y redimencionadas correctamente.'})
     }catch(error){
         log.fatal('Ocurrió un error al generar imagenes', error);
         res.status(500).send({ error: 'Ocurrió un error al generar imagenes' });
