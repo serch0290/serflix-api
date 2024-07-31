@@ -22,8 +22,8 @@ const queryRaw = (sql, params, conn) => {
         resolve(result);
     });
 }
-/*
-const queryRaw = (sql, params, conn) => {
+
+const queryRawAlone = (sql, params, conn) => {
     return new Promise( (resolve, reject) => {
         conn.query(sql, params, (error, result) => {
                 if (error) reject(error);
@@ -31,8 +31,9 @@ const queryRaw = (sql, params, conn) => {
             }
         );    
     })
-}*/
+}
 
 module.exports = {
-    queryRaw
+    queryRaw,
+    queryRawAlone
 }

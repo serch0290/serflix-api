@@ -1465,3 +1465,599 @@ SET time_zone = "+00:00";
   index: 0,
   sql: 'INSERT INTO Srfl_Categoria(Ctgr_Nombre, Ctgr_Estatus, Ctgr_FchaCrcn) VALUES(NULL, 1, CURRENT_TIMESTAMP()); SELECT LAST_INSERT_ID() as id;'
 }
+[2024-07-23T14:15:40.943] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 TypeError: Cannot read property 'query' of undefined
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRaw2 (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarCategoriaNicho (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:6:27)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:29:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-23T14:17:29.488] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"prueba","title":"prueba","menu":true,"url":"prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{}],"nicho":"666b73bcda05a8af3d7ae081"},"nicho":{"nombre":"programacion"}}666b73bcda05a8af3d7ae081 Error: ER_NO_DEFAULT_FOR_FIELD: Field 'Ctgr_IDCategoria' doesn't have a default value
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRaw2 (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarCategoriaNicho (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:6:27)
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:29:48)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_NO_DEFAULT_FOR_FIELD',
+  errno: 1364,
+  sqlMessage: "Field 'Ctgr_IDCategoria' doesn't have a default value",
+  sqlState: 'HY000',
+  index: 0,
+  sql: "INSERT INTO Srfl_Categoria(Ctgr_Nombre, Ctgr_Estatus, Ctgr_FchaCrcn) VALUES('prueba', 1, CURRENT_TIMESTAMP())"
+}
+[2024-07-23T16:59:13.152] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"author":{"nombre":"Sergio Cruz Flores","descripcion":"descripcion lo que sea del autos no importa ahorita.","foto":"programacion/assets/images/author/author.jpg"},"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"html","html":"<p>Beuno esta es una prueba de la noticia, ya ire agregando cosillas chotas.</p>\n","edit":false}],"idNoticia":0,"h1":"Nueva Prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{"link":"/programacion/java"},{"name":"Nueva Prueba"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Nueva Prueba&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Nueva Prueba%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Nueva Prueba&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Nueva Prueba&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Nueva Prueba&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"nueva-prueba","categoria":"667b49bf20ce49795f2fb230"},"nicho":{"nombre":"programacion"}}667b49bf20ce49795f2fb230 TypeError: Cannot read property 'host' of null
+    at Object.conexion (webpack:///./server/lib/conexion-mysql.js?:5:23)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:90:36)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-23T17:02:41.906] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"author":{"nombre":"Sergio Cruz Flores","descripcion":"descripcion lo que sea del autos no importa ahorita.","foto":"programacion/assets/images/author/author.jpg"},"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"html","html":"<p>Beuno esta es una prueba de la noticia, ya ire agregando cosillas chotas.</p>\n","edit":false}],"idNoticia":0,"h1":"Nueva Prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{"link":"/programacion/java"},{"name":"Nueva Prueba"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Nueva Prueba&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Nueva Prueba%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Nueva Prueba&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Nueva Prueba&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Nueva Prueba&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"nueva-prueba","categoria":"667b49bf20ce49795f2fb230"},"nicho":{"nombre":"programacion"}}667b49bf20ce49795f2fb230 TypeError: Cannot read property 'host' of null
+    at Object.conexion (webpack:///./server/lib/conexion-mysql.js?:5:23)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:90:36)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-23T17:03:51.590] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"author":{"nombre":"Sergio Cruz Flores","descripcion":"descripcion lo que sea del autos no importa ahorita.","foto":"programacion/assets/images/author/author.jpg"},"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"html","html":"<p>Beuno esta es una prueba de la noticia, ya ire agregando cosillas chotas.</p>\n","edit":false}],"idNoticia":0,"h1":"Nueva Prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{"link":"/programacion/java"},{"name":"Nueva Prueba"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Nueva Prueba&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Nueva Prueba%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Nueva Prueba&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Nueva Prueba&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Nueva Prueba&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"nueva-prueba","categoria":"667b49bf20ce49795f2fb230"},"nicho":{"nombre":"programacion"}}667b49bf20ce49795f2fb230 TypeError: Cannot read property 'host' of null
+    at Object.conexion (webpack:///./server/lib/conexion-mysql.js?:5:23)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:88:36)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-23T17:07:27.093] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"author":{"nombre":"Sergio Cruz Flores","descripcion":"Descripcion del autor"},"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"html","html":"<p>Esto es solo una prueba, pues haber que pasa,</p>\n","edit":false}],"idNoticia":0,"h1":"nueva prueba","breadcrumb":[{"name":"Inicio","link":"/programacion"},{"link":"/programacion/java"},{"name":"nueva prueba"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=nueva prueba&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=nueva prueba%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=nueva prueba&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=nueva prueba&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=nueva prueba&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"nueva-prueba","categoria":"667b49bf20ce49795f2fb230"},"nicho":{"nombre":"programacion","id":"666b73bcda05a8af3d7ae081"}}667b49bf20ce49795f2fb230 Error: ER_BAD_NULL_ERROR: Column 'Ntcs_Descripcion' cannot be null
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:10:27)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:91:43)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'Ntcs_Descripcion' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: "INSERT INTO Srfl_Noticias(Ntcs_Titulo, Ntcs_Descripcion, Ntcs_Url, Ntcs_EsttPblc, Ntcs_TipoCtgr, Ntcs_Estatus, Ntcs_FchaCrcn) VALUES('nueva prueba', NULL, 'nueva-prueba', 1, NULL, 1, CURRENT_TIMESTAMP())"
+}
+[2024-07-23T17:19:28.997] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"author":{"nombre":"Sergio Cruz","descripcion":"Descripcion del autor"},"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"html","html":"<p>prueba de la noticia.</p>\n","edit":false}],"idNoticia":0,"h1":"Prueba noticia","descripcion":"Descripcion de la noticia","portada":true,"comentarios":true,"breadcrumb":[{"name":"Inicio","link":"/programacion"},{"link":"/programacion/java"},{"name":"Prueba noticia"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"prueba-noticia","categoria":"667b49bf20ce49795f2fb230"},"nicho":{"nombre":"programacion","id":"666b73bcda05a8af3d7ae081"}}667b49bf20ce49795f2fb230 ReferenceError: noticiaMysql is not defined
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:91:26)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-07-30T16:57:56.261] [FATAL] arbitraje - Ocurrió un error al generar imagenes JIMP-READ [Error: ENOENT: no such file or directory, open 'programacion/assets/images/noticias/noticia_1722376676043.avif'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'programacion/assets/images/noticias/noticia_1722376676043.avif',
+  methodName: 'constructor'
+}
+[2024-07-30T16:59:51.627] [FATAL] arbitraje - Ocurrió un error al generar imagenes JIMP-READ [Error: ENOENT: no such file or directory, open 'nichos/programacion/assets/images/noticias/noticia_1722376676043.avif'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'nichos/programacion/assets/images/noticias/noticia_1722376676043.avif',
+  methodName: 'constructor'
+}
+[2024-07-30T17:00:52.115] [FATAL] arbitraje - Ocurrió un error al generar imagenes JIMP-READ Error: Unsupported MIME type: image/avif
+    at Jimp.throwError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/@jimp/utils/dist/index.js:21:13)
+    at Jimp.parseBitmap (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/@jimp/core/dist/utils/image-bitmap.js:159:32) {
+  methodName: 'constructor'
+}
+[2024-07-30T17:04:11.008] [FATAL] arbitraje - Ocurrió un error al generar imagenes JIMP-READ Error: Unsupported MIME type: image/webp
+    at Jimp.throwError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/@jimp/utils/dist/index.js:21:13)
+    at Jimp.parseBitmap (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/@jimp/core/dist/utils/image-bitmap.js:159:32) {
+  methodName: 'constructor'
+}
+[2024-07-30T17:12:17.763] [FATAL] arbitraje - Ocurrió un error al generar imagenes ReferenceError: sharp is not defined
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:73:9)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-07-30T17:12:58.310] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:17:42.379] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:19:49.079] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:32:07.072] [FATAL] arbitraje - Ocurrió un error al generar imagenes ReferenceError: width is not defined
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:75:21)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-07-30T17:36:30.176] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:37:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:11:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T17:37:15.322] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:37:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:11:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T17:38:51.902] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:40:11.699] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:42:21.089] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:43:52.601] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:46:08.855] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:49:28.817] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:50:48.312] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:52:08.204] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:53:54.844] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T17:56:30.357] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: Cannot find module 'node:util'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:962:15)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:81:25)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:6:14)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js',
+    '/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js'
+  ]
+}
+[2024-07-30T18:02:56.397] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T18:04:27.239] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T18:05:08.101] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T18:05:32.719] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+[2024-07-30T18:10:03.759] [FATAL] arbitraje - Ocurrió un error al generar imagenes TypeError: sharp is not a function
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:74:15)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-07-30T18:10:51.222] [FATAL] arbitraje - Ocurrió un error al generar imagenes TypeError: sharp is not a function
+    at transformarImagenesResoluciones (webpack:///./server/modules/upload/upload.controller.js?:74:15)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-07-30T18:11:46.939] [FATAL] arbitraje - Ocurrió un error al generar imagenes Error: 
+Something went wrong installing the "sharp" module
+
+Cannot find module '../build/Release/sharp-darwin-x64.node'
+Require stack:
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/index.js
+- /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/dist/bundle.js
+
+Possible solutions:
+- Install with verbose logging and look for errors: "npm install --ignore-scripts=false --foreground-scripts --verbose sharp"
+- Install for the current darwin-x64 runtime: "npm install --platform=darwin --arch=x64 sharp"
+- Consult the installation documentation: https://sharp.pixelplumbing.com/install
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/sharp.js:34:9)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1138:10)
+    at Module.load (internal/modules/cjs/loader.js:982:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:875:14)
+    at Module.require (internal/modules/cjs/loader.js:1022:19)
+    at Module.Hook._require.Module.require (/usr/local/lib/node_modules/pm2/node_modules/require-in-the-middle/index.js:101:39)
+    at require (internal/modules/cjs/helpers.js:72:18)
+    at Object.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/sharp/lib/constructor.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:1118:30)

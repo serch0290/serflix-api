@@ -82,6 +82,8 @@ const noticiaSchema = new Schema({
     estatusPublicacion: Number,
     h1: String,
     comentarios: Boolean,
+    portada: Boolean,
+    idSQL: Number,
     author: {type: Schema.Types.Mixed},
     detalle: {type: [Schema.Types.Mixed]},
     redesSociales: {
