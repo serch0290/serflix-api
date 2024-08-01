@@ -48,11 +48,9 @@ const actualizarConfiguracionGeneral = params =>{
     return models.general.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
 }
 
-const actualizarConfiguracionCampoGeneral = params =>{
-    console.log('params: ', params);
-    return models.general.findByIdAndUpdate(params._id,  
-                                            { $set:  params.campo  }, 
-                                            { new: true, runValidators: true });
+const actualizarConfiguracionCampoGeneral = async params =>{
+    return await models.general.updateOne({_id:  mongoose.Types.ObjectId(params._id)},  
+                                          { $set:  params.campo  });
 }
 
 const consultaConfiguracionGeneral = async params => {
