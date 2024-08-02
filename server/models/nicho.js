@@ -37,7 +37,12 @@ const generalSchema = new Schema({
       name: String,
       negrita: Boolean
    }],
-   background: String,
+   background: {
+    value: String,
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean
+   },
    filesProyecto: Boolean,
    logo: {file: String, fileCMS: String},
    icon: {file: String, fileCMS: String},

@@ -157,6 +157,21 @@ const subirModificaciones = async(req, res) =>{
 	}
 }
 
+const pathColorSitio = async(req, res) =>{
+	let data = null;
+	try{
+	  data = req.body;
+	  let general = nichosDao.actualizarConfiguracionCampoGeneral({_id: req.body.general._id, 
+																   campo: {'background.value': data.background,
+																		   'background.local': true}});
+															
+
+	}catch(error){
+	  log.fatal('Metodo: pathColorSitio', error);
+	  res.status(500).send({ error: 'Ocurrió un error al guardar el color del sitio' });
+	}
+}
+
 const patchGeneralSitio = async (req, res) => {
 	try{
 		let response = {};
