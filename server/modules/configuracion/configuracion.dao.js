@@ -22,9 +22,13 @@ const guardarIconNicho = async params =>{
     );
 }
 
+const actualizacionCamposGeneral = async params =>{
+    return await models.general.findByIdAndUpdate(params._id, params.campo, { new: true, runValidators: true });
+}
 
 module.exports = {
     consultaFileRepositorio,
     guardarLogoNicho,
-    guardarIconNicho
+    guardarIconNicho,
+    actualizacionCamposGeneral
 }

@@ -157,18 +157,60 @@ const subirModificaciones = async(req, res) =>{
 	}
 }
 
-const pathColorSitio = async(req, res) =>{
+/**
+ * Se suben los colores y la fuente a local, solo a local
+ * @param {*} res 
+ */
+const actualizarColorFuentes = async(req, res) =>{
 	let data = null;
 	try{
 	  data = req.body;
-	  let general = nichosDao.actualizarConfiguracionCampoGeneral({_id: req.body.general._id, 
-																   campo: {'background.value': data.background,
-																		   'background.local': true}});
-															
+	  
+	  /**
+	   * Generamos los css con los colores del sitio y la fiente tambien
+	   */
+	  let fuente = data.fuentes.find(item=> !item.negrita);
+	  let negrita = data.fuentes.find(item=> item.negrita);
 
+	  let path_nichos = 'server/nichos/' + req.body.nicho;
+	  let dynamicCss = fs.readFileSync('server/templates/dynamic.hbs', 'utf8');
+	  let template = handlebars.compile(dynamicCss);
+	  let content = template({background: data.background, fuente: fuente.file, negrita: negrita.file});
+	  fs.writeFileSync(path_nichos + '/assets/css/dynamic.css', content);
+	  
+	  /**Actualizamos los campos en bd */
+	  let campos = {
+		$set: {
+			'background.value': data.background,
+			'background.local': true
+		},
+		$push: {
+			fuentes: data.fuentes
+		}
+	  }
+
+	  let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campos});
+	  res.status(200).send({general, msj: 'Se creo el archivo dynamic correctamente'});										
 	}catch(error){
 	  log.fatal('Metodo: pathColorSitio', error);
 	  res.status(500).send({ error: 'Ocurrió un error al guardar el color del sitio' });
+	}
+}
+
+const subirModificacionesDEV = async(req, res) =>{
+	try{
+		const commands = req.body.commands;
+		for(let comand of commands){
+			await uploads.subirCarpetasPruebas(comand);
+		}
+
+		const campo = req.body.campo;
+		let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campo});
+		res.status(200).send({general, msj: 'Se subieron los archivos correctamente al ambiente de pruebas'});							
+
+	}catch(error){
+	  log.fatal('Metodo: subirModificacionesDEV', error);
+	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones dev' });
 	}
 }
 
@@ -319,5 +361,7 @@ module.exports = {
 	guardarLogoNicho,
 	guardarIconNicho,
 	generarRouting,
-	subirModificaciones
+	subirModificaciones,
+	actualizarColorFuentes,
+	subirModificacionesDEV
 }

@@ -53,11 +53,6 @@ const actualizarConfiguracionCampoGeneral = async params =>{
                                           { $set:  params.campo  });
 }
 
-const actualizarConfiguracionCampoGeneral2 = async params =>{
-    return await models.general.updateOne({_id:  mongoose.Types.ObjectId(params._id)},  
-                                           params.campo);
-}
-
 const consultaConfiguracionGeneral = async params => {
     return await models.general.findOne({nicho: params.id});
 }
