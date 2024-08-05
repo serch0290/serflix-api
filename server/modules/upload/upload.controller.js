@@ -59,7 +59,7 @@ const upload = async (req, res) =>{
             res.status(200).send({
                 message:        'El archivo se ha subido con éxito.',
                 filename:       saved_filename,
-                url:    path + '/' + saved_filename,
+                url:    path + '/' + path_adicional + saved_filename,
                 path: path,
                 tipo:  tipo
             });

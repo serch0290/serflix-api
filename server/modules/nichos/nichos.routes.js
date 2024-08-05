@@ -7,7 +7,8 @@ routes.post('/guardar/nicho', controller.saveNicho);
 routes.get('/consulta/nicho/:id', controller.getNicho);
 routes.post('/guardar/configuracion/bd/nicho/:id', controller.saveConfigBD);
 routes.post('/test/BD', controller.testBD);
-routes.patch('/crear/estructura/db/:id', controller.crearEstructuraEnBD)
+routes.patch('/crear/estructura/db/:id', controller.crearEstructuraEnBD);
+routes.post('/subir/actualizacion/dev', controller.actualizarCamposBDDev);
 
 
 module.exports = routes;

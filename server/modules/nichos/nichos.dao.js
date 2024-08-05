@@ -1,4 +1,3 @@
-const { addAbortListener } = require('events');
 const conexion = require('../../lib/conexion-mongo');
 const mongoose = conexion.init();
 const models = require('../../models/nicho');
@@ -21,7 +20,7 @@ const consultaConfigBD = async params =>{
 }
 
 const consultaConfigBDbyId = async params =>{
-    return await models.bd.findOne({_id: params.id});
+    return await models.bd.findOne({_id: params.id}, {host: 1, usuario: 1, password: 1, database: 1, _id: 0});
 }
 
 const patchConfigBD = async params =>{

@@ -3,13 +3,14 @@
 // const db = require('../../lib/db');
 // const api = require('../../models/api');
 const nichosDao = require('./nichos.dao');
+const json = require('./../configuracion/configuracion.jsons');
 
 /** Log4js */
 const log4js = require('log4js');
 log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 
-const json = require('./../configuracion/configuracion.jsons');
+const uploads = require('./../configuracion/configuracion.upload');
 
 
 /**
@@ -54,6 +55,7 @@ const getNicho = async (req, res) => {
       let nicho = await nichosDao.consultarNicho(req.params);
       let database = await nichosDao.consultaConfigBD(req.params);
       let general = await nichosDao.consultaConfiguracionGeneral(req.params);
+      console.log('general: ', general);
       res.status(200).send({nicho, database, general});
     } catch (error) {
       console.log('error: ', error);
@@ -78,8 +80,6 @@ const saveConfigBD = async (req, res) => {
        response = await nichosDao.guardarBD(data);
     }
 
-    let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/conexion.json';
-    json.generarJsonNoticia(response, path);
     res.status(200).send(response);
   } catch (error) {
     console.log('error: ', error);
@@ -124,8 +124,18 @@ const crearEstructuraEnBD = async(req, res) =>{
     let dataConexion = await nichosDao.consultaConfigBDbyId({id: params.id});
     let conn = await conexion.conexion(dataConexion);
     if(conn){
+       
+       /**Creamos el json de conexion a BD */
+       let path = 'server/nichos/' + req.body.nicho + '/assets/json/conexion.json';
+       console.log('datos conexion: ', dataConexion);
+       await json.generarJsonNoticia(dataConexion, path);
+       
+       /**
+        * Se crea la estrctura de la tabla en BD
+        */
        let bd = await nichosDao.crearEstructuraBD({conn: conn});
-       let actualizaEstructura = await nichosDao.patchConexionBD2({_id:params.id, estructura: {estructura: true}});  
+       let actualizaEstructura = await nichosDao.patchConexionBD2({_id:params.id, estructura: {estructura: true, ambiente: {local: true}}});  
+        
        res.status(200).send(actualizaEstructura);
     }else{
       res.status(500).send({ error: 'No se pudo realizar la conexión a la base de datos'});
@@ -136,7 +146,25 @@ const crearEstructuraEnBD = async(req, res) =>{
   }
 }
 
+/**
+ * Se sube datos al ambiente de DEV y se actualiza en bd
+ */
+const actualizarCamposBDDev = async(req, res)=>{
+  try{
+    const commands = req.body.commands;
+		for(let comand of commands){
+			await uploads.subirCarpetasPruebas(comand);
+		}
 
+		const campo = req.body.campo;
+		let bd = await nichosDao.patchConfigBD(campo);
+		res.status(200).send({bd, msj: 'Se subieron los archivos correctamente al ambiente de pruebas'});						
+
+  }catch(error){
+    log.fatal('Metodo: actualizarCamposBD ' + JSON.stringify(req.body), error);
+    res.status(500).send({ error: 'Ocurrió un error al actualizar datos del bd', e: error });
+  }
+}
 
 module.exports = {
     getListadoNichos,
@@ -144,6 +172,7 @@ module.exports = {
     getNicho,
     saveConfigBD,
     testBD,
-    crearEstructuraEnBD
+    crearEstructuraEnBD,
+    actualizarCamposBDDev
 }
 

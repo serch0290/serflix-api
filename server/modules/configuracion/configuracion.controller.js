@@ -86,6 +86,12 @@ const generarCapetasProyecto = async(req, res) =>{
 	   fs.mkdirSync(css);
     }
 
+	//Generamos la carpeta de assets/css/components
+	let cssComponents = assets + '/css/components';
+	if (!fs.existsSync(cssComponents)){
+	   fs.mkdirSync(cssComponents);
+    }
+
 	//Generamos la carpeta de assets/css
 	let fonts = assets + '/fonts';
 	if (!fs.existsSync(fonts)){
@@ -114,6 +120,12 @@ const generarCapetasProyecto = async(req, res) =>{
 	let php = assets + '/php';
 	if (!fs.existsSync(php)){
 	     fs.mkdirSync(php);
+    }
+
+	//Generamos la carpeta de assets/css
+	let phpLib = assets + '/php/lib';
+	if (!fs.existsSync(phpLib)){
+	     fs.mkdirSync(phpLib);
     }
 
 	//Generamos la carpeta de componentes
@@ -272,14 +284,22 @@ const subirArchivosProyecto = async(req, res) =>{
 		for(let file of files){
 			try{
 				let pathFile = file.path + file.file;
-				let origen = path.join(path_nichos + 'respositorio' + pathFile);
+				let origen = path.join(path_nichos + 'repositorio' + pathFile);
 				let destino = path.join(path_nichos + req.params.nombre + pathFile);
 				await fs.copyFileSync(origen, destino);
 			}catch(error){
 			 throw error;
 			}
 		}
-		res.status(200).send({status: true});
+
+		let campo = {
+			$set: {
+				'filesProyecto.local': true
+			}
+		}
+
+		let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campo});
+		res.status(200).send({general, status: true});
 	}catch(error){
 	  log.fatal('Metodo: subirArchivosProyecto ' + JSON.stringify(req.body), error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir los archivos del proyecto' });

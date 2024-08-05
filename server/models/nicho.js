@@ -20,6 +20,11 @@ const conexionSchema = new Schema({
     database: String,
     conexion: Boolean,
     estructura: Boolean,
+    ambiente: {
+        local: Boolean,
+        dev: Boolean,
+        prod: Boolean
+    },
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 
@@ -43,9 +48,21 @@ const generalSchema = new Schema({
     dev: Boolean,
     prod: Boolean
    },
-   filesProyecto: Boolean,
-   logo: {file: String, fileCMS: String},
-   icon: {file: String, fileCMS: String},
+   filesProyecto: {
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean
+   },
+   logo: {file: String, 
+          fileCMS: String, 
+          local: Boolean,
+          dev: Boolean,
+          prod: Boolean},
+   icon: {file: String, 
+          fileCMS: String,
+          local: Boolean,
+          dev: Boolean,
+          prod: Boolean},
    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 
