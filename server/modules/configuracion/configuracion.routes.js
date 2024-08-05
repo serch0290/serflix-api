@@ -19,5 +19,7 @@ routes.post('/subir/modificacion', controller.subirModificaciones);
 routes.post('/subir/colores/fuente/:id', controller.actualizarColorFuentes);
 routes.post('/subir/modificaciones/dev/:id', controller.subirModificacionesDEV);
 
+routes.post('/generar/json/logo/icon/:id', controller.generarJSONIconImagen);
+
 module.exports = routes;
 

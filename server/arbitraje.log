@@ -2187,3 +2187,78 @@ Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/s
     at ServerResponse.json (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/response.js:272:14)
     at ServerResponse.send (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/response.js:163:21)
     at subirModificaciones (webpack:///./server/modules/configuracion/configuracion.controller.js?:153:22)
+[2024-08-05T15:33:38.217] [FATAL] arbitraje - Metodo: generarJSONIconImagen {"logo":"prueba_nicho/assets/images/logo.png","icon":"prueba_nicho/assets/images/icon.jpeg","nombre":"prueba_nicho"} ReferenceError: data is not defined
+    at generarJSONIconImagen (webpack:///./server/modules/configuracion/configuracion.controller.js?:379:8)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-05T15:34:16.758] [FATAL] arbitraje - Metodo: generarJSONIconImagen {"logo":"prueba_nicho/assets/images/logo.png","icon":"prueba_nicho/assets/images/icon.jpeg","nombre":"prueba_nicho"} ReferenceError: data is not defined
+    at generarJSONIconImagen (webpack:///./server/modules/configuracion/configuracion.controller.js?:379:8)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-05T16:15:04.033] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} Error: ENOENT: no such file or directory, copyfile 'server/nichos/repositorio/assets/css/components/cookies.css' -> 'server/nichos/prueba_nicho/assets/css/components/cookies.css'
+    at Object.copyFileSync (fs.js:1896:3)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:290:14)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'copyfile',
+  code: 'ENOENT',
+  path: 'server/nichos/repositorio/assets/css/components/cookies.css',
+  dest: 'server/nichos/prueba_nicho/assets/css/components/cookies.css'
+}
+[2024-08-05T16:15:28.476] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} Error: ENOENT: no such file or directory, copyfile 'server/nichos/repositorio/assets/css/components/cookies.css' -> 'server/nichos/prueba_nicho/assets/css/components/cookies.css'
+    at Object.copyFileSync (fs.js:1896:3)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:290:14)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'copyfile',
+  code: 'ENOENT',
+  path: 'server/nichos/repositorio/assets/css/components/cookies.css',
+  dest: 'server/nichos/prueba_nicho/assets/css/components/cookies.css'
+}
+[2024-08-05T16:18:33.183] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} TypeError: file.split is not a function
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:300:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-08-05T16:19:23.822] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} Error: ENOENT: no such file or directory, open 'server/templates/undefined.hbs'
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:302:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/templates/undefined.hbs'
+}
+[2024-08-05T16:19:55.597] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} Error: ENOENT: no such file or directory, open 'server/templates/undefined.hbs'
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:303:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/templates/undefined.hbs'
+}
+[2024-08-05T16:20:31.520] [FATAL] arbitraje - Metodo: subirArchivosProyecto {} Error: ENOENT: no such file or directory, open 'server/templates/undefined.hbs'
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:303:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/templates/undefined.hbs'
+}

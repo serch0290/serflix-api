@@ -63,6 +63,16 @@ const generalSchema = new Schema({
           local: Boolean,
           dev: Boolean,
           prod: Boolean},
+   jsonLogoIco : {
+     local: Boolean,
+     dev: Boolean, 
+     prod: Boolean
+   },
+   routing:{
+    local: Boolean,
+    dev: Boolean, 
+    prod: Boolean
+   },
    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 

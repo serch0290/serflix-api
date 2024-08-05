@@ -12,6 +12,7 @@ const noticiasDao = require('./../blog/blog.dao');
 const path = require('path');
 const handlebars = require('handlebars');
 const uploads = require('./configuracion.upload');
+const json = require('./../configuracion/configuracion.jsons');
 
 
 /**
@@ -278,7 +279,7 @@ const guardarFuenteNicho = async(req, res) =>{
 
 const subirArchivosProyecto = async(req, res) =>{
 	try{
-		const filtro = { tipo: { $eq: 0 } };
+		const filtro = { tipo: { $eq: 0 }, dynamic: { $eq: false }};
 		let files = await consultas.consultaFileRepositorio(filtro);
 		let path_nichos = 'server/nichos/';
 		for(let file of files){
@@ -290,6 +291,17 @@ const subirArchivosProyecto = async(req, res) =>{
 			}catch(error){
 			 throw error;
 			}
+		}
+
+		const filtroDynamic = { tipo: { $eq: 0 }, dynamic: { $eq: true }};
+		let filesDynamic = await consultas.consultaFileRepositorio(filtroDynamic);
+
+		for(let file of filesDynamic){
+			let name = file.file.split('.')[0];
+			let dynamic = fs.readFileSync(`server/templates/${name}.hbs`, 'utf8');
+			let template = handlebars.compile(dynamic);
+			let content = template({nombre: req.params.nombre});
+			fs.writeFileSync(`${path_nichos}${req.params.nombre}${file.path}${file.file}`, content);
 		}
 
 		let campo = {
@@ -349,8 +361,18 @@ const guardarIconNicho = async(req, res) =>{
 		}
 
 		let path = 'server/nichos/' + req.body.proyecto;
-		generarFileRoutingReal(routing, path);
-		res.status(200).send({msj: 'Archivo routing generado correctamente'});
+		await generarFileRoutingReal(routing, path);
+
+		/**Actualizamos los campos en bd */
+		let campo = {
+			$set: {
+				'routing.local': true
+			}
+		}
+
+		console.log('datos actualizacion: ', req.params, campo);
+		let general = await consultas.actualizacionCamposGeneral({_id: req.body.id, campo: campo});
+		res.status(200).send({general, msj: 'Archivo routing generado correctamente'});
 	}catch(error){
 		log.fatal('Metodo: generarRouring ' + JSON.stringify(req.body), error);
 	   res.status(500).send({ error: 'Ocurrió un error al generar las rutas del proyecto' });
@@ -372,6 +394,33 @@ const generarFileRoutingReal = async (entradas, path) => {
 	fs.writeFileSync(path + '/routing.php', html);
   }
 
+  const generarJSONIconImagen = async(req, res) =>{
+	try{
+		let params = req.body;
+		let data = {
+			logo: params.logo,
+			icon: params.icon
+		}
+
+		let path = 'server/nichos/' + params.nombre + '/assets/json/configuracionGeneral.json';
+		console.log('path', path);
+		json.generarJsonNoticia(data, path);
+
+		/**Actualizamos los campos en bd */
+		let campos = {
+			$set: {
+				'jsonLogoIco.local': true
+			}
+		}
+
+		let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campos});
+		res.status(200).send({general, msj: 'Se creo el archivo icon y imagen'});	
+	}catch(error){
+	   log.fatal('Metodo: generarJSONIconImagen ' + JSON.stringify(req.body), error);
+	   res.status(500).send({ error: 'Ocurrió un error al generar json de imagen e icono' });
+	}
+  }
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
@@ -383,5 +432,6 @@ module.exports = {
 	generarRouting,
 	subirModificaciones,
 	actualizarColorFuentes,
-	subirModificacionesDEV
+	subirModificacionesDEV,
+	generarJSONIconImagen
 }
