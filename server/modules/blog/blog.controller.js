@@ -119,8 +119,6 @@ const guardarCategoriaBlog = async(req, res) =>{
       let home = req.body.home;
       let noticia = null;
       
-      
-
       let menu = [];
       let pathMenu = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/menu.json';
       json.generarJsonNoticia(menu, pathMenu);
