@@ -137,6 +137,9 @@ const homeSchema = new Schema({
     type: Schema.Types.Mixed
    },
    paginador: Boolean,
+   dev: Boolean,
+   local: Boolean,
+   prod: Boolean,
    categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
 })
 

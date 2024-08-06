@@ -2262,3 +2262,103 @@ Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/s
   code: 'ENOENT',
   path: 'server/templates/undefined.hbs'
 }
+[2024-08-06T15:50:54.268] [FATAL] arbitraje - Metodo: crearEstructuraEnBD {"nicho":"prueba_nicho_ofi"} Error: ENOENT: no such file or directory, open 'server/nichos/prueba_nicho_ofi/assets/json/conexion.json'
+    at Object.openSync (fs.js:462:3)
+    at Object.writeFileSync (fs.js:1375:35)
+    at Object.generarJsonNoticia (webpack:///./server/modules/configuracion/configuracion.jsons.js?:11:12)
+    at crearEstructuraEnBD (webpack:///./server/modules/nichos/nichos.controller.js?:131:19)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/nichos/prueba_nicho_ofi/assets/json/conexion.json'
+}
+[2024-08-06T16:13:07.147] [FATAL] arbitraje - Metodo: subirModificacionesDEV CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "General"
+    at model.Query.exec (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:4921:21)
+    at model.Query.Query.then (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5020:15) {
+  messageFormat: undefined,
+  stringValue: '"undefined"',
+  kind: 'ObjectId',
+  value: 'undefined',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/error.js:41:28)
+      at new ObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/objectid.js:67:23)
+      at castObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1651:15)
+      at ObjectId.SchemaType.castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1639:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1615:20)
+      at cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast.js:346:32)
+      at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
+  valueType: 'string'
+}
+[2024-08-06T16:13:48.824] [FATAL] arbitraje - Metodo: subirModificacionesDEV CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "General"
+    at model.Query.exec (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:4921:21)
+    at model.Query.Query.then (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5020:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  messageFormat: undefined,
+  stringValue: '"undefined"',
+  kind: 'ObjectId',
+  value: 'undefined',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/error.js:41:28)
+      at new ObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/objectid.js:67:23)
+      at castObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1651:15)
+      at ObjectId.SchemaType.castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1639:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1615:20)
+      at cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast.js:346:32)
+      at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
+  valueType: 'string'
+}
+[2024-08-06T17:01:53.250] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"Home","url":"/","home":true,"breadcrumb":[{"name":"Inicio","link":"/prueba_nicho_ofi"},{}],"nicho":"66b28bbb5a6e83891e3429e6"},"nicho":{"nombre":"prueba_nicho_ofi"}}66b28bbb5a6e83891e3429e6 TypeError: Cannot read property 'insertId' of null
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:31:35)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-06T17:09:50.013] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"Home","url":"/","home":true,"breadcrumb":[{"name":"Inicio","link":"/prueba_nicho_ofi"},{}],"nicho":"66b28bbb5a6e83891e3429e6"},"nicho":{"nombre":"prueba_nicho_ofi"}}66b28bbb5a6e83891e3429e6 TypeError: Cannot read property 'insertId' of null
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:33:35)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-06T17:10:35.859] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"Home","url":"/","home":true,"breadcrumb":[{"name":"Inicio","link":"/prueba_nicho_ofi"},{}],"nicho":"66b28bbb5a6e83891e3429e6"},"nicho":{"nombre":"prueba_nicho_ofi"}}66b28bbb5a6e83891e3429e6 TypeError: Cannot read property 'insertId' of null
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:34:35)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-06T17:10:44.058] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"idSQL":0,"noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"h1":"Home","title":"Home","url":"/","home":true,"breadcrumb":[{"name":"Inicio","link":"/prueba_nicho_ofi"},{}],"nicho":"66b28bbb5a6e83891e3429e6"},"nicho":{"nombre":"prueba_nicho_ofi"}}66b28bbb5a6e83891e3429e6 TypeError: Cannot read property 'insertId' of null
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:34:35)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)

@@ -25,10 +25,10 @@ const guardarCategoriaBlog = async(req, res) =>{
         let conn = await conexion.conexion(dataConexion);
         if(conn){
            categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
+           data.idSQL = categoriaMysql.insertId;
         }
       }
-      
-      data.idSQL = categoriaMysql.insertId;
+   
       let categoria = await consultas.guardarCategoriaBlog(data);
      
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
@@ -118,11 +118,23 @@ const guardarCategoriaBlog = async(req, res) =>{
    try{
       let home = req.body.home;
       let noticia = null;
+      
+      
+
+      let menu = [];
+      let pathMenu = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/menu.json';
+      json.generarJsonNoticia(menu, pathMenu);
+
+      let footer = [];
+      let pathFooter = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/footer.json';
+      json.generarJsonNoticia(footer, pathFooter);
+
       if(!home._id){
          noticia = await consultas.guardarHome(home);
       }else{
          noticia = await consultas.actualizarHome(home);
       }
+
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home.json';
       json.generarJsonNoticia(noticia, path);
       res.status(200).send(noticia);
