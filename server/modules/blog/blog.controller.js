@@ -9,7 +9,7 @@ const consultas  = require('./blog.dao');
 const nichosDao = require('./../nichos/nichos.dao');
 const json = require('./../configuracion/configuracion.jsons');
 const daoMysql = require('../nichos/nichos-mysql.dao');
-
+const uploads = require('./../configuracion/configuracion.upload');
 
 const guardarCategoriaBlog = async(req, res) =>{
     try{
@@ -132,7 +132,7 @@ const guardarCategoriaBlog = async(req, res) =>{
       }else{
          noticia = await consultas.actualizarHome(home);
       }
-
+      
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home.json';
       json.generarJsonNoticia(noticia, path);
       res.status(200).send(noticia);
@@ -175,6 +175,31 @@ const guardarCategoriaBlog = async(req, res) =>{
       res.status(500).send({ error: 'Ocurrió un error al guardar la busqueda' });
    }
  }
+
+ const actualizarCategoria = async(req, res) =>{
+   try{
+      let categoria = await consultas.actualizarCategoria(req.body.campos);
+      res.status(200).send(categoria);
+   }catch(error){
+      log.fatal('Metodo: actualizarCategoria ' + JSON.stringify(req.body), error);
+      res.status(500).send({ error: 'Ocurrió un error al actualizar datos de la categoria' });
+   }
+ }
+
+ const subirModificacionesCategoria = async(req, res) =>{
+	try{
+		for(let command of req.body.commands){
+         await uploads.subirCarpetasPruebas(command);
+      }
+		
+		let categoria = await consultas.actualizarCategoria(req.body.campos);
+	    res.status(200).send({categoria, msj: 'Se subieron carpetas a pruebas correctamente'});
+	}catch(error){
+	  log.fatal('Metodo: subirModificaciones', error);
+	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones a dev o prod' });
+	}
+}
+
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
@@ -184,5 +209,7 @@ const guardarCategoriaBlog = async(req, res) =>{
     consultaNoticiaById,
     saveHomeConfiguracion,
     consultahomeConfiguracion,
-    saveBuscadorConfiguracion
+    saveBuscadorConfiguracion,
+    actualizarCategoria,
+    subirModificacionesCategoria
  }

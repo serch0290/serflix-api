@@ -2362,3 +2362,49 @@ Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/s
     at param (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:421:3)
     at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-08-07T16:21:01.669] [FATAL] arbitraje - Metodo: actualizarCategoria {"campo":{"_id":"66b29ffb3b1ff98650805a46","$set":{"local":true}}} TypeError: Cannot read property '_id' of undefined
+    at Object.actualizarCategoria (webpack:///./server/modules/blog/blog.dao.js?:58:60)
+    at actualizarCategoria (webpack:///./server/modules/blog/blog.controller.js?:181:39)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+[2024-08-07T16:24:09.070] [FATAL] arbitraje - Metodo: actualizarCategoria {"campo":{"_id":"66b29ffb3b1ff98650805a46","$set":{"local":true}}} TypeError: Cannot read property '_id' of undefined
+    at Object.actualizarCategoria (webpack:///./server/modules/blog/blog.dao.js?:59:60)
+    at actualizarCategoria (webpack:///./server/modules/blog/blog.controller.js?:181:39)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+[2024-08-07T16:51:54.959] [FATAL] arbitraje - Metodo: subirModificaciones ReferenceError: uploads is not defined
+    at subirModificacionesCategoria (webpack:///./server/modules/blog/blog.controller.js?:192:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-08-07T16:53:46.916] [FATAL] arbitraje - Metodo: subirModificaciones TypeError [ERR_INVALID_ARG_TYPE]: The "file" argument must be of type string. Received an instance of Array
+    at validateString (internal/validators.js:121:11)
+    at normalizeSpawnArguments (child_process.js:406:3)
+    at spawn (child_process.js:546:13)
+    at Object.execFile (child_process.js:232:17)
+    at exec (child_process.js:153:25)
+    at eval (webpack:///./server/modules/configuracion/configuracion.upload.js?:6:13)
+    at new Promise (<anonymous>)
+    at Object.subirCarpetasPruebas (webpack:///./server/modules/configuracion/configuracion.upload.js?:2:12)
+    at subirModificacionesCategoria (webpack:///./server/modules/blog/blog.controller.js?:192:17)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5) {
+  code: 'ERR_INVALID_ARG_TYPE'
+}

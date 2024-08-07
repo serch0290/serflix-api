@@ -14,8 +14,8 @@ const nichoSchema = new Schema({
 const nicho = mongoose.model('Nicho', nichoSchema);
 
 const conexionSchema = new Schema({
-    host: String,
-    usuario: String,
+    server: String,
+    username: String,
     password: String,
     database: String,
     conexion: Boolean,
@@ -105,6 +105,9 @@ const categoriaSchema = new Schema({
     intereses: {
         title: String
     },
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean,
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 
@@ -137,9 +140,6 @@ const homeSchema = new Schema({
     type: Schema.Types.Mixed
    },
    paginador: Boolean,
-   dev: Boolean,
-   local: Boolean,
-   prod: Boolean,
    categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
 })
 

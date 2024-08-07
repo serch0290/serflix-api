@@ -54,6 +54,11 @@ const getBuscador = async params =>{
     return await models.buscador.findOne({categoria: params.id}).lean();
 }
 
+const actualizarCategoria = async params =>{
+    console.log('params: ', params);
+    return await models.categoria.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
 module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategorias,
@@ -67,5 +72,6 @@ module.exports = {
     actualizarHome,
     guardarBuscador,
     actualizarBuscador,
-    getBuscador
+    getBuscador,
+    actualizarCategoria
 }

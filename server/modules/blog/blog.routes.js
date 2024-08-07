@@ -13,5 +13,9 @@ routes.post('/guardar/home', controller.saveHomeConfiguracion);
 routes.get('/consulta/home/:id', controller.consultahomeConfiguracion);
 routes.post('/guardar/busqueda', controller.saveBuscadorConfiguracion);
 
+//categoria
+routes.post('/actualizar/datos/categoria', controller.actualizarCategoria);
+routes.post('/subir/modificaciones/categoria', controller.subirModificacionesCategoria);
+
 module.exports = routes;
 
