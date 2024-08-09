@@ -8,7 +8,12 @@ const guardarFile = params =>{
     return models.files.create(params);
 }
 
+const actualizarFile = async params =>{
+    return await models.files.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
 module.exports = {
     listadoFiles,
-    guardarFile
+    guardarFile,
+    actualizarFile
 }

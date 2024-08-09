@@ -2408,3 +2408,31 @@ Instead change the require of index.js in /Users/sergio/Documents/admin-nichos/s
     at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5) {
   code: 'ERR_INVALID_ARG_TYPE'
 }
+[2024-08-09T14:09:12.605] [FATAL] arbitraje - Metodo: saveFile {"command":"cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/portada.php","campo":{"_id":"66af09bf6918d931fad8429c","$set":{"local":true}}} Error: Command failed: cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/portada.php
+cp: server/nichos/repositorio/prueba_nicho_ofi/componentes/portada.php: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/portada.php'
+}
+[2024-08-09T14:10:53.320] [FATAL] arbitraje - Metodo: saveFile {"command":"cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/","campo":{"_id":"66af09bf6918d931fad8429c","$set":{"local":true}}} Error: Command failed: cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/
+cp: directory server/nichos/repositorio/prueba_nicho_ofi/componentes does not exist
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/repositorio/componentes/portada.php server/nichos/repositorio/prueba_nicho_ofi/componentes/'
+}

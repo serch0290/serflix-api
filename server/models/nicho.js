@@ -83,6 +83,10 @@ const filesSchema =  new Schema({
     dynamic: Boolean,
     tipo: Number,
     path: String,
+    repo: Boolean,
+    local: Boolean,
+    dev: Boolean, 
+    prod: Boolean,
     estatus: {
         type: Boolean,
         default: true

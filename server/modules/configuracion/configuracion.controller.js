@@ -195,7 +195,9 @@ const actualizarColorFuentes = async(req, res) =>{
 	  let campos = {
 		$set: {
 			'background.value': data.background,
-			'background.local': true
+			'background.local': true,
+			'background.dev': false,
+			'background.prod': false
 		},
 		$push: {
 			fuentes: data.fuentes
