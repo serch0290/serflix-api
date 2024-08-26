@@ -2482,3 +2482,14 @@ cp: directory server/nichos/repositorio/prueba_nicho_ofi/componentes does not ex
       at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
   valueType: 'string'
 }
+[2024-08-25T23:24:39.113] [FATAL] arbitraje - Metodo: generarCapetasProyecto TypeError: Cannot set properties of undefined (setting 'local')
+    at generarCapetasProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:145:26)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)

@@ -423,6 +423,18 @@ const generarFileRoutingReal = async (entradas, path) => {
 	}
   }
 
+  /**
+   * Se elimina la configuracion general
+   */
+  const eliminarConfiguracionGeneralNicho = async(req, res) =>{
+	 try{
+		
+	 }catch(error){
+		log.fatal('Metodo: generarJSONIconImagen ' + JSON.stringify(req.body), error);
+		res.status(500).send({ error: 'Ocurrió un error al eliminar la configuracion' });
+	 }
+  }
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
@@ -435,5 +447,6 @@ module.exports = {
 	subirModificaciones,
 	actualizarColorFuentes,
 	subirModificacionesDEV,
-	generarJSONIconImagen
+	generarJSONIconImagen,
+	eliminarConfiguracionGeneralNicho
 }
