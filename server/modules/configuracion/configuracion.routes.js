@@ -21,5 +21,7 @@ routes.post('/subir/modificaciones/dev/:id', controller.subirModificacionesDEV);
 
 routes.post('/generar/json/logo/icon/:id', controller.generarJSONIconImagen);
 
+routes.post('/eliminar/configuracion/genera', controller.eliminarConfiguracionGeneralNicho);
+
 module.exports = routes;
 

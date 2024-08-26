@@ -150,7 +150,7 @@ const generarCapetasProyecto = async(req, res) =>{
 		response = await nichosDao.guardarConfiguracionGeneral(req.body);
 	}
 	
-	res.status(200).send({response, msj: 'Carpeta creada correctamente'});
+	res.status(200).send(response);
    }catch(error){
 	log.fatal('Metodo: generarCapetasProyecto', error);
 	res.status(500).send({ error: 'Ocurrió un error al generar las carpeta contenedoras del proyecto' });
@@ -428,9 +428,14 @@ const generarFileRoutingReal = async (entradas, path) => {
    */
   const eliminarConfiguracionGeneralNicho = async(req, res) =>{
 	 try{
-		
+		let params = req.body;
+		console.log('params: ', params);
+		await consultas.eliminarConfiguracionGeneral(params);
+		fs.rmdirSync('server/nichos/' + params.nombre, { recursive: true, force: true });
+		await uploads.subirCarpetasPruebas(params.command);
+		res.status(200).send({msj: 'Se elimino configuracion general del nicho'});	
 	 }catch(error){
-		log.fatal('Metodo: generarJSONIconImagen ' + JSON.stringify(req.body), error);
+		log.fatal('Metodo: eliminarConfiguracionGeneralNicho ' + JSON.stringify(req.body), error);
 		res.status(500).send({ error: 'Ocurrió un error al eliminar la configuracion' });
 	 }
   }

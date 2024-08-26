@@ -26,9 +26,14 @@ const actualizacionCamposGeneral = async params =>{
     return await models.general.findByIdAndUpdate(params._id, params.campo, { new: true, runValidators: true });
 }
 
+const eliminarConfiguracionGeneral = async params=>{
+    return await models.general.deleteOne({_id: params.id});
+}
+
 module.exports = {
     consultaFileRepositorio,
     guardarLogoNicho,
     guardarIconNicho,
-    actualizacionCamposGeneral
+    actualizacionCamposGeneral,
+    eliminarConfiguracionGeneral
 }

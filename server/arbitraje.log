@@ -2493,3 +2493,57 @@ cp: directory server/nichos/repositorio/prueba_nicho_ofi/componentes does not ex
     at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+[2024-08-26T13:37:35.725] [FATAL] arbitraje - Metodo: generarJSONIconImagen {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at makeCallback (fs.js:156:11)
+    at Object.rmdir (fs.js:838:14)
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:433:12)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_INVALID_CALLBACK'
+}
+[2024-08-26T13:39:13.315] [FATAL] arbitraje - Metodo: generarJSONIconImagen {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at makeCallback (fs.js:156:11)
+    at Object.rmdir (fs.js:838:14)
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:433:12)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_INVALID_CALLBACK'
+}
+[2024-08-26T13:40:29.984] [FATAL] arbitraje - Metodo: eliminarConfiguracionGeneralNicho {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+    at makeCallback (fs.js:156:11)
+    at Object.rmdir (fs.js:838:14)
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:434:12)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ERR_INVALID_CALLBACK'
+}
+[2024-08-26T13:41:59.229] [FATAL] arbitraje - Metodo: eliminarConfiguracionGeneralNicho {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} Error: ENOTEMPTY: directory not empty, rmdir 'server/nichos/prueba_nicho_ofi'
+    at Object.rmdirSync (fs.js:863:3)
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:434:12)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -66,
+  syscall: 'rmdir',
+  code: 'ENOTEMPTY',
+  path: 'server/nichos/prueba_nicho_ofi'
+}
+[2024-08-26T13:47:28.237] [FATAL] arbitraje - Metodo: eliminarConfiguracionGeneralNicho {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} TypeError: fs.rm is not a function
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:434:12)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-08-26T13:48:52.626] [FATAL] arbitraje - Metodo: eliminarConfiguracionGeneralNicho {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} TypeError: fs.rmSync is not a function
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:434:6)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-08-26T13:50:46.150] [FATAL] arbitraje - Metodo: eliminarConfiguracionGeneralNicho {"id":"66b28d4a5a6e83891e3429f0","nombre":"prueba_nicho_ofi","command":"rm -rf /Applications/XAMPP/htdocs/prueba_nicho_ofi"} ReferenceError: general is not defined
+    at eliminarConfiguracionGeneralNicho (webpack:///./server/modules/configuracion/configuracion.controller.js?:436:25)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-08-26T18:06:22.074] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/componentes/about-us.php /Applications/XAMPP/htdocs/prueba_nicho_ofi/componentes/about-us.php
+cp: server/nichos/prueba_nicho_ofi/componentes/about-us.php: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/componentes/about-us.php /Applications/XAMPP/htdocs/prueba_nicho_ofi/componentes/about-us.php'
+}
