@@ -2547,3 +2547,17 @@ cp: server/nichos/prueba_nicho_ofi/componentes/about-us.php: No such file or dir
   signal: null,
   cmd: 'cp server/nichos/prueba_nicho_ofi/componentes/about-us.php /Applications/XAMPP/htdocs/prueba_nicho_ofi/componentes/about-us.php'
 }
+[2024-08-28T16:26:38.043] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/componentes/about-us.php /Applications/XAMPP/htdocs/prueba_nicho_ofi/componentes/about-us.php
+cp: server/nichos/prueba_nicho_ofi/componentes/about-us.php: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/componentes/about-us.php /Applications/XAMPP/htdocs/prueba_nicho_ofi/componentes/about-us.php'
+}
