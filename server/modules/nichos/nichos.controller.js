@@ -127,7 +127,6 @@ const crearEstructuraEnBD = async(req, res) =>{
        
        /**Creamos el json de conexion a BD */
        let path = 'server/nichos/' + req.body.nicho + '/assets/json/conexion.json';
-       console.log('datos conexion: ', dataConexion);
        await json.generarJsonNoticia(dataConexion, path);
        
        /**
@@ -142,6 +141,27 @@ const crearEstructuraEnBD = async(req, res) =>{
     }
   }catch(error){
     log.fatal('Metodo: crearEstructuraEnBD ' + JSON.stringify(req.body), error);
+    res.status(500).send({ error: 'Ocurrió un error al crear la estructura en BD', e: error });
+  }
+}
+
+const generarArchivoConexionLocal = async(req, res)=>{
+  let params = null;
+
+  try{
+    params = req.params;
+    let dataConexion = await nichosDao.consultaConfigBDbyId({id: params.id});
+
+    console.log('dataconexion: ', dataConexion);
+
+     /**Creamos el json de conexion a BD */
+     let path = 'server/nichos/' + req.body.nicho + '/assets/json/conexion.json';
+     await json.generarJsonNoticia(dataConexion, path);
+
+     let actualizaEstructura = await nichosDao.patchConexionBD2({_id:params.id, estructura: {ambiente: {local: true, dev: false, prod: false}}});  
+     res.status(200).send(actualizaEstructura);
+  }catch(error){
+    log.fatal('Metodo: generarArchivoConexionLocal ' + JSON.stringify(req.body), error);
     res.status(500).send({ error: 'Ocurrió un error al crear la estructura en BD', e: error });
   }
 }
@@ -173,6 +193,7 @@ module.exports = {
     saveConfigBD,
     testBD,
     crearEstructuraEnBD,
-    actualizarCamposBDDev
+    actualizarCamposBDDev,
+    generarArchivoConexionLocal
 }
 

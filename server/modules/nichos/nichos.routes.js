@@ -9,6 +9,7 @@ routes.post('/guardar/configuracion/bd/nicho/:id', controller.saveConfigBD);
 routes.post('/test/BD', controller.testBD);
 routes.patch('/crear/estructura/db/:id', controller.crearEstructuraEnBD);
 routes.post('/subir/actualizacion/dev', controller.actualizarCamposBDDev);
+routes.post('/generar/file/conexion/local/:id', controller.generarArchivoConexionLocal);
 
 
 module.exports = routes;
