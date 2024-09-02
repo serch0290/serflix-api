@@ -122,9 +122,9 @@ const crearEstructuraEnBD = async(req, res) =>{
     params = req.params;
     const conexion = require('../../lib/conexion-mysql');
     let dataConexion = await nichosDao.consultaConfigBDbyId({id: params.id});
+    dataConexion.port = '3306';
     let conn = await conexion.conexion(dataConexion);
     if(conn){
-       
        /**Creamos el json de conexion a BD */
        let path = 'server/nichos/' + req.body.nicho + '/assets/json/conexion.json';
        await json.generarJsonNoticia(dataConexion, path);
@@ -133,6 +133,7 @@ const crearEstructuraEnBD = async(req, res) =>{
         * Se crea la estrctura de la tabla en BD
         */
        let bd = await nichosDao.crearEstructuraBD({conn: conn});
+       console.log('bd: ', bd);
        let actualizaEstructura = await nichosDao.patchConexionBD2({_id:params.id, estructura: {estructura: true, ambiente: {local: true}}});  
         
        res.status(200).send(actualizaEstructura);

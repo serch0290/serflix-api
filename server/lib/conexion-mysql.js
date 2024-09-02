@@ -1,13 +1,17 @@
 var mysql = require('mysql');
 
-const conexion =  (data) =>{
+const conexion =  async (data) =>{
+   try{
     var connection = mysql.createPool({
-      host     : data.host,
-      user     : data.usuario,
+      host     : data.server,
+      user     : data.username,
       password : data.password,
       database : data.database
     });
     return connection;
+  }catch(error){
+    throw error;
+  }
 }
 
 module.exports = { conexion }

@@ -368,11 +368,12 @@ const guardarIconNicho = async(req, res) =>{
 		/**Actualizamos los campos en bd */
 		let campo = {
 			$set: {
-				'routing.local': true
+				'routing.local': true,
+				'routing.dev': false,
+				'routing.pro': false
 			}
 		}
 
-		console.log('datos actualizacion: ', req.params, campo);
 		let general = await consultas.actualizacionCamposGeneral({_id: req.body.id, campo: campo});
 		res.status(200).send({general, msj: 'Archivo routing generado correctamente'});
 	}catch(error){
@@ -411,7 +412,9 @@ const generarFileRoutingReal = async (entradas, path) => {
 		/**Actualizamos los campos en bd */
 		let campos = {
 			$set: {
-				'jsonLogoIco.local': true
+				'jsonLogoIco.local': true,
+				'jsonLogoIco.dev': false,
+				'jsonLogoIco.prod': false,
 			}
 		}
 

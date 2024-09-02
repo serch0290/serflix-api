@@ -70,11 +70,13 @@ const crearEstructuraBD = async params =>{
     const sqlScript = fs.readFileSync('./server/nichos/repositorio/assets/php/lib/estructura-bd.sql', 'utf8');
     const sqlStatements = sqlScript.split(';');
 
-    return new Promise( async (resolve, reject) => {
-        let result;
+    return await new Promise( async (resolve, reject) => {
+        let result, i = 0;
         for(let statement of sqlStatements){
             if (statement.trim() !== '') {
+                console.log('AHaz el putro query');
                 await params.conn.query(statement, {}, (error, result) => {
+                    console.log('error: ', error, result);
                     if (error) reject(error);
                     result = result;
                 });

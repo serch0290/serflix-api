@@ -1,7 +1,4 @@
 <?php 
-    ini_set('display_errors', '1');
-    ini_set('display_startup_errors', '1');
-    error_reporting(E_ALL);
     require_once('assets/php/lib/Conexion.php');
 
     $request = $_SERVER["REQUEST_URI"];
@@ -52,6 +49,9 @@
     $totalNoticias = count($rowNoticiasCompleto);
 
     if(!empty($home->noticias_style1) && !empty($home->noticias_style1->pagination)) $home->noticias_style1->pagination->total = $totalNoticias;
+    
+    /**Se guarda h1 en variable */
+    $h1 = $home->h1;
 
     /**Se valida si tiene paginación */
     if(!empty($isPagination)){

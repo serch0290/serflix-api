@@ -17,7 +17,7 @@ const guardarCategoriaBlog = async(req, res) =>{
      data.nicho = req.params.id;
 
      /**
-      * guardar Categoria en mysql
+      * guardar Categoria en mysql excepto cuando sea de home, esa no necesita
       */
      if(!data.home){
         let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
@@ -30,9 +30,12 @@ const guardarCategoriaBlog = async(req, res) =>{
       }
    
       let categoria = await consultas.guardarCategoriaBlog(data);
-     
-      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
-      json.generarJsonNoticia(categoria, path);
+      
+      if(!data.home){
+         let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
+         json.generarJsonNoticia(categoria, path);
+      }
+      
       res.status(200).send(categoria);
     }catch(error){
        log.fatal('Metodo: guardarCategoriaBlog ' + JSON.stringify(req.body) + req.params.id, error);
