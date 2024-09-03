@@ -355,10 +355,12 @@ const guardarIconNicho = async(req, res) =>{
 		routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
 
 		for(let categoria of categorias){
-			routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
-			categoria.noticias = await noticiasDao.consultaListadoNoticias({id: categoria._id});
-			for(let noticia of categoria.noticias){
-				routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+			if(!categoria.home){
+				routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
+				categoria.noticias = await noticiasDao.consultaListadoNoticias({id: categoria._id});
+				for(let noticia of categoria.noticias){
+					routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+				}
 			}
 		}
 

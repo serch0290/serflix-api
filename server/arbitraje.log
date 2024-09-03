@@ -2845,3 +2845,31 @@ cp: directory /Applications/XAMPP/htdocs/programacion/componentes does not exist
   signal: null,
   cmd: 'cp server/nichos/programacion/componentes/noticias-style1.php /Applications/XAMPP/htdocs/programacion/componentes/'
 }
+[2024-09-03T17:31:04.341] [FATAL] arbitraje - Metodo: subirModificaciones Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/json/busqueda.json /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/json
+cp: server/nichos/prueba_nicho_ofi/assets/json/busqueda.json: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/json/busqueda.json /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/json'
+}
+[2024-09-03T17:31:31.806] [FATAL] arbitraje - Metodo: subirModificaciones Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/json/busqueda.json /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/json
+cp: server/nichos/prueba_nicho_ofi/assets/json/busqueda.json: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/json/busqueda.json /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/json'
+}
