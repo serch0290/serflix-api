@@ -158,6 +158,15 @@ const schemaBuscador = new Schema({
 
 const buscador = mongoose.model('Buscador', schemaBuscador);
 
+const shcemaMenu = new Schema({
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    menu: {
+        type: Schema.Types.Mixed
+    }
+});
+
+const menu = mongoose.model('menu', shcemaMenu);
+
 module.exports = {
     nicho,
     bd,
@@ -166,5 +175,6 @@ module.exports = {
     categoria,
     noticia,
     home,
-    buscador
+    buscador,
+    menu
 }
