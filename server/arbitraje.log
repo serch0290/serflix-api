@@ -2873,3 +2873,29 @@ cp: server/nichos/prueba_nicho_ofi/assets/json/busqueda.json: No such file or di
   signal: null,
   cmd: 'cp server/nichos/prueba_nicho_ofi/assets/json/busqueda.json /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/json'
 }
+[2024-09-09T17:04:30.574] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:25:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-09-09T17:14:05.800] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} ReferenceError: Cannot access 'data' before initialization
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:22:20)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-09-09T17:14:43.880] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:25:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-09-09T17:15:30.364] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:26:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-09-09T17:16:21.481] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:26:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-09-09T17:21:58.481] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
+    at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:26:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
