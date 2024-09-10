@@ -160,6 +160,9 @@ const buscador = mongoose.model('Buscador', schemaBuscador);
 
 const shcemaMenu = new Schema({
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean,
     menu: {type: [Schema.Types.Mixed]}
 });
 
