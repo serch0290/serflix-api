@@ -33,14 +33,10 @@ const json = require('./../configuracion/configuracion.jsons');
           response = await consultas.guardarMenu(menu);
         }
 
-        let menu = {
-            name: response.name,
-            url: response.url
-        }
 
         //Generamos el json de la pagina del menu
         let path = 'server/nichos/' + req.body.nombre + '/assets/json/menu.json';
-        json.generarJsonNoticia(menu, path);
+        json.generarJsonNoticia(response.menu, path);
 
         res.status(200).send(response);
     } catch (error) {

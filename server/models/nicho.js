@@ -168,6 +168,16 @@ const shcemaMenu = new Schema({
 
 const menu = mongoose.model('menu', shcemaMenu);
 
+const schemaFooter = new Schema({
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean,
+    footer: {type: [Schema.Types.Mixed]}
+});
+
+const footer = mongoose.model('footer', schemaFooter);
+
 module.exports = {
     nicho,
     bd,
@@ -177,5 +187,6 @@ module.exports = {
     noticia,
     home,
     buscador,
-    menu
+    menu,
+    footer
 }
