@@ -2899,3 +2899,25 @@ cp: server/nichos/prueba_nicho_ofi/assets/json/busqueda.json: No such file or di
 [2024-09-09T17:21:58.481] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"66b28bbb5a6e83891e3429e6","menu":{"name":"Perros","url":"/perros"}} TypeError: Assignment to constant variable.
     at saveMenu (webpack:///./server/modules/menus/menus.controller.js?:26:20)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-09-15T17:09:29.239] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: req.body.commands is not iterable
+    at subirModificacionesMenu (webpack:///./server/modules/footer/footer.controller.js?:70:41)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-09-15T17:10:45.510] [FATAL] arbitraje - Metodo: subirModificacionesMenu ReferenceError: uploads is not defined
+    at subirModificacionesMenu (webpack:///./server/modules/footer/footer.controller.js?:71:17)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)

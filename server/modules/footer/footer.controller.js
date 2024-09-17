@@ -4,6 +4,7 @@ log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 const consultas  = require('./footer.dao');
 const json = require('./../configuracion/configuracion.jsons');
+const uploads = require('./../configuracion/configuracion.upload');
 
 /**
  *
@@ -67,7 +68,7 @@ const json = require('./../configuracion/configuracion.jsons');
    const subirModificacionesMenu = async(req, res) =>{
         try{
             let id = req.params.id;
-            for(let command of req.body.commands){
+            for(let command of req.body.comandos){
                 await uploads.subirCarpetasPruebas(command);
             }
             
