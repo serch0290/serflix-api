@@ -178,6 +178,14 @@ const schemaFooter = new Schema({
 
 const footer = mongoose.model('footer', schemaFooter);
 
+const schemaAutor = new Schema({
+    autor: String,
+    descripcion: String,
+    img: String
+});
+
+const autor = mongoose.model('autor', schemaAutor);
+
 module.exports = {
     nicho,
     bd,
@@ -188,5 +196,6 @@ module.exports = {
     home,
     buscador,
     menu,
-    footer
+    footer,
+    autor
 }

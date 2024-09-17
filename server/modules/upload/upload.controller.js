@@ -40,8 +40,13 @@ const upload = async (req, res) =>{
               copiarArchivoCMS(id, path_adicional, saved_filename, file);
               break;
             case '4':
-                url = `server/nichos/${path}/`;
+              url = `server/nichos/${path}/`;
+              copiarArchivoCMS(id, path, saved_filename, file);
+              break;
+            case '5':
+                url = `server/nichos/autores/${path}/`;
                 copiarArchivoCMS(id, path, saved_filename, file);
+              break;
         }
 
         if (!fs.existsSync(url)){
