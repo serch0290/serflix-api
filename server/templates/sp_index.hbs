@@ -22,7 +22,15 @@
                             (SELECT Imgn_Url 
                             FROM Srfl_Imagenes 
                             WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
-                            AND Imgn_IDResolucion = 2 AND Imgn_Estatus = 1) imagen300,
+                            AND Imgn_IDResolucion = 2 AND Imgn_Estatus = 1) imagen1024,
+                            (SELECT Imgn_Url 
+                            FROM Srfl_Imagenes 
+                            WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
+                            AND Imgn_IDResolucion = 3 AND Imgn_Estatus = 1) imagen800,
+                            (SELECT Imgn_Url 
+                            FROM Srfl_Imagenes 
+                            WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
+                            AND Imgn_IDResolucion = 4 AND Imgn_Estatus = 1) imagen400,
                             IFNULL(Ntcs_TipoCtgr, 0) tipoNoticia
                      FROM Srfl_Noticias 
                      INNER JOIN Srfl_NtcsCtgr ON NtCt_IDNoticia = Ntcs_IDNoticia AND NtCt_Estatus = 1 
@@ -69,15 +77,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
       <title><?php echo $home->title; ?></title>
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/dynamic.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/general.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/menu.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/about-us.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/noticias.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/noticias-recomended.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/portada.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/cookies.css">
-      <link  rel="stylesheet" href="/{{nombre}}/assets/css/components/footer.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/dynamic.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/general.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/menu.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/about-us.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/noticias.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/noticias-recomended.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/portada.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/cookies.css">
+      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/footer.css">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" >
   </head>  
   <body>
@@ -109,8 +117,8 @@
   <?php include_once 'componentes/cookies.php';?>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="/{{nombre}}/assets/js/main.js"></script>
-  <script type="text/javascript" src="/{{nombre}}/assets/js/menu.js"></script>
+  <script type="text/javascript" src="{{nombre}}/assets/js/main.js"></script>
+  <script type="text/javascript" src="{{nombre}}/assets/js/menu.js"></script>
 </html>
 <?php 
     $conn->close();

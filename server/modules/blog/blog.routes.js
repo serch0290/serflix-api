@@ -12,10 +12,14 @@ routes.get('/consulta/noticia/:id', controller.consultaNoticiaById);
 routes.post('/guardar/home', controller.saveHomeConfiguracion);
 routes.get('/consulta/home/:id', controller.consultahomeConfiguracion);
 routes.post('/guardar/busqueda', controller.saveBuscadorConfiguracion);
+routes.patch('/publicar/noticia/nicho/:idNicho', controller.publicarDespublicarNoticia);
 
 //categoria
 routes.post('/actualizar/datos/categoria', controller.actualizarCategoria);
 routes.post('/subir/modificaciones/categoria', controller.subirModificacionesCategoria);
+
+//Subir modificaciones al ambiente de dev
+routes.post('/subir/modificaciones/noticia/:id/dev', controller.subirModificacionesDEV);
 
 module.exports = routes;
 

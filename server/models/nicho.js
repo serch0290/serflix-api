@@ -132,6 +132,18 @@ const noticiaSchema = new Schema({
     redesSociales: {
         type: Schema.Types.Mixed
     },
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean,
+    publicado: {
+        dev: Boolean,
+        prod: Boolean
+    },
+    fechaCreacion: {
+        type: Date,
+        default: Date.now
+    },
+    fechaModificacion: Date,
     categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
 });
 

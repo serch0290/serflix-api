@@ -2921,3 +2921,197 @@ cp: server/nichos/prueba_nicho_ofi/assets/json/busqueda.json: No such file or di
     at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
     at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
     at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-09-22T10:24:47.237] [FATAL] arbitraje - Ocurrió un error al generar imagenes [Error: Input file is missing: server/nichos/assets/noticia_1727022282856.jpg]
+[2024-09-22T22:13:43.167] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"assets/images/noticias/1727064799322/noticia.jpg","imgVP":"nicho_casa_2/assets/images/noticias/1727064799322//noticia.jpg","img400":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_400.webp","img800":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_800.webp"},{"type":"html","html":"<p>Esta es la descripci&oacute;n de la noticia.</p>\n","edit":false}],"idNoticia":0,"h1":"Prueba noticia 1","author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0},"descripcion":"Descripción de la noticia","portada":true,"breadcrumb":[{"name":"Inicio","link":"/nicho_casa_2"},{"link":"/nicho_casa_2/prueba"},{"name":"Prueba noticia 1"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"prueba_noticia_1","local":true,"dev":false,"prod":false,"categoria":"66d4096a988459fbfa612a3a","idSQL":1},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.setHeader (node:_http_outgoing:648:11)
+    at ServerResponse.header (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:795:10)
+    at ServerResponse.send (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:175:12)
+    at ServerResponse.json (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:279:15)
+    at ServerResponse.send (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:163:21)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:103:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2024-09-23T15:10:25.924] [FATAL] arbitraje - Metodo: pathColorSitio TypeError: Cannot read properties of undefined (reading 'file')
+    at actualizarColorFuentes (webpack:///./server/modules/configuracion/configuracion.controller.js?:191:72)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-09-23T20:18:00.255] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"_id":"66f0eaf70d8b043f571e1312","breadcrumb":[{"name":"Inicio","link":"/https://pruebacasa.com"},{"link":"/https://pruebacasa.com/prueba"},{"name":"Prueba noticia 1 actualizacion"}],"descripcion":"Descripción de la noticia actualizacion","url":"prueba_noticia_1_actualizacion","h1":"Prueba noticia 1 actualizacion","portada":true,"idSQL":1,"author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0},"detalle":[{"type":"img","img":"assets/images/noticias/1727064799322/noticia.jpg","imgVP":"nicho_casa_2/assets/images/noticias/1727064799322//noticia.jpg","img400":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_400.webp","img800":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_800.webp"},{"type":"html","html":"<p>Esta es la descripci&oacute;n de la noticia.</p>\n","edit":false}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"categoria":"66d4096a988459fbfa612a3a","__v":0,"local":true,"dev":false,"prod":false},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a TypeError: Cannot read properties of undefined (reading 'h1')
+    at Object.actualizarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:15:49)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:88:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-09-23T20:21:13.111] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"_id":"66f0eaf70d8b043f571e1312","breadcrumb":[{"name":"Inicio","link":"/https://pruebacasa.com"},{"link":"/https://pruebacasa.com/prueba"},{"name":"Prueba noticia 1 actualizacion"}],"descripcion":"Descripción de la noticia actualizacion","url":"prueba_noticia_1_actualizacion","h1":"Prueba noticia 1 actualizacion","portada":true,"idSQL":1,"author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0},"detalle":[{"type":"img","img":"assets/images/noticias/1727064799322/noticia.jpg","imgVP":"nicho_casa_2/assets/images/noticias/1727064799322//noticia.jpg","img400":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_400.webp","img800":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_800.webp"},{"type":"html","html":"<p>Esta es la descripci&oacute;n de la noticia.</p>\n","edit":false}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"categoria":"66d4096a988459fbfa612a3a","__v":0,"local":true,"dev":false,"prod":false},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a ReferenceError: portada is not defined
+    at Object.actualizarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:15:102)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:92:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-09-23T20:23:02.495] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"_id":"66f0eaf70d8b043f571e1312","breadcrumb":[{"name":"Inicio","link":"/https://pruebacasa.com"},{"link":"/https://pruebacasa.com/prueba"},{"name":"Prueba noticia 1 actualizacion"}],"descripcion":"Descripción de la noticia actualizacion","url":"prueba_noticia_1_actualizacion","h1":"Prueba noticia 1 actualizacion","portada":true,"idSQL":1,"author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0},"detalle":[{"type":"img","img":"assets/images/noticias/1727064799322/noticia.jpg","imgVP":"nicho_casa_2/assets/images/noticias/1727064799322//noticia.jpg","img400":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_400.webp","img800":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_800.webp"},{"type":"html","html":"<p>Esta es la descripci&oacute;n de la noticia.</p>\n","edit":false}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"categoria":"66d4096a988459fbfa612a3a","__v":0,"local":true,"dev":false,"prod":false},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a Error: ER_TRUNCATED_WRONG_VALUE: Truncated incorrect DECIMAL value: 'Prueba noticia 1'
+    at Sequence._packetToError (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (node:events:517:28)
+    at addChunk (node:internal/streams/readable:368:12)
+    --------------------
+    at Pool.query (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.actualizarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:14:27)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:92:38)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ER_TRUNCATED_WRONG_VALUE',
+  errno: 1292,
+  sqlMessage: "Truncated incorrect DECIMAL value: 'Prueba noticia 1'",
+  sqlState: '22007',
+  index: 0,
+  sql: "UPDATE Srfl_Noticias SET Ntcs_Titulo = 'Prueba noticia 1 actualizacion', Ntcs_Descripcion = 'Descripción de la noticia actualizacion', Ntcs_Url = 'prueba_noticia_1_actualizacion', Ntcs_TipoCtgr = true WHERE Ntcs_Titulo = 1"
+}
+[2024-09-23T20:24:07.328] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"_id":"66f0eaf70d8b043f571e1312","breadcrumb":[{"name":"Inicio","link":"/https://pruebacasa.com"},{"link":"/https://pruebacasa.com/prueba"},{"name":"Prueba noticia 1 actualizacion"}],"descripcion":"Descripción de la noticia actualizacion","url":"prueba_noticia_1_actualizacion","h1":"Prueba noticia 1 actualizacion","portada":true,"idSQL":1,"author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0},"detalle":[{"type":"img","img":"assets/images/noticias/1727064799322/noticia.jpg","imgVP":"nicho_casa_2/assets/images/noticias/1727064799322//noticia.jpg","img400":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_400.webp","img800":"nicho_casa_2/assets/images/noticias/1727064799322//noticia_800.webp"},{"type":"html","html":"<p>Esta es la descripci&oacute;n de la noticia.</p>\n","edit":false}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"categoria":"66d4096a988459fbfa612a3a","__v":0,"local":true,"dev":false,"prod":false},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:405:5)
+    at ServerResponse.setHeader (node:_http_outgoing:648:11)
+    at ServerResponse.header (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:795:10)
+    at ServerResponse.send (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:175:12)
+    at ServerResponse.json (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:279:15)
+    at ServerResponse.send (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/response.js:163:21)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:105:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+[2024-09-27T21:43:23.047] [FATAL] arbitraje - Metodo: publicarDespublicarNoticia TypeError: conn.query is not a function
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.publicarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:24:27)
+    at publicarDespublicarNoticia (webpack:///./server/modules/blog/blog.controller.js?:242:42)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-09-27T21:46:02.337] [FATAL] arbitraje - Metodo: publicarDespublicarNoticia TypeError: conn.query is not a function
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.publicarNoticia (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:24:27)
+    at publicarDespublicarNoticia (webpack:///./server/modules/blog/blog.controller.js?:243:42)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-10-01T15:02:10.219] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/assets/images/noticias/1727064799322/noticia.jpg /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+cp: server/nichos/assets/images/noticias/1727064799322/noticia.jpg: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/assets/images/noticias/1727064799322/noticia.jpg /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}
+[2024-10-01T15:04:07.347] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN
+cp: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN'
+}
+[2024-10-01T15:06:16.356] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN
+cp: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/NaN'
+}
+[2024-10-01T15:07:24.841] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+cp: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}
+[2024-10-01T15:11:19.261] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir cp,server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp,/Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+mkdir: cp,server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp,/Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'mkdir cp,server/nichos/nicho_casa_2/assets/images/noticias/1727064799322/noticia.webp,/Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}
+[2024-10-01T15:12:28.020] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+mkdir: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}
+[2024-10-01T15:32:34.473] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+mkdir: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322: File exists
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}
+[2024-10-01T15:34:58.088] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322
+mkdir: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322: File exists
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
+}

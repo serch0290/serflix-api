@@ -106,6 +106,12 @@ const generarCapetasProyecto = async(req, res) =>{
     }
 
 	//Generamos la carpeta de assets/css
+	let noticias = assets + '/images/noticias';
+	if (!fs.existsSync(noticias)){
+	     fs.mkdirSync(noticias);
+    }
+
+	//Generamos la carpeta de assets/css
 	let js = assets + '/js';
 	if (!fs.existsSync(js)){
 	     fs.mkdirSync(js);
@@ -161,6 +167,7 @@ const subirModificaciones = async(req, res) =>{
 	try{
 		const command = `cp -r server/nichos/${req.body.nombre} /Applications/XAMPP/htdocs`;
 		await uploads.subirCarpetasPruebas(command);
+
 		req.body.general.carpetas.dev = true;
 		let general = nichosDao.actualizarConfiguracionCampoGeneral({_id: req.body.general._id, campo: {'carpetas.dev': true }});
 	    res.status(200).send({general, msj: 'Se subieron carpetas a pruebas correctamente'});
@@ -185,12 +192,15 @@ const actualizarColorFuentes = async(req, res) =>{
 	  let fuente = data.fuentes.find(item=> !item.negrita);
 	  let negrita = data.fuentes.find(item=> item.negrita);
 
-	  let path_nichos = 'server/nichos/' + req.body.nicho;
-	  let dynamicCss = fs.readFileSync('server/templates/dynamic.hbs', 'utf8');
-	  let template = handlebars.compile(dynamicCss);
-	  let content = template({background: data.background, fuente: fuente.file, negrita: negrita.file});
-	  fs.writeFileSync(path_nichos + '/assets/css/dynamic.css', content);
-	  
+	  if(data.fuentes.length > 0){ //Este proceso solo se hace una vez, o solo se se cambia de fuente se vuelve e hacer este proceso
+		 let path_nichos = 'server/nichos/' + req.body.nicho;
+		 let dynamicCss = fs.readFileSync('server/templates/dynamic.hbs', 'utf8');
+		 let template = handlebars.compile(dynamicCss);
+		 let content = null;
+		 content = template({background: data.background, fuente: fuente.file, negrita: negrita.file});
+	     fs.writeFileSync(path_nichos + '/assets/css/dynamic.css', content);
+	  }
+		 
 	  /**Actualizamos los campos en bd */
 	  let campos = {
 		$set: {
@@ -201,7 +211,8 @@ const actualizarColorFuentes = async(req, res) =>{
 		},
 		$push: {
 			fuentes: data.fuentes
-		}
+		},
+		dominio: data.dominio
 	  }
 
 	  let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campos});
@@ -302,15 +313,19 @@ const subirArchivosProyecto = async(req, res) =>{
 			let name = file.file.split('.')[0];
 			let dynamic = fs.readFileSync(`server/templates/${name}.hbs`, 'utf8');
 			let template = handlebars.compile(dynamic);
-			let content = template({nombre: req.params.nombre});
+			let content = template({nombre: req.body.dominio});
 			fs.writeFileSync(`${path_nichos}${req.params.nombre}${file.path}${file.file}`, content);
 		}
 
 		let campo = {
 			$set: {
-				'filesProyecto.local': true
+				'filesProyecto.local': true,
+				'filesProyecto.dev': false,
+				'filesProyecto.prod': false
 			}
 		}
+
+		generaHtaccess(`${path_nichos}${req.params.nombre}`);
 
 		let general = await consultas.actualizacionCamposGeneral({_id: req.params.id, campo: campo});
 		res.status(200).send({general, status: true});
@@ -351,15 +366,16 @@ const guardarIconNicho = async(req, res) =>{
 		let categorias = await noticiasDao.consultaListadoCategorias(data);
 
 		let routing = [];
-		routing.push({url: '/' + req.body.dominio, descripcion: '-', file: 'sp_index.php'});
-		routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
-
+		routing.push({url: '/', descripcion: '-', file: 'sp_index.php'});
+		//routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
 		for(let categoria of categorias){
 			if(!categoria.home){
-				routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
+				//routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
+				routing.push({url: categoria.url, descripcion: '-', file: 'sp_category.php'});
 				categoria.noticias = await noticiasDao.consultaListadoNoticias({id: categoria._id});
 				for(let noticia of categoria.noticias){
-					routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+					//routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+					routing.push({url: noticia.url, descripcion: '-', file: 'sp_noticia.php'});
 				}
 			}
 		}
@@ -372,7 +388,7 @@ const guardarIconNicho = async(req, res) =>{
 			$set: {
 				'routing.local': true,
 				'routing.dev': false,
-				'routing.pro': false
+				'routing.prod': false
 			}
 		}
 
@@ -382,6 +398,25 @@ const guardarIconNicho = async(req, res) =>{
 		log.fatal('Metodo: generarRouring ' + JSON.stringify(req.body), error);
 	   res.status(500).send({ error: 'Ocurrió un error al generar las rutas del proyecto' });
 	}
+ }
+
+ /**
+  * 
+  * Se genera el htaccess para local
+  */
+ const generaHtaccess = async (path) =>{
+	let data = `
+	      # Permite reescribir las peticiones de URL
+          RewriteEngine On
+
+		  # Si el archivo y la carpeta no existen hacer siguiente reescritura
+		  RewriteCond %{REQUEST_FILENAME} !-f
+		  RewriteCond %{REQUEST_FILENAME} !-d
+
+		  # Redirecciona todas las peticiones a index
+		  RewriteRule ^ index.php [QSA,L]`;
+
+	fs.writeFileSync(`${path}/.htaccess`, data);
  }
 
  /**
@@ -434,7 +469,6 @@ const generarFileRoutingReal = async (entradas, path) => {
   const eliminarConfiguracionGeneralNicho = async(req, res) =>{
 	 try{
 		let params = req.body;
-		console.log('params: ', params);
 		await consultas.eliminarConfiguracionGeneral(params);
 		fs.rmdirSync('server/nichos/' + params.nombre, { recursive: true, force: true });
 		await uploads.subirCarpetasPruebas(params.command);

@@ -5,6 +5,8 @@ const log4js = require('log4js');
 log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 const Jimp = require('jimp');
+const daoMysql = require('../nichos/nichos-mysql.dao');
+const helpers = require('../../lib/helpers');
 
 const upload = async (req, res) =>{
     var fstream;
@@ -44,7 +46,7 @@ const upload = async (req, res) =>{
               copiarArchivoCMS(id, path, saved_filename, file);
               break;
             case '5':
-                url = `server/nichos/autores/${path}/`;
+                url = `server/nichos/${path}/`;
                 copiarArchivoCMS(id, path, saved_filename, file);
               break;
         }
@@ -76,12 +78,13 @@ const transformarImagenesResoluciones = async (req, res) =>{
 
     try{
         const sharp = require('sharp');
-        const inputPath = 'server/nichos/' + req.body.url;
+        const inputPath = 'server/nichos/' + req.body.path + '/' + req.body.filename;
         let name = req.body.filename.split('.')[0];
         const root = 'server/nichos/';
-        const outputPathOriginal = req.body.path +'/' + req.body.filename + '.webp';
-        const outputPath400 =  req.body.path +'/' + name + '_400.webp';
-        const outputPath800 =  req.body.path +'/' + name + '_800.webp';
+        const outputPathOriginal = req.body.path + name + '.webp';
+        const outputPath400 =  req.body.path + name + '_400.webp';
+        const outputPath800 =  req.body.path + name + '_800.webp';
+        const outputPath1024 =  req.body.path + name + '_1024.webp';
 
         await sharp(inputPath)
                 .webp({ quality: 90 }) // Comprimir a WebP con calidad 95%
@@ -96,8 +99,13 @@ const transformarImagenesResoluciones = async (req, res) =>{
             .resize(800) // Redimensionar imagen
             .webp({ quality: 85 }) // Comprimir a WebP con calidad 75%
             .toFile(root + outputPath800);
-            
-        res.status(200).send({img400: outputPath400, img800: outputPath800})
+
+        await sharp(inputPath)
+            .resize(1024) // Redimensionar imagen
+            .webp({ quality: 85 }) // Comprimir a WebP con calidad 75%
+            .toFile(root + outputPath1024);
+
+        res.status(200).send({img: outputPathOriginal, img400: outputPath400, img800: outputPath800, img1024: outputPath1024})
     }catch(error){
         log.fatal('Ocurrió un error al generar imagenes', error);
         res.status(500).send({ error: 'Ocurrió un error al generar imagenes' });

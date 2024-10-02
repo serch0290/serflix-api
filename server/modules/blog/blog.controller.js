@@ -10,6 +10,8 @@ const nichosDao = require('./../nichos/nichos.dao');
 const json = require('./../configuracion/configuracion.jsons');
 const daoMysql = require('../nichos/nichos-mysql.dao');
 const uploads = require('./../configuracion/configuracion.upload');
+const helpers = require('../../lib/helpers');
+const fs = require('fs');
 
 const guardarCategoriaBlog = async(req, res) =>{
     try{
@@ -81,26 +83,38 @@ const guardarCategoriaBlog = async(req, res) =>{
    try{
       let data = req.body.noticia, noticiaMysql;
       data.categoria = req.params.id;
-      let noticia = null;
+      let noticia = null, noticiaSQL = null;
+
+      let dataConexion = await nichosDao.consultaConfigBD({id: req.body.nicho.id});
+      const conexion = require('../../lib/conexion-mysql');
+      let conn = await conexion.conexion(dataConexion);
 
       if(data._id){
          noticia = await consultas.actualizarNoticia(data);
+         noticiaSQL = await daoMysql.actualizarNoticia(conn, data);
       }else{
-         let dataConexion = await nichosDao.consultaConfigBD({id: req.body.nicho.id});
-         const conexion = require('../../lib/conexion-mysql');
-         let conn = await conexion.conexion(dataConexion);
          if(conn){
             noticiaMysql = await daoMysql.guardarNoticia(conn, data);
             data.idSQL = noticiaMysql.insertId;
             await daoMysql.guardarCategoria(conn, {idNoticia: noticiaMysql.insertId, idCategoria: req.body.nicho.idCategoria});
+
+            let imagen = noticia.detalle.find(item=> item.type.includes('img'));
+            //Se guarda imagen original
+            await daoMysql.guardarImagenes(conn, {idNoticia: noticiaMysql.insertId, idResolucion: 1, url: imagen.img, resolucion: '2000x1000'});
+            //resolucion de 1024
+            await daoMysql.guardarImagenes(conn, {idNoticia: noticiaMysql.insertId, idResolucion: 2, url: imagen.img1024, resolucion: '1014x225'});
+            //resolucion de 800
+            await daoMysql.guardarImagenes(conn, {idNoticia: noticiaMysql.insertId, idResolucion: 3, url: imagen.img800, resolucion: '800x225'});
+            //resolucion de 400
+            await daoMysql.guardarImagenes(conn, {idNoticia: noticiaMysql.insertId, idResolucion: 4, url: imagen.img400, resolucion: '400x225'});
          }
          noticia = await consultas.guardarNoticia(data);
       }
 
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '.json';
       json.generarJsonNoticia(noticia, path);
+
       res.status(200).send(noticia);
-      res.status(200).send({msj: 'Nada'});
    }catch(error){
       log.fatal('Metodo: guardarNoticia ' + JSON.stringify(req.body) + req.params.id, error);
       res.status(500).send({ error: 'Ocurrió un error al guardar noticia' });
@@ -203,6 +217,59 @@ const guardarCategoriaBlog = async(req, res) =>{
 	}
 }
 
+/**
+ * Se sube la noticia al ambinete de pruyebas y se notifica
+ */
+const subirModificacionesDEV = async(req, res) =>{
+	try{
+		const commands = req.body.commands;
+      let rutaNoticia = commands[1].split(' ');
+
+      /**
+       * Si no existe la carpeta de las noticias se crea
+       */
+      if(!fs.existsSync(rutaNoticia[rutaNoticia.length - 1])){
+          await uploads.subirCarpetasPruebas('mkdir ' + rutaNoticia[rutaNoticia.length - 1]);
+      }
+
+		for(let comand of commands){
+			await uploads.subirCarpetasPruebas(comand);
+		}
+
+      /**Actualizamos los campos en bd */
+		let campo = req.body.campo;
+      campo._id = req.params.id;
+		let noticia = await consultas.actualizarNoticia(campo);
+		res.status(200).send({noticia, msj: 'Se subio correctamente al ambiente de pruebas la noticia'});							
+	}catch(error){
+	  log.fatal('Metodo: subirModificacionesDEV', error);
+	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones dev' });
+	}
+}
+
+/**
+ * Función para publicar o despublicar una noticia
+ */
+const publicarDespublicarNoticia = async(req, res) =>{
+   try{
+      let params = req.params;
+      let dataConexion = await nichosDao.consultaConfigBD({id: params.idNicho});
+      let conn = await helpers.conexion(dataConexion);
+      if(conn){
+         let data = req.body;
+         let campo = data.campo;
+         let noticia = await consultas.actualizarNoticia(campo);
+         let noticiaSQL = await daoMysql.publicarNoticia(conn, {estatus: data.estatus, idSQL: campo.idSQL});
+         res.status(200).send({noticia, msj: 'Se publico correctamente la noticia'});							
+      }else{
+         res.status(500).send({ error: 'No se pudo realizar conexión a BD de mysql' });
+      }
+   }catch(error){
+      log.fatal('Metodo: publicarDespublicarNoticia', error);
+	   res.status(500).send({ error: 'Ocurrió un error al publicar o despublicar una noticia' });
+   }
+}
+
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
@@ -214,5 +281,7 @@ const guardarCategoriaBlog = async(req, res) =>{
     consultahomeConfiguracion,
     saveBuscadorConfiguracion,
     actualizarCategoria,
-    subirModificacionesCategoria
+    subirModificacionesCategoria,
+    subirModificacionesDEV,
+    publicarDespublicarNoticia
  }
