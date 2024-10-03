@@ -3115,3 +3115,30 @@ mkdir: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799
   signal: null,
   cmd: 'mkdir /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799322'
 }
+[2024-10-03T11:49:22.232] [FATAL] arbitraje - Metodo: consultaNoticiaById {"id":"undefined"}undefined CastError: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "Noticias"
+    at model.Query.exec (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:4921:21)
+    at model.Query.Query.then (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5020:15)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  messageFormat: undefined,
+  stringValue: '"undefined"',
+  kind: 'ObjectId',
+  value: 'undefined',
+  path: '_id',
+  reason: BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+      at new BSONTypeError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/error.js:41:28)
+      at new ObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/bson/lib/objectid.js:67:23)
+      at castObjectId (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schema/objectid.js:246:12)
+      at ObjectId.SchemaType.applySetters (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1201:12)
+      at ObjectId.SchemaType._castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1651:15)
+      at ObjectId.SchemaType.castForQuery (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1639:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/schematype.js:1615:20)
+      at cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/cast.js:346:32)
+      at model.Query.Query.cast (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mongoose/lib/query.js:5351:12),
+  valueType: 'string'
+}
+[2024-10-03T12:27:31.588] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"https://prueba.com/assets/images/noticias/1727976162411/noticia.webp","imgVP":"prueba_nicho_ofi/assets/images/noticias/1727976162411/noticia.jpeg","img400":"https://prueba.com/assets/images/noticias/1727976162411/noticia_400.webp","img800":"https://prueba.com/assets/images/noticias/1727976162411/noticia_800.webp","img1024":"https://prueba.com/assets/images/noticias/1727976162411/noticia_1024.webp"},{"type":"html","html":"<p>Bueno pues prueba de la noticia que voy a agregar</p>\n","edit":false},{"type":"h2","data":"Este es un titulo de h2","hash":"este_es_un_titulo_de_h2"},{"type":"h3","data":"Este es su H3 1"},{"type":"table-content","list":[{"hash":"#este_es_un_titulo_de_h2","name":"Este es un titulo de h2","sublist":[{"hash":"#este_es_su_h3_1","name":"Este es su H3 1"}]},{"hash":"#otro_h2","name":"Otro H2","sublist":[{"hash":"#este_es_el_h3_del_h2","name":"Este es el H3 del H2"}]}]},{"type":"h2","data":"Otro H2","hash":"otro_h2"},{"type":"h3","data":"Este es el H3 del H2","hash":"este_es_el_h3_del_h2"},{"type":"list","list":[{"name":"opCION 1"},{"name":"Opcion 2"},{"name":"Opcion 3"},{"name":"Opcion 4"}],"name":""},{"type":"list-number","list":[{"name":"Opcion numeric 1"},{"name":"Opcion numeric 2"},{"name":"Opcion numeric 3"},{"name":"Opcion numeric 4"}],"name":""}],"publicado":{"dev":false,"prod":false},"idNoticia":0,"breadcrumb":[{"name":"Inicio","link":"https://prueba.com"},{"name":"Perros","link":"https://prueba.com/perros"},{"name":"Prueba noticia 1"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icons":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Prueba noticia 1&url=","name":"Telegram","class":"telegram\", icon: \"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"h1":"Prueba noticia 1","descripcion":"Descripcion de la noticia 1","portada":true,"comentarios":true,"url":"/prueba_noticia_1","local":true,"dev":false,"prod":false,"categoria":"66e9c93b24f4762fa1b1624e","idSQL":1},"nicho":{"nombre":"prueba_nicho_ofi","id":"66b28bbb5a6e83891e3429e6","idCategoria":1}}66e9c93b24f4762fa1b1624e TypeError: Cannot read property 'detalle' of null
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:101:34)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
