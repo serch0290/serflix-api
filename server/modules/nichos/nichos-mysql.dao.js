@@ -12,7 +12,7 @@ const guardarNoticia = async(conn, params) =>{
 
 const actualizarNoticia = async(conn, params) =>{
     return await consulta.queryRawAlone('UPDATE Srfl_Noticias SET Ntcs_Titulo = ?, Ntcs_Descripcion = ?, Ntcs_Url = ?, Ntcs_TipoCtgr = ? WHERE Ntcs_IDNoticia = ?', 
-                                        [params.h1, params.descripcion, params.url, params.portada,  params.idSQL], conn);
+                                        [params.h1, params.descripcion, params.url, params.portada,  params.idNoticia], conn);
 }
 
 const guardarCategoria = async(conn, params) => {
