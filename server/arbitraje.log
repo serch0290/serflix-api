@@ -3170,3 +3170,30 @@ cp: /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/: No
   signal: null,
   cmd: 'cp /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/ server/nichos/repositoriocomentarios.css'
 }
+[2024-10-07T17:42:34.855] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"https://prueba.com/assets/images/noticias/1728340856125/noticia.webp","imgVP":"prueba_nicho_ofi/assets/images/noticias/1728340856125/noticia.jpg","img400":"https://prueba.com/assets/images/noticias/1728340856125/noticia_400.webp","img800":"https://prueba.com/assets/images/noticias/1728340856125/noticia_800.webp","img1024":"https://prueba.com/assets/images/noticias/1728340856125/noticia_1024.webp"},{"type":"table-content","list":[]},{"type":"h2","data":"Este es el titulo del h2"},{"type":"html","html":"<p>Descripcion del h2, tego que hacer algo con ese errror.</p>\n","edit":true},{"type":"list","list":[{"name":"Opcion 1"},{"name":"Opcion 2"},{"name":"Opcion 3"}],"name":""}],"publicado":{"dev":false,"prod":false},"idNoticia":4,"comentarios":false,"IDNoticiasEnlazado":"0","IDNoticiasRelacionadas":"0","h1":"prueba noticia 1","author":{"_id":"66fed00a8bbb2e34e46044de","autor":"Sergio Cruz Ofi","descripcion":"Soy programador web","img":"https://prueba.com/assets/images/autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg","__v":0,"VP":"autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg"},"descripcion":"Descripcion de la noticia","portada":true,"breadcrumb":[{"name":"Inicio","link":"https://prueba.com"},{"name":"Perros","link":"https://prueba.com/perros"},{"name":"prueba noticia 1"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icon":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=prueba noticia 1&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=prueba noticia 1%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=prueba noticia 1&url=","name":"Telegram","class":"telegram","icon":"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=prueba noticia 1&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=prueba noticia 1&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"/prueba_noticia_1","local":true,"dev":false,"prod":false,"categoria":"66e9c93b24f4762fa1b1624e"},"nicho":{"nombre":"prueba_nicho_ofi","id":"66b28bbb5a6e83891e3429e6","idCategoria":1}}66e9c93b24f4762fa1b1624e TypeError: Cannot read property 'detalle' of null
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:101:34)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-10-07T17:49:22.888] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias/1728340856125
+mkdir: /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias/1728340856125'
+}
+[2024-10-07T17:49:36.305] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias/1728340856125
+mkdir: /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias/1728340856125'
+}

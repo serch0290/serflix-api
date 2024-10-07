@@ -98,7 +98,7 @@ const guardarCategoriaBlog = async(req, res) =>{
             data.idNoticia = noticiaMysql.insertId;
             await daoMysql.guardarCategoria(conn, {idNoticia: noticiaMysql.insertId, idCategoria: req.body.nicho.idCategoria});
 
-            let imagen = noticia.detalle.find(item=> item.type.includes('img'));
+            let imagen = data.detalle.find(item=> item.type.includes('img'));
             //Se guarda imagen original
             await daoMysql.guardarImagenes(conn, {idNoticia: noticiaMysql.insertId, idResolucion: 1, url: imagen.img, resolucion: '2000x1000'});
             //resolucion de 1024
