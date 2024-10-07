@@ -95,7 +95,7 @@ const guardarCategoriaBlog = async(req, res) =>{
       }else{
          if(conn){
             noticiaMysql = await daoMysql.guardarNoticia(conn, data);
-            data.idSQL = noticiaMysql.insertId;
+            data.idNoticia = noticiaMysql.insertId;
             await daoMysql.guardarCategoria(conn, {idNoticia: noticiaMysql.insertId, idCategoria: req.body.nicho.idCategoria});
 
             let imagen = noticia.detalle.find(item=> item.type.includes('img'));

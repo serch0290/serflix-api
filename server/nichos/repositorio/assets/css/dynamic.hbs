@@ -1,0 +1,89 @@
+@font-face{
+    font-family:'HumanSans-Regular';
+    src:url("../fonts/HumanSans-Regular.otf") format("truetype");
+    font-display: swap;
+}
+
+@font-face{
+    font-family:'HumanSans-Bold';
+    src:url("../fonts/HumanSans-Bold.otf") format("truetype");
+    font-display: swap;
+}
+
+
+body{
+    background: #F3F4F8 /*Color del cuerpo de la pagina*/;
+}
+
+label, p, span, div, input, h1, h2, h3, h4, h5, textarea{
+    font-family: 'HumanSans-Regular' !important;
+}
+
+strong{
+    font-family: 'HumanSans-Bold' !important;
+}
+
+.mobile-menu ul li.has-sub.actived>.submenu-toggle:after, .mobile-menu ul li.has-sub.actived>a {
+    color: #ff3d00; /*color que se pone el icono de menu seleccionado responsivo*/
+}
+
+.mobile-menu ul li a, .mobile-menu ul li.has-sub .submenu-toggle {
+    color: #ffffff; /*Colo de letra del menu responsivo*/
+}
+
+.menu-title:hover, .menu-title:hover:before, .menu li a:hover {
+    background: #8db842; /*Color del hover del menu cuando se posiciona el mouse*/
+}
+
+.menu li a {
+    color: white; /*Color de letra del menu*/
+}
+
+.menu-dropdown {
+    background: #ebebeb;/*Color del listado del submenu*/
+}
+
+.menu-dropdown li a{
+    color: red;
+}
+
+footer, .list-detail-pasos > li::before, .title-section::before{
+    background: {{background}}; /*Color del banner fel footer*/
+}
+
+.content-item-category>strong, .cookies{
+    color: #fff;
+    background-color: {{background}}; /*Color de la categoria de la noticia*/
+}
+
+.article-content .title-article-content, .thumbnail-text, .content-principal h2, 
+.list-detail-note li::marker, .thumbnail-content-leido p, .thumbnail-content-ultimas-noticias p, .check-aviso-privacidad, .date-comment{
+    color: {{background}}; /*Color de la letra de los titulos  de las noticias en el homepage*/
+}
+
+.widget-area ul li{
+    color: #fff; /*Color de la letra del footer*/
+}
+
+.button-noticia:hover, .list-detail-pasos > li::before {
+    border: 1px solid {{background}};
+}
+
+.button-noticia{
+    background-image: linear-gradient(to right, {{background}}, {{background}} 50%, rgba(0, 0, 0, 0) 50%);
+}
+
+.detail-note h3{
+    border-left: 4px solid {{background}};
+    border-right: 4px solid {{background}};
+}
+
+@media(max-width: 771px){
+    .button-noticia{
+        border: 1px solid {{background}} !important;
+        background-color: {{background}} !important;
+        color: white !important;
+    }
+}
+
+

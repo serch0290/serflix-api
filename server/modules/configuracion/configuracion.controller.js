@@ -112,6 +112,12 @@ const generarCapetasProyecto = async(req, res) =>{
     }
 
 	//Generamos la carpeta de assets/css
+	let autores = assets + '/images/autores';
+	if (!fs.existsSync(noticias)){
+	     fs.mkdirSync(noticias);
+    }
+
+	//Generamos la carpeta de assets/css
 	let js = assets + '/js';
 	if (!fs.existsSync(js)){
 	     fs.mkdirSync(js);

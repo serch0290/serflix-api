@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Sobre mi",
+        "url": "/aprendeProgramacion/sobre-mi"
+    },
+    {
+        "name": "Aviso Legal",
+        "url": "/aprendeProgramacion/contacto"
+    },
+    {
+        "name": "Política de Cookies",
+        "url": "/aprendeProgramacion/contacto"
+    },
+    {
+        "name": "Política de privacidad",
+        "url": "/aprendeProgramacion/privacidad"
+    },
+    {
+        "name": "Contacto",
+        "url": "/aprendeProgramacion/contacto"
+    }
+]

@@ -20,7 +20,7 @@
                  (SELECT Imgn_Url 
                   FROM Srfl_Imagenes 
                   WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
-                  AND Imgn_IDResolucion = 2 AND Imgn_Estatus = 1) imagen,
+                  AND Imgn_IDResolucion = 1 AND Imgn_Estatus = 1) imagen,
                   IFNULL(Ntcs_TipoCtgr, 0) tipoNoticia,
                   1 tipo
           FROM Srfl_Noticias 
@@ -37,7 +37,7 @@
                   (SELECT Imgn_Url 
                    FROM Srfl_Imagenes 
                    WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
-                   AND Imgn_IDResolucion = 2 AND Imgn_Estatus = 1) imagen,
+                   AND Imgn_IDResolucion = 1 AND Imgn_Estatus = 1) imagen,
                    IFNULL(Ntcs_TipoCtgr, 0) tipoNoticia,
                   2 tipo
                   FROM Srfl_Noticias 
@@ -54,7 +54,7 @@
                   (SELECT Imgn_Url 
                    FROM Srfl_Imagenes 
                    WHERE Imgn_IDNoticia = Ntcs_IDNoticia 
-                   AND Imgn_IDResolucion = 2 AND Imgn_Estatus = 1) imagen,
+                   AND Imgn_IDResolucion = 1 AND Imgn_Estatus = 1) imagen,
                    IFNULL(Ntcs_TipoCtgr, 0) tipoNoticia,
                   3 tipo
                   FROM Srfl_Noticias 
@@ -87,17 +87,17 @@
 <html lang="es"> 
   <head>
       <meta charset="utf-8">
-      <link rel="icon" href="https://definanzas.top/wp-content/uploads/cropped-icono-definanzas-top-32x32.png"/>
+      <link rel="icon" href="<?php echo $noticia->icon;?>"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/dynamic.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/general.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/noticia.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/intereses.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/ultimas-noticias-lateral.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/comentarios.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/menu.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/cookies.css">
-      <link  rel="stylesheet" href="{{nombre}}/assets/css/components/footer.css">
+      <link  rel="stylesheet" href="assets/css/dynamic.css">
+      <link  rel="stylesheet" href="assets/css/general.css">
+      <link  rel="stylesheet" href="assets/css/components/noticia.css">
+      <link  rel="stylesheet" href="assets/css/components/intereses.css">
+      <link  rel="stylesheet" href="assets/css/components/ultimas-noticias-lateral.css">
+      <link  rel="stylesheet" href="assets/css/components/comentarios.css">
+      <link  rel="stylesheet" href="assets/css/components/menu.css">
+      <link  rel="stylesheet" href="assets/css/components/cookies.css">
+      <link  rel="stylesheet" href="assets/css/components/footer.css">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" >
   </head>  
   <body onload="irDetalleNoticia();">
@@ -137,9 +137,9 @@
   <?php include_once 'componentes/footer.php';?>
   </body>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" type="text/javascript"></script>
-  <script type="text/javascript" src="{{nombre}}/assets/js/main.js"></script>
-  <script type="text/javascript" src="{{nombre}}/assets/js/noticia.js"></script>
-  <script type="text/javascript" src="{{nombre}}/assets/js/comentarios.js"></script>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <script type="text/javascript" src="assets/js/noticia.js"></script>
+  <script type="text/javascript" src="assets/js/comentarios.js"></script>
 </html>
 <?php 
     $conn->close();

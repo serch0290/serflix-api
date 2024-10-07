@@ -126,7 +126,7 @@ const noticiaSchema = new Schema({
     h1: String,
     comentarios: Boolean,
     portada: Boolean,
-    idSQL: Number,
+    idNoticia: Number,
     author: {type: Schema.Types.Mixed},
     detalle: {type: [Schema.Types.Mixed]},
     redesSociales: {
@@ -135,6 +135,8 @@ const noticiaSchema = new Schema({
     local: Boolean,
     dev: Boolean,
     prod: Boolean,
+    IDNoticiasEnlazado: String,
+    IDNoticiasRelacionadas: String,
     publicado: {
         dev: Boolean,
         prod: Boolean
@@ -144,6 +146,7 @@ const noticiaSchema = new Schema({
         default: Date.now
     },
     fechaModificacion: Date,
+    noticiasLateral: { type: Schema.Types.Mixed },
     categoria: { type: Schema.Types.ObjectId, ref: 'Categorias' } 
 });
 

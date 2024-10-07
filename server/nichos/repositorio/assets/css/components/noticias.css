@@ -1,0 +1,87 @@
+.article{
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    height: 100%;
+}
+
+.article a{
+    width: 100%;
+}
+
+.article-content-image{
+    max-height: 196px;
+    min-height: 196px;
+}
+
+.article-image:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.article-image{
+    height: 196px;
+    height: 196px;
+}
+
+.article-content{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    padding: 15px;
+}
+
+.article-content .title-article-content{
+  font-size: 16px !important;
+  text-align: center;
+}
+
+.article-content h4{
+   font-size: 14px;
+   padding: 0!important;
+   margin: 0!important;
+}
+
+
+.article-content .date-title{
+    color: black;
+    text-align: justify;
+}
+
+
+/*Estilo de paginación*/
+.pagination {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.pagination > * {
+    border-radius: 50%;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
+    display: flex;
+    font-size: 14px;
+    margin-right: 5px;
+    align-items : center; 
+    justify-content: center;
+}
+
+.pagination a{
+    background: #45523e;
+    color: #FFFFFF !important;
+}
+
+.pagination strong{
+    color: #45523e;
+    background-color: #fff;
+}
+
+@media(max-width: 599px){
+    .pagination > * {
+       min-width: 2rem;
+       min-height: 2rem;
+    }
+}

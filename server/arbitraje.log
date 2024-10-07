@@ -3142,3 +3142,31 @@ mkdir: /Applications/XAMPP/htdocs/nicho_casa_2/assets/images/noticias/1727064799
     at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:101:34)
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-10-04T11:11:52.634] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/autores/autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg /Applications/XAMPP/htdocs/nicho_casa_2/assets/images
+cp: server/nichos/autores/autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/autores/autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg /Applications/XAMPP/htdocs/nicho_casa_2/assets/images'
+}
+[2024-10-04T13:31:54.936] [FATAL] arbitraje - Metodo: saveFile {"command":"cp /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/ server/nichos/repositoriocomentarios.css","campo":{"_id":"6700428813cb0950be7a5646","$set":{"repo":true,"local":false,"dev":false,"prod":false}}} Error: Command failed: cp /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/ server/nichos/repositoriocomentarios.css
+cp: /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp /Applications/XAMPP/htdocs/serflixcomentarios.css/assets/css/components/ server/nichos/repositoriocomentarios.css'
+}

@@ -1,0 +1,27 @@
+.cookies{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    max-width: 800px;
+    z-index:1000;
+    border-radius: 10px;
+    padding: 15px;
+    display: none;
+}
+
+.cookies p:not(.text-center){
+    text-align: justify;
+}
+
+.cookies p a{
+    color: white;
+    text-decoration: underline !important;
+}
+
+.cookies button{
+    width: 120px;
+    height: 34px;
+    border-radius: 5px;
+    border: none !important;
+    cursor: pointer;
+}

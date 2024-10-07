@@ -15,6 +15,7 @@ server/arbitraje.log
 # excluir sequelize
 !/node_modules/sequelize
 /server/nichos/*
+!/server/nichos/repositorio
 
 # IDEs and editors
 /.idea
