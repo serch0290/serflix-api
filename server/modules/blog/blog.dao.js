@@ -55,8 +55,11 @@ const getBuscador = async params =>{
 }
 
 const actualizarCategoria = async params =>{
-    console.log('params: ', params);
     return await models.categoria.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
+const getListadoNoticiasRelacionadas = async params =>{
+    return await models.noticia.find({_id: {$ne: params.id}});
 }
 
 module.exports = {
@@ -73,5 +76,6 @@ module.exports = {
     guardarBuscador,
     actualizarBuscador,
     getBuscador,
-    actualizarCategoria
+    actualizarCategoria,
+    getListadoNoticiasRelacionadas
 }

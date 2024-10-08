@@ -20,6 +20,7 @@ routes.post('/subir/modificaciones/categoria', controller.subirModificacionesCat
 
 //Subir modificaciones al ambiente de dev
 routes.post('/subir/modificaciones/noticia/:id/dev', controller.subirModificacionesDEV);
+routes.get('/consulta/noticias/relacionadas/:id', controller.consultarNoticiasRelacionadas);
 
 module.exports = routes;
 

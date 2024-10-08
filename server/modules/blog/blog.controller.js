@@ -270,6 +270,18 @@ const publicarDespublicarNoticia = async(req, res) =>{
    }
 }
 
+const consultarNoticiasRelacionadas = async(req, res) =>{
+
+   try{
+      let params = req.params;
+      let noticias = await consultas.getListadoNoticiasRelacionadas(params);
+      res.status(200).send(noticias);						
+   }catch(error){
+      log.fatal('Metodo: consultarNoticiasRelacionadas: ' + JSON.stringify(req.params), error);
+	   res.status(500).send({ error: 'Ocurrió un error al consultar las noticias relacionadas' });
+   }
+}
+
  module.exports = {
     guardarCategoriaBlog,
     consultaListadoCategoria,
@@ -283,5 +295,6 @@ const publicarDespublicarNoticia = async(req, res) =>{
     actualizarCategoria,
     subirModificacionesCategoria,
     subirModificacionesDEV,
-    publicarDespublicarNoticia
+    publicarDespublicarNoticia,
+    consultarNoticiasRelacionadas
  }
