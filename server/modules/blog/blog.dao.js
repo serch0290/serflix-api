@@ -59,7 +59,7 @@ const actualizarCategoria = async params =>{
 }
 
 const getListadoNoticiasRelacionadas = async params =>{
-    return await models.noticia.find({_id: {$ne: params.id}});
+    return await models.noticia.find({_id: {$ne: params.id}, categoria: {$eq: params.idCategoria}});
 }
 
 module.exports = {
