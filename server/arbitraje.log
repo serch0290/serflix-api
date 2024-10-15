@@ -3275,3 +3275,17 @@ cp: directory server/nichos/programacion/assets/css/components does not exist
   signal: null,
   cmd: 'cp server/nichos/repositorio/assets/css/components/noticias-style2.css server/nichos/programacion/assets/css/components/'
 }
+[2024-10-15T14:24:56.190] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/css/components/ultimas-noticias-lateral.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/
+cp: server/nichos/prueba_nicho_ofi/assets/css/components/ultimas-noticias-lateral.css: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/css/components/ultimas-noticias-lateral.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/'
+}

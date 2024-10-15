@@ -17,6 +17,7 @@ const guardarCategoriaBlog = async(req, res) =>{
     try{
      let data = req.body.categoria, categoriaMysql = null;
      data.nicho = req.params.id;
+     let categoria = null;
 
      /**
       * guardar Categoria en mysql excepto cuando sea de home, esa no necesita
@@ -25,20 +26,36 @@ const guardarCategoriaBlog = async(req, res) =>{
         let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
         const conexion = require('../../lib/conexion-mysql');
         let conn = await conexion.conexion(dataConexion);
-        if(conn){
-           categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
-           data.idCategoria = categoriaMysql.insertId;
+        
+      
+        if(data._id){
+           /**
+             * Se guarda en mysql
+             */
+           if(conn){
+              categoriaMysql = await daoMysql.actualizarCategoria(conn, {nombre: data.title, idCategoria: data.idCategoria});
+            }
+            categoria = await consultas.actualizarCategoria(data);
+        }else{
+            /**
+             * Se guarda en mysql
+             */
+            if(conn){
+               categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
+               data.idCategoria = categoriaMysql.insertId;
+            }
+
+            //Se guarda en mongodb
+            categoria = await consultas.guardarCategoriaBlog(data);
         }
-      }
-   
-      let categoria = await consultas.guardarCategoriaBlog(data);
+     }
       
-      if(!data.home){
-         let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
-         json.generarJsonNoticia(categoria, path);
-      }
+     if(!data.home){
+        let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
+        json.generarJsonNoticia(categoria, path);
+     }
       
-      res.status(200).send(categoria);
+     res.status(200).send(categoria);
     }catch(error){
        log.fatal('Metodo: guardarCategoriaBlog ' + JSON.stringify(req.body) + req.params.id, error);
        res.status(500).send({ error: 'Ocurrió un error al guardar la categoria.' });

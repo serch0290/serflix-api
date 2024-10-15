@@ -30,11 +30,16 @@ const guardarImagenes = async(conn, params)=>{
                                         [params.idNoticia, params.idResolucion, params.url, params.resolucion], conn);
 }
 
+const actualizarCategoria = async(conn, params)=>{
+    return await consulta.queryRawAlone('UPDATE Srfl_Categoria SET Ctgr_Nombre = ? WHERE Ctgr_IDCategoria = ?', [params.nombre, params.idCategoria], conn);
+}
+
 module.exports = {
     guardarCategoriaNicho,
     guardarNoticia,
     guardarCategoria,
     actualizarNoticia,
     publicarNoticia,
-    guardarImagenes
+    guardarImagenes,
+    actualizarCategoria
 }
