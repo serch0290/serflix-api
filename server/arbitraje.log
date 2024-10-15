@@ -3197,3 +3197,81 @@ mkdir: /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias: No su
   signal: null,
   cmd: 'mkdir /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/images/noticias/1728340856125'
 }
+[2024-10-11T23:06:06.922] [FATAL] arbitraje - Metodo: saveFile {"command":"cp /Applications/XAMPP/htdocs/serflix/assets/php/guardarComentarios.php server/nichos/repositorio/assets/php/","campo":{"_id":"670a03b2d28fd96e06f62398","$set":{"repo":true,"local":false,"dev":false,"prod":false}}} Error: Command failed: cp /Applications/XAMPP/htdocs/serflix/assets/php/guardarComentarios.php server/nichos/repositorio/assets/php/
+cp: /Applications/XAMPP/htdocs/serflix/assets/php/guardarComentarios.php: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp /Applications/XAMPP/htdocs/serflix/assets/php/guardarComentarios.php server/nichos/repositorio/assets/php/'
+}
+[2024-10-14T20:57:58.800] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: req.body.commands is not iterable
+    at subirModificacionesMenu (webpack:///./server/modules/menus/menus.controller.js?:72:31)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-10-14T21:00:19.690] [FATAL] arbitraje - Metodo: subirModificacionesMenu ReferenceError: uploads is not defined
+    at subirModificacionesMenu (webpack:///./server/modules/menus/menus.controller.js?:72:13)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-10-14T21:40:10.473] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/noticias-style2.css
+cp: server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/noticias-style2.css'
+}
+[2024-10-14T21:44:03.607] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/
+cp: server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/css/components/noticias-style2.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/'
+}
+[2024-10-14T21:46:19.435] [FATAL] arbitraje - Metodo: saveFile {"command":"cp server/nichos/repositorio/assets/css/components/noticias-style2.css server/nichos/programacion/assets/css/components/","campo":{"_id":"670de3531061a0bc1c12a9cf","$set":{"local":true}}} Error: Command failed: cp server/nichos/repositorio/assets/css/components/noticias-style2.css server/nichos/programacion/assets/css/components/
+cp: directory server/nichos/programacion/assets/css/components does not exist
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/repositorio/assets/css/components/noticias-style2.css server/nichos/programacion/assets/css/components/'
+}

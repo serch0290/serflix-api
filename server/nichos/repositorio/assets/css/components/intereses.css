@@ -1,0 +1,31 @@
+ .intereses li {
+    list-style-type: none;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.intereses li a{
+    font-size: 15px;
+    cursor: pointer;
+    color: #222222 !important;
+    font-weight: bold;
+    margin-left: 1.5rem;
+    display: inline-block;
+}
+
+.intereses li a:hover{
+    text-decoration: underline !important;
+}
+
+.intereses li:before {
+    content: "";
+    border: solid;
+    border-width: 0 1px 1px 0;
+    display: inline-block;
+    padding: 2.5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    top: 10px;
+    left: 5px !important;
+    position: absolute;
+}

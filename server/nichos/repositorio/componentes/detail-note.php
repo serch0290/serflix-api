@@ -87,7 +87,7 @@
             <?php 
               if(count($noticiasEnlazado) > 0){
                 foreach($noticiasEnlazado as $noticiaE){
-                    echo "<a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$noticiaE["url"]."\">
+                    echo "<a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$noticiaE["url"]."\">
                             <img src=\"".$noticiaE["imagen"]."\" style=\"width: 100px; height: 100px; min-height: 100px; max-height: 100px; min-width: 100px; max-width: 100px; border: none !important; margin-right: 5px; height: auto; object-fit: cover; margin-left: 5px; object-position: center;\" />
                             <div class=\"flex align-center-items\">
                               <span style=\"padding: 5px;\">".$noticiaE["titulo"]."</span>
@@ -136,7 +136,7 @@
           if(count($noticiasRelacionado) > 0){
             foreach($noticiasRelacionado as $relacionado){
               echo "<div class=\"post-thumbnail-leido\">
-                      <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$relacionado["url"]."\">
+                      <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$relacionado["url"]."\">
                         <div class=\"container-imagen thumbnail-image-leido\">
                             <div style=\"background-image: url('".$relacionado["imagen"]."');\" class=\"image thumbnail-image-detail-leido\"></div>
                         </div>

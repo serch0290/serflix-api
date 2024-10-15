@@ -1,0 +1,28 @@
+.breadcrums{
+    margin: 0;
+  }
+  
+  .breadcrums li{
+      display: inline;
+      margin-right: 4px;
+  }
+  
+  .breadcrums li a{
+      text-decoration: underline !important;
+      cursor: pointer;
+  }
+  
+  .breadcrums li span, .breadcrums li a{
+      font-size: 14px;
+      color: #222222;
+  }
+  
+  .breadcrums li:after {
+      content: '›';
+      margin: 0 4px;
+  }
+  
+  .breadcrums li:last-child:after {
+      content: '';
+      margin: 0;
+  }

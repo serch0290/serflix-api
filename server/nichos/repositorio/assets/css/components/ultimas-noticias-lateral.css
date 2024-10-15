@@ -1,0 +1,36 @@
+.article-reciente{
+    margin-bottom: 10px;
+}
+
+.article-reciente a{
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-ultimas-noticias{
+    height: 150px;
+    width: 100%;
+}
+
+.thumbnail-image-ultimas-noticias:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.thumbnail-image-ultimas-noticias{
+    height: 150px;
+    border-radius: 5px;
+}
+
+.thumbnail-content-ultimas-noticias{
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.thumbnail-content-ultimas-noticias p{
+    font-size: 16px;
+    margin: 5px;
+    font-weight: bold;
+}

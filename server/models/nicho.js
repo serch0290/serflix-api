@@ -100,7 +100,7 @@ const categoriaSchema = new Schema({
     menu: Boolean,
     home: Boolean,
     url: String,
-    idSQL: Number,
+    idCategoria: Number,
     title: String,
     breadcrumb: {type: Schema.Types.Mixed},
     noticiasLateral: {

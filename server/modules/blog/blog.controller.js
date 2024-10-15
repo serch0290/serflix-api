@@ -27,7 +27,7 @@ const guardarCategoriaBlog = async(req, res) =>{
         let conn = await conexion.conexion(dataConexion);
         if(conn){
            categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
-           data.idSQL = categoriaMysql.insertId;
+           data.idCategoria = categoriaMysql.insertId;
         }
       }
    

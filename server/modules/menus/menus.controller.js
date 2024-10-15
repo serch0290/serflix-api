@@ -4,6 +4,7 @@ log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
 const consultas  = require('./menus.dao');
 const json = require('./../configuracion/configuracion.jsons');
+const uploads = require('./../configuracion/configuracion.upload');
 
 /**
  *
@@ -68,12 +69,12 @@ const getMenu = async (req, res) => {
   const subirModificacionesMenu = async(req, res) =>{
 	try{
         let id = req.params.id;
-		for(let command of req.body.commands){
+		for(let command of req.body.comandos){
             await uploads.subirCarpetasPruebas(command);
         }
 		
-		let categoria = await consultas.agregarNuevoMenu({_id: id, campo: req.body.campo});
-	    res.status(200).send({categoria, msj: 'Se subio archivo de menú a pruebas'});
+		let menu = await consultas.agregarNuevoMenu({_id: id, campo: req.body.campo});
+	    res.status(200).send({menu, msj: 'Se subio archivo de menú a pruebas'});
 	}catch(error){
 	  log.fatal('Metodo: subirModificacionesMenu', error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones del menu a dev o prod' });
