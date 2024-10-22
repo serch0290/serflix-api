@@ -445,7 +445,8 @@ const generarFileRoutingReal = async (entradas, path) => {
 		let params = req.body;
 		let data = {
 			logo: params.logo,
-			icon: params.icon
+			icon: params.icon,
+			mensajePrincipal: true
 		}
 
 		let path = 'server/nichos/' + params.nombre + '/assets/json/configuracionGeneral.json';
