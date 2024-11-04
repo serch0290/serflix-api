@@ -4,7 +4,17 @@
     error_reporting(E_ALL);
 
     //Rutas definidas del proyecto
-    include_once 'routing.php';
+    $rutas = [
+        '/serflix/' => ['Página principal', 'sp_index.php', 'home'],
+        '/serflix' => ['Página principal', 'sp_index.php', 'home'],
+        '/serflix/principal' => ['Página principal', 'sp_index_principal.php', ''],
+        '/serflix/perros/principal' => ['Mantenimiento', 'sp_category_principal.php'],
+        '/serflix/perros' => ['Mantenimiento', 'sp_category.php'],
+        '/serflix/downsizing-formacion-de-galaxias-y-evolucion-estelar-cosmica' => ['Nota', 'sp_noticia.php', ''],
+        '/serflix/privacidad' => ['Privacidad', 'sp_privacidad.php'],
+        '/serflix/sobre-mi' => ['Acerca de mi', 'sp_about_me.php'],
+        '/serflix/contacto' => ['Contacto', 'sp_contacto.php']
+    ];
 
     //var_dump($_SERVER);Como estye puedo saber las variables del servidor
     
@@ -13,7 +23,7 @@
     $request_final = explode("?", $request);
     
     /**Validar si la pagina tiene paginacion y si exista esa apgian de paginacion*/
-    if(strpos($request_final[0], 'pagina') != false){
+    if(str_contains($request_final[0], 'pagina')){
        $request_final_validation = explode('/pagina/',$request_final[0]);
        $request_final = $request_final_validation;
        $isPagination = true;
@@ -32,19 +42,19 @@
         }
     }
 
-    if (isset($_GET["b"])){
-        $parametro = $_GET["b"]; 
-        include __DIR__.'/pages/sp_buscador.php';
-        return;
-    }
-
-    if(strpos($request_final[0], '/php/')!= false){
+    if(str_contains($request_final[0], '/php/')){
        include __DIR__.'/assets/php/guardarComentario.php';
        return;
     }
 
     /**Configuración general del sitio */
     $configuracion = json_decode(file_get_contents('assets/json/configuracionGeneral.json'), false);
+
+    if (isset($_GET["b"])){
+        $parametro = $_GET["b"]; 
+        include __DIR__.'/pages/sp_buscador.php';
+        return;
+    }
 
         // Verificar si hay página o no
     if(isset($rutas[$request_final[0]])) {

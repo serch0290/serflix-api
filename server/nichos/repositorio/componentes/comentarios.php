@@ -57,7 +57,7 @@
             </div>
             
             <span>Información sobre protección de datos</span>
-            <span><strong>Responsable:</strong> <?php echo $noticia->author->nombre; ?></span>
+            <span><strong>Responsable:</strong> <?php echo $noticia->author->autor; ?></span>
             <span><strong>Finalidad:</strong> Moderar los comentarios</span>
             <span><strong>Legitimación:</strong> Por consentimiento del interesado.</span>
             <span><strong>Derechos:</strong> Rectificar y suprimir los comentarios.</span>

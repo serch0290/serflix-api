@@ -8,7 +8,7 @@
       <div class="row justify-content align-center-items-lg align-center-lt-lg h-100-p">
        <div>
          <!--Aqui va el logo-->
-            <a href="/serflix">
+            <a href="/">
               <?php
                  echo "<img src=\"".$configuracion->logo."\" class=\"px-8\" />";
               ?>
@@ -16,7 +16,7 @@
        </div>
        <div class="input-search">
          <!--Aqui va el buscador-->
-         <input type="text" placeholder="Buscar"  />
+         <input type="text" placeholder="Buscar" class="input-search-text"/>
          <i class="fa-solid fa-magnifying-glass" style="cursor: pointer; color: gray;" onclick="buscador()"></i>
        </div>
        <div class="nav-active">

@@ -3331,3 +3331,85 @@ cp: server/nichos/nicho_casa_2/componentes/noticias-group.php: No such file or d
   },
   code: undefined
 }
+[2024-10-29T12:43:47.410] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/
+cp: server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/'
+}
+[2024-10-29T12:45:16.833] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/
+cp: server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/'
+}
+[2024-10-31T12:03:05.602] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"https://prueba.com/assets/images/noticias/1730395659363/noticia.webp","imgVP":"prueba_nicho_ofi/assets/images/noticias/1730395659363/noticia.png","img400":"https://prueba.com/assets/images/noticias/1730395659363/noticia_400.webp","img800":"https://prueba.com/assets/images/noticias/1730395659363/noticia_800.webp","img1024":"https://prueba.com/assets/images/noticias/1730395659363/noticia_1024.webp"},{"type":"html","html":"<p>Bueno es otra noticia que agregar, me encanta mi imac.</p>\n","edit":true},{"type":"h2","data":"Este es un h2","hash":"este_es_un_h2"},{"type":"h3","data":"Este es un h3"},{"type":"table-content","list":[{"hash":"#este_es_un_h2","name":"Este es un h2","sublist":[{"hash":"#este_es_un_h3","name":"Este es un h3"}]}]}],"publicado":{"dev":false,"prod":false},"idNoticia":7,"comentarios":false,"IDNoticiasEnlazado":"0","IDNoticiasRelacionadas":"0","h1":"Otra noticia que agregar","author":{"_id":"66fed00a8bbb2e34e46044de","autor":"Sergio Cruz Ofi","descripcion":"Soy programador web","img":"https://prueba.com/assets/images/autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg","__v":0,"VP":"autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg"},"descripcion":"Descripcion de otra noticia.","portada":true,"breadcrumb":[{"name":"Inicio","link":"https://prueba.com"},{"name":"Perros","link":"https://prueba.com/perros"},{"name":"Otra noticia que agregar"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icon":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Otra noticia que agregar&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Otra noticia que agregar%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Otra noticia que agregar&url=","name":"Telegram","class":"telegram","icon":"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Otra noticia que agregar&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Otra noticia que agregar&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"/otra_noticia_que_agregar","local":true,"dev":false,"prod":false,"categoria":"66e9c93b24f4762fa1b1624e"},"nicho":{"nombre":"prueba_nicho_ofi","id":"66b28bbb5a6e83891e3429e6"}}66e9c93b24f4762fa1b1624e Error: ER_BAD_NULL_ERROR: Column 'NtCt_IDCategoria' cannot be null
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarCategoria (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:19:27)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:116:28)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'NtCt_IDCategoria' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: 'INSERT INTO Srfl_NtcsCtgr(NtCt_IDNoticia, NtCt_IDCategoria, NtCt_Estatus, NtCt_FchaCrcn) VALUES(7, NULL, 1, CURRENT_TIMESTAMP())'
+}
+[2024-10-31T12:03:12.569] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"https://prueba.com/assets/images/noticias/1730395659363/noticia.webp","imgVP":"prueba_nicho_ofi/assets/images/noticias/1730395659363/noticia.png","img400":"https://prueba.com/assets/images/noticias/1730395659363/noticia_400.webp","img800":"https://prueba.com/assets/images/noticias/1730395659363/noticia_800.webp","img1024":"https://prueba.com/assets/images/noticias/1730395659363/noticia_1024.webp"},{"type":"html","html":"<p>Bueno es otra noticia que agregar, me encanta mi imac.</p>\n","edit":true},{"type":"h2","data":"Este es un h2","hash":"este_es_un_h2"},{"type":"h3","data":"Este es un h3"},{"type":"table-content","list":[{"hash":"#este_es_un_h2","name":"Este es un h2","sublist":[{"hash":"#este_es_un_h3","name":"Este es un h3"}]}]}],"publicado":{"dev":false,"prod":false},"idNoticia":8,"comentarios":false,"IDNoticiasEnlazado":"0","IDNoticiasRelacionadas":"0","h1":"Otra noticia que agregar","author":{"_id":"66fed00a8bbb2e34e46044de","autor":"Sergio Cruz Ofi","descripcion":"Soy programador web","img":"https://prueba.com/assets/images/autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg","__v":0,"VP":"autores/9a379d5a-44d1-49df-a7dc-18dbd891f056/autor.jpg"},"descripcion":"Descripcion de otra noticia.","portada":true,"breadcrumb":[{"name":"Inicio","link":"https://prueba.com"},{"name":"Perros","link":"https://prueba.com/perros"},{"name":"Otra noticia que agregar"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icon":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Otra noticia que agregar&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Otra noticia que agregar%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Otra noticia que agregar&url=","name":"Telegram","class":"telegram","icon":"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Otra noticia que agregar&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Otra noticia que agregar&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"/otra_noticia_que_agregar","local":true,"dev":false,"prod":false,"categoria":"66e9c93b24f4762fa1b1624e"},"nicho":{"nombre":"prueba_nicho_ofi","id":"66b28bbb5a6e83891e3429e6"}}66e9c93b24f4762fa1b1624e Error: ER_BAD_NULL_ERROR: Column 'NtCt_IDCategoria' cannot be null
+    at Query.Sequence._packetToError (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:79:18)
+    at Protocol._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:88:28)
+    at Socket.<anonymous> (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Connection.js:526:10)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    --------------------
+    at Pool.query (/Users/scruz/Documents/sr/proyecto-nichos/api/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarCategoria (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:19:27)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:116:28)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'NtCt_IDCategoria' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: 'INSERT INTO Srfl_NtcsCtgr(NtCt_IDNoticia, NtCt_IDCategoria, NtCt_Estatus, NtCt_FchaCrcn) VALUES(8, NULL, 1, CURRENT_TIMESTAMP())'
+}
