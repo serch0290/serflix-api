@@ -161,6 +161,10 @@ const guardarCategoriaBlog = async(req, res) =>{
       let pathFooter = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/footer.json';
       json.generarJsonNoticia(footer, pathFooter);
 
+      let recomendadas = { "title": "Lo más nuevo" };
+      let pathRecomandadas = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/noticias-recomended.json';
+      json.generarJsonNoticia(recomendadas, pathRecomandadas);
+
       if(!home._id){
          noticia = await consultas.guardarHome(home);
       }else{

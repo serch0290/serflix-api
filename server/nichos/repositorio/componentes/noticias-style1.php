@@ -29,7 +29,7 @@
                if($limiteInferiorNoticias <= $k && $limiteSuperiorNoticias >= $k){
                   echo "<div class=\"col-sm-4 col-xs-6 mb-10 col-12\">
                           <article class=\"article\">
-                            <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$rowNoticiasCompleto[$k]["url"]."\">
+                            <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$rowNoticiasCompleto[$k]["url"]."\">
                               <div class=\"container-noticia\">
                                 <div class=\"container-imagen article-content-image\">
                                     <div style=\"background-image: url('".$rowNoticiasCompleto[$k]["imagen"]."');\" class=\"image article-image\"></div>
@@ -49,7 +49,7 @@
             }else{
               echo "<div class=\"col-sm-4 col-xs-6 mb-10 col-12\">
                       <article class=\"article\">
-                        <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$rowNoticiasCompleto[$k]["url"]."\">
+                        <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$rowNoticiasCompleto[$k]["url"]."\">
                           <div class=\"container-noticia\">
                             <div class=\"container-imagen article-content-image\">
                                 <div style=\"background-image: url('".$rowNoticiasCompleto[$k]["imagen"]."');\" class=\"image article-image\"></div>

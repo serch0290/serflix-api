@@ -1,6 +1,6 @@
 <?php
   //Obtenemos toda la configuración de la noticia
-  $filePathRecomended = 'assets/json/serflix/noticias-recomended.json';
+  $filePathRecomended = 'assets/json/noticias-recomended.json';
   $noticia_recomended = null;
   if (file_exists($filePathRecomended)) {
       $noticia_recomended = json_decode(file_get_contents($filePathRecomended), false);
@@ -15,7 +15,7 @@
     $i = (count($rowNoticias) <= 3) ? count($rowNoticias) : 3;
     for($j=0; $j < $i; $j++){
         echo "<div class=\"post-thumbnail\">
-                <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$rowNoticias[$j]["url"]."\">
+                <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$rowNoticias[$j]["url"]."\">
                     <div class=\"container-imagen thumbnail-image\">
                         <div style=\"background-image: url('".$rowNoticias[$j]["imagen"]."');\" class=\"image thumbnail-image-detail\"></div>
                     </div>
