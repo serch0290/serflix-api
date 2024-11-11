@@ -3477,3 +3477,52 @@ cp: server/nichos/nicho_casa_2/assets/css/components/buscador.css: No such file 
 [2024-11-09T23:12:23.706] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"ambiente":{"local":true,"dev":false,"prod":false},"home":true,"selected":true,"descripcionLarga":"<p>buen pues empecemos porque aqui va a descripcion de verdad mis estimados ya veremos como nos va jejeje muy bien a darle porque esto no es mole de olla, sale .</p>\n\n<p>A seguir continuando con esto no manches, no se que hacer despues de esto, el tema es empezar a hacer nichillos y agarrarle la onda no mnanches pero pues ya veremios.</p>\n"},"nicho":{"nombre":"nicho_casa_2"}} ReferenceError: json is not defined
     at saveAutores (webpack:///./server/modules/autor/autor.controller.js?:44:13)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-11T16:11:18.020] [FATAL] arbitraje - Metodo: subirArchivosProyecto {"dominio":"https://prueba.com"} Error: ENOENT: no such file or directory, open 'server/templates/sp_about_me.hbs'
+    at Object.openSync (fs.js:462:3)
+    at Object.readFileSync (fs.js:364:35)
+    at subirArchivosProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:322:21)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/templates/sp_about_me.hbs'
+}
+[2024-11-11T16:12:41.839] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/
+cp: server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/'
+}
+[2024-11-11T16:14:56.720] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/
+cp: server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css /Applications/XAMPP/htdocs/prueba_nicho_ofi/assets/css/components/'
+}
+[2024-11-11T16:21:17.401] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://prueba.com","proyecto":"prueba_nicho_ofi"} TypeError: footer is not iterable
+    at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:499:16)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:394:3)
+[2024-11-11T16:33:10.172] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://prueba.com","proyecto":"prueba_nicho_ofi"} TypeError: Cannot read property 'footer' of null
+    at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:499:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:394:3)
+[2024-11-11T16:34:44.763] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://prueba.com","proyecto":"prueba_nicho_ofi"} TypeError: Cannot read property 'footer' of null
+    at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:501:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:394:3)

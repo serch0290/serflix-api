@@ -14,6 +14,8 @@ const handlebars = require('handlebars');
 const uploads = require('./configuracion.upload');
 const json = require('./../configuracion/configuracion.jsons');
 
+const footerDao = require('./../footer/footer.dao');
+
 
 /**
  * @function generateProyecto [Función que genera las carpetas del todo el proyecto]
@@ -386,6 +388,11 @@ const guardarIconNicho = async(req, res) =>{
 			}
 		}
 
+		/**
+		 * Se valida si hay rutas default que agregar del sitio
+		 */
+		await routingDefault(data.id, routing);
+
 		let path = 'server/nichos/' + req.body.proyecto;
 		await generarFileRoutingReal(routing, path);
 
@@ -486,6 +493,17 @@ const generarFileRoutingReal = async (entradas, path) => {
 	 }
   }
 
+  const routingDefault = async(nicho, routing) =>{
+	try{
+		let footer = await footerDao.getFooter({id: nicho});
+		for(let f of footer.footer){
+			routing.push({url: f.urlAlone, descripcion: '-', file: f.file});
+		}
+	}catch(error){
+		throw error;
+	}
+  }
+
 module.exports = {
 	generateProyecto,
 	generarCapetasProyecto,
@@ -499,5 +517,6 @@ module.exports = {
 	actualizarColorFuentes,
 	subirModificacionesDEV,
 	generarJSONIconImagen,
-	eliminarConfiguracionGeneralNicho
+	eliminarConfiguracionGeneralNicho,
+	routingDefault
 }
