@@ -1,0 +1,35 @@
+.about-me {
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 80px;
+}
+
+.about-me h1{
+    padding-top: 10px;
+}
+
+.detail-about-me{
+    margin-top: 20px;
+}
+
+.detail-about-me p{
+    font-size: 17px;
+}
+
+@media(max-width: 599px){
+    .detail-about-me p{
+        font-size: 15px;
+    }
+
+    .detail-about-me img{
+        width: 200px;
+        height: 200px;
+    }
+    
+}
+
+.detail-about-me p:not(.text-center){
+    text-align: justify;
+}

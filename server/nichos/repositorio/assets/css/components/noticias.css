@@ -69,16 +69,6 @@
     justify-content: center;
 }
 
-.pagination a{
-    background: #45523e;
-    color: #FFFFFF !important;
-}
-
-.pagination strong{
-    color: #45523e;
-    background-color: #fff;
-}
-
 @media(max-width: 599px){
     .pagination > * {
        min-width: 2rem;

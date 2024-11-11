@@ -30,7 +30,7 @@
         while($row = $noticiasRelevantes->fetch_assoc()) {
           echo "<div class=\"col-md-4 col-xs-6 col-12 mb-20\">
                     <article class=\"article\">
-                      <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].'/'.$row["url"]."\">
+                      <a href=\"".$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$row["url"]."\">
                         <div class=\"container-noticia\">
                           <div class=\"container-imagen article-content-image\">
                               <div style=\"background-image: url('".$row["imagen"]."');\" class=\"image article-image\"></div>

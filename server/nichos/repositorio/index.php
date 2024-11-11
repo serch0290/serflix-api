@@ -4,6 +4,7 @@
     error_reporting(E_ALL);
 
     //Rutas definidas del proyecto
+    /*
     $rutas = [
         '/serflix/' => ['Página principal', 'sp_index.php', 'home'],
         '/serflix' => ['Página principal', 'sp_index.php', 'home'],
@@ -14,7 +15,9 @@
         '/serflix/privacidad' => ['Privacidad', 'sp_privacidad.php'],
         '/serflix/sobre-mi' => ['Acerca de mi', 'sp_about_me.php'],
         '/serflix/contacto' => ['Contacto', 'sp_contacto.php']
-    ];
+    ];*/
+
+    include_once __DIR__.'/routing.php';
 
     //var_dump($_SERVER);Como estye puedo saber las variables del servidor
     
@@ -25,7 +28,7 @@
     /**Validar si la pagina tiene paginacion y si exista esa apgian de paginacion*/
     if(str_contains($request_final[0], 'pagina')){
        $request_final_validation = explode('/pagina/',$request_final[0]);
-       $request_final = $request_final_validation;
+       $request_final[0] = '/';
        $isPagination = true;
     }
 

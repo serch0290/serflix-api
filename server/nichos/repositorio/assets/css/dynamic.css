@@ -51,7 +51,7 @@ footer, .list-detail-pasos > li::before, .title-section::before{
     background: #2b424f; /*Color del banner fel footer*/
 }
 
-.content-item-category>strong, .cookies{
+.content-item-category>strong, .cookies, .pagination a{
     color: #fff;
     background-color: #2b424f; /*Color de la categoria de la noticia*/
 }
@@ -59,6 +59,11 @@ footer, .list-detail-pasos > li::before, .title-section::before{
 .article-content .title-article-content, .thumbnail-text, .content-principal h2, 
 .list-detail-note li::marker, .thumbnail-content-leido p, .thumbnail-content-ultimas-noticias p, .check-aviso-privacidad, .date-comment{
     color: #2b424f; /*Color de la letra de los titulos  de las noticias en el homepage*/
+}
+
+.pagination strong{
+    color: #45523e;
+    background-color: #fff;
 }
 
 .widget-area ul li{

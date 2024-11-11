@@ -1,0 +1,40 @@
+.about-us-general{
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.about-us-general img{
+    width: 316px; 
+    height: 300px; 
+    border-radius: 50%;
+}
+
+.conten-about-us{
+    text-align: justify;
+}
+
+@media(max-width: 771px){
+    .about-us-general img{
+        width: 290px; 
+        height: 280px; 
+    }
+}
+
+@media(max-width: 599px){
+    .about-us-general img{
+        width: 220px; 
+        height: 220px; 
+    }
+
+    .conten-about-us{
+       font-size: 15px;
+    }
+}
+
+@media(max-width: 380px){
+    .about-us-general img{
+        width: 180px; 
+        height: 180px; 
+    }
+}

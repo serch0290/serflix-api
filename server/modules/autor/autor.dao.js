@@ -10,7 +10,12 @@ const guardarAutores = async params =>{
     return await models.autor.create(params);
 }
 
+const actualizarActor = async params =>{
+    return await models.autor.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
+
 module.exports = {
     consultaAutores,
-    guardarAutores
+    guardarAutores,
+    actualizarActor
 }

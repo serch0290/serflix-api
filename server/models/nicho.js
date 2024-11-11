@@ -196,6 +196,15 @@ const footer = mongoose.model('footer', schemaFooter);
 const schemaAutor = new Schema({
     autor: String,
     descripcion: String,
+    descripcionLarga: String,
+    home: Boolean,
+    sobremi: Boolean,
+    ambiente:{
+      local: Boolean,
+      dev: Boolean,
+      prod: Boolean,
+    },
+    breadcrumb: {type: [Schema.Types.Mixed]},
     img: String
 });
 

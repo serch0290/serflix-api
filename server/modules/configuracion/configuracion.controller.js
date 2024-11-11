@@ -272,8 +272,8 @@ const patchGeneralSitio = async (req, res) => {
 		 * Generamos el json de configuracion general
 		 */
 		let configuracionGeneral = {
-			logo: 'assets/' + data.logo.file,
-			icon: 'assets/' + data.icon.file
+			logo: data.dominio + '/assets/' + data.logo.file,
+			icon: data.dominio + '/assets/' + data.icon.file
 		}
 
 		fs.writeFileSync(path_nichos + '/assets/json/configuracionGeneral.json', JSON.stringify(configuracionGeneral));

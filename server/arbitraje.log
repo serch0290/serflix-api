@@ -3413,3 +3413,67 @@ cp: server/nichos/prueba_nicho_ofi/assets/css/components/not-found.css: No such 
   index: 0,
   sql: 'INSERT INTO Srfl_NtcsCtgr(NtCt_IDNoticia, NtCt_IDCategoria, NtCt_Estatus, NtCt_FchaCrcn) VALUES(8, NULL, 1, CURRENT_TIMESTAMP())'
 }
+[2024-11-08T22:02:06.975] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/nicho_casa_2/assets/css/components/buscador.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/
+cp: server/nichos/nicho_casa_2/assets/css/components/buscador.css: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/nicho_casa_2/assets/css/components/buscador.css /Applications/XAMPP/htdocs/nicho_casa_2/assets/css/components/'
+}
+[2024-11-08T22:13:50.989] [FATAL] arbitraje - Ocurrió un error al generar imagenes [Error: Input file contains unsupported image format]
+[2024-11-08T22:13:58.693] [FATAL] arbitraje - Metodo: guardarNoticia {"noticia":{"noticiasLateral":{"title":"Lo mas reciente"},"detalle":[{"type":"img","img":"assets/images/noticias/1731125624870/noticia.pdf","imgVP":"nicho_casa_2/assets/images/noticias/1731125624870/noticia.pdf"},{"type":"html","html":"<p>Descripcion de la noticia 9</p>\n","edit":true}],"publicado":{"dev":false,"prod":false},"idNoticia":9,"comentarios":false,"IDNoticiasEnlazado":"0","IDNoticiasRelacionadas":"0","h1":"Titulo de la noticia 9","author":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"https://pruebacasa.com/assets/images/autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"VP":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg"},"descripcion":"Descripcion de la noticia 9","breadcrumb":[{"name":"Inicio","link":"https://pruebacasa.com"},{"name":"Prueba","link":"https://pruebacasa.com/prueba"},{"name":"Titulo de la noticia 9"}],"redesSociales":[{"link":"https://www.facebook.com/sharer/sharer.php?u=","name":"Facebook","class":"facebook","icon":"fa-brands fa-facebook-f","seleccionado":true},{"link":"fb-messenger://share/?link=","name":"Facebook Messenger","class":"facebook-messenger","icon":"fa-brands fa-facebook-messenger","seleccionado":true},{"link":"https://x.com/intent/tweet?text=Titulo de la noticia 9&url=","name":"Twitter","class":"twitter","icon":"fa-brands fa-x-twitter","seleccionado":true},{"link":"https://pinterest.com/pin/create/button/?url=","name":"Pinterest","class":"pinterest","icon":"fa-brands fa-pinterest-p","seleccionado":true},{"link":"https://wa.me/?text=Titulo de la noticia 9%20-%20","name":"Whatsapp","class":"whatsapp","icon":"fa-brands fa-whatsapp","seleccionado":true},{"link":"https://tumblr.com/widgets/share/tool?canonicalUrl=","name":"Tumblr","class":"tumblr","icon":"fa-brands fa-tumblr","seleccionado":true},{"link":"https://www.linkedin.com/shareArticle?mini=true&url=","name":"Linkedin","class":"linkedin","icon":"fa-brands fa-linkedin","seleccionado":true},{"link":"https://t.me/share/url?text=Titulo de la noticia 9&url=","name":"Telegram","class":"telegram","icon":"fa-brands fa-telegram","seleccionado":true},{"link":"mailto:?subject=Titulo de la noticia 9&body=","name":"Mail","class":"email","icon":"fa-regular fa-envelope","seleccionado":true},{"link":"http://reddit.com/submit?title=Titulo de la noticia 9&url=","name":"Reddit","class":"reedit","icon":"fa-brands fa-reddit-alien","seleccionado":true}],"url":"/titulo_de_la_noticia_9","local":true,"dev":false,"prod":false,"categoria":"66d4096a988459fbfa612a3a"},"nicho":{"nombre":"nicho_casa_2","id":"66cc10ac511221657311f88c","idCategoria":1}}66d4096a988459fbfa612a3a Error: ER_BAD_NULL_ERROR: Column 'Imgn_Url' cannot be null
+    at Sequence._packetToError (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/sequences/Sequence.js:47:14)
+    at Query.ErrorPacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:291:23)
+    at Parser._parsePacket (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Parser.js:433:10)
+    at Parser.write (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Parser.js:43:10)
+    at Protocol.write (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/protocol/Protocol.js:38:16)
+    at Socket.<anonymous> (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Connection.js:91:28)
+    at Socket.<anonymous> (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Connection.js:525:10)
+    at Socket.emit (node:events:517:28)
+    at addChunk (node:internal/streams/readable:368:12)
+    --------------------
+    at Pool.query (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mysql/lib/Pool.js:199:23)
+    at eval (webpack:///./server/lib/api-mysql.js?:28:14)
+    at new Promise (<anonymous>)
+    at Object.queryRawAlone (webpack:///./server/lib/api-mysql.js?:27:12)
+    at Object.guardarImagenes (webpack:///./server/modules/nichos/nichos-mysql.dao.js?:29:27)
+    at guardarNoticia (webpack:///./server/modules/blog/blog.controller.js?:122:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ER_BAD_NULL_ERROR',
+  errno: 1048,
+  sqlMessage: "Column 'Imgn_Url' cannot be null",
+  sqlState: '23000',
+  index: 0,
+  sql: "INSERT INTO Srfl_Imagenes(Imgn_IDNoticia, Imgn_IDResolucion, Imgn_Url, Imgn_Resolucion, Imgn_Estatus, Imgn_FchaCrcn)VALUES(9, 2, NULL, '1014x225', 1, CURRENT_TIMESTAMP())"
+}
+[2024-11-09T22:45:56.971] [FATAL] arbitraje - Metodo: saveAutores {"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"selected":true,"descripcionLarga":"Bueno pues esta es la descripcion larga pero lo mas seguro que lo mande a summernote, porque ya vi que asi no me funciona pero nimodo, voy a tener que programarlo dinamico porque no lo deje listo no manches que popoca madre no manches ya nimodo no manches el pedo creo que si va a sar el cache con los json aunque lka carga va a ser muy reapido no me jodas aunque no se que va a pasar con el reemplacamiento pero bueno a seguir esperando, creo que no me convenia pero no se que hacer creo que cuando nazca el bebe no la vboy a hacer pero bueno a seguir esperando no amcnehs, tengo que hablar con ellos no amnches.,","home":true,"ambiente":{"local":true,"dev":false,"prod":false}} ObjectParameterError: Parameter "obj" to Document() must be an object, got "Sergio Cruz Flores" (type string)
+    at model.Document (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/document.js:110:11)
+    at model.Model (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/model.js:124:12)
+    at new model (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/model.js:5239:15)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/model.js:3213:22
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/model.js:3248:7
+    at Array.forEach (<anonymous>)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/model.js:3247:15
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/helpers/promiseOrCallback.js:41:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/mongoose/lib/helpers/promiseOrCallback.js:40:10)
+[2024-11-09T22:49:51.175] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"selected":true,"home":true,"descripcionLarga":"Todavia me falta un chingo peor un chingo no manches como no tienes idea we, me falta no manches, no creo terminar y cuando empiece lo del reemplacamiento ahi ya valio madres no manches vale madres, no se que hacer a mi me conviene que se retrase minimo unos 2 años estaria excelente de aqui a 2 años exactituos me conviene porque asi, ya vou a tener un millos y puede que deje la chamba pero no se no manches que poedo con esta hueva va a ser muy dificial dejar defe no manche sya es hora de irt a dormir.","ambiente":{"local":true,"dev":false,"prod":false}},"nincho":{"nombre":"nicho_casa_2"}} TypeError: Cannot read properties of undefined (reading 'nombre')
+    at saveAutores (webpack:///./server/modules/autor/autor.controller.js?:40:58)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-09T22:52:26.211] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"ambiente":{"local":true,"dev":false,"prod":false},"home":true,"selected":true,"descripcionLarga":"<p>buen pues empecemos porque aqui va a descripcion de verdad mis estimados ya veremos como nos va jejeje muy bien a darle porque esto no es mole de olla, sale .</p>\n\n<p>A seguir continuando con esto no manches, no se que hacer despues de esto, el tema es empezar a hacer nichillos y agarrarle la onda no mnanches pero pues ya veremios.</p>\n"},"nicho":{"nombre":"nicho_casa_2"}} ReferenceError: json is not defined
+    at saveAutores (webpack:///./server/modules/autor/autor.controller.js?:41:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-09T22:54:43.666] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"ambiente":{"local":true,"dev":false,"prod":false},"home":true,"selected":true,"descripcionLarga":"<p>buen pues empecemos porque aqui va a descripcion de verdad mis estimados ya veremos como nos va jejeje muy bien a darle porque esto no es mole de olla, sale .</p>\n\n<p>A seguir continuando con esto no manches, no se que hacer despues de esto, el tema es empezar a hacer nichillos y agarrarle la onda no mnanches pero pues ya veremios.</p>\n"},"nicho":{"nombre":"nicho_casa_2"}} ReferenceError: json is not defined
+    at saveAutores (webpack:///./server/modules/autor/autor.controller.js?:44:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-09T23:12:23.706] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"66edeeec843f0d9d81425276","autor":"Sergio Cruz Flores","descripcion":"Soy un programador que esta en busqueda de un trabajo de homeoffice.","img":"autores/dff2ccd9-8cf9-4257-9608-96cc675599e2/autor.jpeg","__v":0,"ambiente":{"local":true,"dev":false,"prod":false},"home":true,"selected":true,"descripcionLarga":"<p>buen pues empecemos porque aqui va a descripcion de verdad mis estimados ya veremos como nos va jejeje muy bien a darle porque esto no es mole de olla, sale .</p>\n\n<p>A seguir continuando con esto no manches, no se que hacer despues de esto, el tema es empezar a hacer nichillos y agarrarle la onda no mnanches pero pues ya veremios.</p>\n"},"nicho":{"nombre":"nicho_casa_2"}} ReferenceError: json is not defined
+    at saveAutores (webpack:///./server/modules/autor/autor.controller.js?:44:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
