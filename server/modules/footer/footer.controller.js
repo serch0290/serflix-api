@@ -15,6 +15,7 @@ const uploads = require('./../configuracion/configuracion.upload');
     try {
         let data = req.body;
         let response = null;
+        let path = null;
         if(data._id){
            let campo = { 
               $push: { footer: data.footer },
@@ -34,8 +35,14 @@ const uploads = require('./../configuracion/configuracion.upload');
           response = await consultas.guardarFooter(footer);
         }
 
+        //generamos el archivo json de la sección que se genero
+        if(data.footer.json){
+           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.footer.fileJson;
+           json.generarJsonNoticia(data.breadcrumb, path);
+        }
+
         //Generamos el json de la pagina del menu
-        let path = 'server/nichos/' + req.body.nombre + '/assets/json/footer.json';
+        path = 'server/nichos/' + req.body.nombre + '/assets/json/footer.json';
         json.generarJsonNoticia(response.footer, path);
 
         res.status(200).send(response);
