@@ -86,10 +86,36 @@ const uploads = require('./../configuracion/configuracion.upload');
           res.status(500).send({ error: 'Ocurrió un error al subir modificaciones del footer a dev o prod' });
         }
    }
+
+   const actualizarFooter = async(req, res) =>{
+      try{
+        let data = req.body;
+        data.footer.local = true;
+        data.footer.dev =  false;
+        data.footer.prod = false;
+        let response = await consultas.agregarNuevoFooter({_id: data.footer._id, campo: data.footer});
+
+         //generamos el archivo json de la sección que se genero
+         if(data.selected.json){
+          path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.selected.fileJson;
+          json.generarJsonNoticia(data.breadcrumb, path);
+       }
+
+       //Generamos el json de la pagina del menu
+       path = 'server/nichos/' + req.body.nombre + '/assets/json/footer.json';
+       json.generarJsonNoticia(response.footer, path);
+
+       res.status(200).send(response);
+      }catch(error){
+       log.fatal('Metodo: actualizarFooter ' + JSON.stringify(req.body), error);
+        res.status(500).send({ error: 'Ocurrió un error al actualizar el footer', e: error });
+      }
+   }
     
 
   module.exports = {
     saveFooter,
     getFooter,
-    subirModificacionesMenu
+    subirModificacionesMenu,
+    actualizarFooter
   }

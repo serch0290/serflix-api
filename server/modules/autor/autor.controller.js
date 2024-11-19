@@ -26,6 +26,9 @@ const saveAutores = async(req, res) =>{
     try{
         let data = req.body.autor;
         let autor = null;
+
+        if(data.sobremi) await consultas.actualizarEstatus({});//Se actualizan todos los estatus como que no son home por si cambie alguno por casualidad
+
         if(data._id){
            autor = await consultas.actualizarActor(data);
         }else{
@@ -34,7 +37,7 @@ const saveAutores = async(req, res) =>{
 
         if(data.home){
             let homeAutor = {
-                img: req.body.nicho.dominio + '/assets/images/' + autor.img,
+                img: data.img400,
                 title: 'Acerca de nosotros',
                 descripcion: autor.descripcion
             }
@@ -47,7 +50,7 @@ const saveAutores = async(req, res) =>{
             let sobreMi = {
                 breadcrumb: autor.breadcrumb,
                 name: autor.autor,
-                img: req.body.nicho.dominio + '/assets/images/' + autor.img,
+                img: data.img400,
                 title: 'Acerca de Mi',
                 descripcion: autor.descripcionLarga
             }

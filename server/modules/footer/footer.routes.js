@@ -5,5 +5,6 @@ const routes = express.Router();
 routes.post('/guardar/footer', controller.saveFooter);
 routes.get('/consulta/footer/:id', controller.getFooter);
 routes.post('/subir/modificaciones/dev/:id', controller.subirModificacionesMenu);
+routes.post('/actualizar/footer', controller.actualizarFooter);
 
 module.exports = routes;

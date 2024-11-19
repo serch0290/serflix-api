@@ -3526,3 +3526,7 @@ cp: server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css: No such f
     at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:501:23)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
     at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:394:3)
+[2024-11-17T21:28:24.641] [FATAL] arbitraje - Ocurrió un error al generar imagenes [Error: Input file is missing: server/nichos/Autores/autor.jpeg]
+[2024-11-18T00:33:47.399] [FATAL] arbitraje - Metodo: savePrivacidad {"privacidad":{"texto":"<p>Bueno pues esta es la prueba de privacidad y despues veremos que sale.</p>\n\n<ul>\n\t<li>Esta es la opcion 1</li>\n\t<li>Esta es la opcion 2\n\t<ul>\n\t\t<li><s><em><u>Sergio Cruz Flores</u></em></s></li>\n\t\t<li>Calle la que sea de francia ya que</li>\n\t</ul>\n\t</li>\n</ul>\n","breadcrumb":{"breadcrumb":[{"name":"Inicio","link":"https://pruebacasa.com"},{"name":"Política de Privacidad"}]},"local":true,"dev":false,"prod":false,"tipo":1,"json":"privacidad.json","h1":"Política de Privacidad"}} TypeError: Cannot read properties of undefined (reading 'json')
+    at savePrivacidad (webpack:///./server/modules/privacidad/privacidad.controller.js?:27:87)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

@@ -205,10 +205,27 @@ const schemaAutor = new Schema({
       prod: Boolean,
     },
     breadcrumb: {type: [Schema.Types.Mixed]},
-    img: String
+    img: String,
+    img400: String,
+    img800: String,
+    img1024: String
 });
 
 const autor = mongoose.model('autor', schemaAutor);
+
+const schemaPrivacidad = new Schema({
+    breadcrumb: {type: [Schema.Types.Mixed]},
+    texto: String,
+    tipo: Number,
+    local: Boolean,
+    dev: Boolean,
+    prod: Boolean,
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    json: String,
+    h1: String
+});
+
+const privacidad = mongoose.model('privacidad', schemaPrivacidad);
 
 module.exports = {
     nicho,
@@ -221,5 +238,6 @@ module.exports = {
     buscador,
     menu,
     footer,
-    autor
+    autor,
+    privacidad
 }
