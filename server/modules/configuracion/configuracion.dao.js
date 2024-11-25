@@ -3,6 +3,7 @@ const mongoose = conexion.init();
 const models = require('../../models/nicho');
 
 const consultaFileRepositorio = async params => {
+    console.log('params: ', params);
     return await models.files.find(params);
 }
 

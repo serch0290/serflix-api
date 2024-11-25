@@ -3530,3 +3530,46 @@ cp: server/nichos/prueba_nicho_ofi/assets/css/components/about-us.css: No such f
 [2024-11-18T00:33:47.399] [FATAL] arbitraje - Metodo: savePrivacidad {"privacidad":{"texto":"<p>Bueno pues esta es la prueba de privacidad y despues veremos que sale.</p>\n\n<ul>\n\t<li>Esta es la opcion 1</li>\n\t<li>Esta es la opcion 2\n\t<ul>\n\t\t<li><s><em><u>Sergio Cruz Flores</u></em></s></li>\n\t\t<li>Calle la que sea de francia ya que</li>\n\t</ul>\n\t</li>\n</ul>\n","breadcrumb":{"breadcrumb":[{"name":"Inicio","link":"https://pruebacasa.com"},{"name":"Política de Privacidad"}]},"local":true,"dev":false,"prod":false,"tipo":1,"json":"privacidad.json","h1":"Política de Privacidad"}} TypeError: Cannot read properties of undefined (reading 'json')
     at savePrivacidad (webpack:///./server/modules/privacidad/privacidad.controller.js?:27:87)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-23T23:34:44.157] [FATAL] arbitraje - Metodo: pathColorSitio TypeError: Cannot read properties of undefined (reading 'file')
+    at actualizarColorFuentes (webpack:///./server/modules/configuracion/configuracion.controller.js?:208:91)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:365:14)
+    at param (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:376:14)
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:421:3)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+[2024-11-23T23:41:45.410] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/completo_casa/assets/css/components/comentarios.css /Applications/XAMPP/htdocs/completo_casa/assets/css/components/
+cp: server/nichos/completo_casa/assets/css/components/comentarios.css: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/css/components/comentarios.css /Applications/XAMPP/htdocs/completo_casa/assets/css/components/'
+}
+[2024-11-23T23:52:32.707] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/completo_casa/assets/css/components/comentarios.css /Applications/XAMPP/htdocs/completo_casa/assets/css/components/
+cp: server/nichos/completo_casa/assets/css/components/comentarios.css: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/css/components/comentarios.css /Applications/XAMPP/htdocs/completo_casa/assets/css/components/'
+}
+[2024-11-24T00:05:23.131] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompeto","proyecto":"completo_casa","id":"6742baae33535d308f3bce56"} TypeError: Cannot read properties of null (reading 'footer')
+    at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:500:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:395:3)

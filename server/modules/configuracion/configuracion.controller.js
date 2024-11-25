@@ -300,7 +300,7 @@ const guardarFuenteNicho = async(req, res) =>{
 
 const subirArchivosProyecto = async(req, res) =>{
 	try{
-		const filtro = { tipo: { $eq: 0 }, dynamic: { $eq: false }};
+		const filtro = {$or: [{dynamic: false},{dynamic: null}]};
 		let files = await consultas.consultaFileRepositorio(filtro);
 		let path_nichos = 'server/nichos/';
 		for(let file of files){
@@ -308,13 +308,14 @@ const subirArchivosProyecto = async(req, res) =>{
 				let pathFile = file.path + file.file;
 				let origen = path.join(path_nichos + 'repositorio' + pathFile);
 				let destino = path.join(path_nichos + req.params.nombre + pathFile);
+				console.log('Copiado: ', origen, destino);
 				await fs.copyFileSync(origen, destino);
 			}catch(error){
 			 throw error;
 			}
 		}
 
-		const filtroDynamic = { tipo: { $eq: 0 }, dynamic: { $eq: true }};
+		const filtroDynamic = { dynamic: { $eq: true }};
 		let filesDynamic = await consultas.consultaFileRepositorio(filtroDynamic);
 
 		for(let file of filesDynamic){
@@ -496,6 +497,7 @@ const generarFileRoutingReal = async (entradas, path) => {
   const routingDefault = async(nicho, routing) =>{
 	try{
 		let footer = await footerDao.getFooter({id: nicho});
+		if(!footer) return;
 		for(let f of footer.footer){
 			routing.push({url: f.urlAlone, descripcion: '-', file: f.file});
 		}

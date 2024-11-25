@@ -227,6 +227,17 @@ const schemaPrivacidad = new Schema({
 
 const privacidad = mongoose.model('privacidad', schemaPrivacidad);
 
+const schemaPanorama = new Schema({
+   nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+   home: {
+     local: Boolean,
+     dev: Boolean
+   }
+});
+
+const panorama = mongoose.model('panorama', schemaPanorama);
+
+
 module.exports = {
     nicho,
     bd,
@@ -239,5 +250,6 @@ module.exports = {
     menu,
     footer,
     autor,
-    privacidad
+    privacidad,
+    panorama
 }
