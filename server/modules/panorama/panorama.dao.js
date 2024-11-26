@@ -10,8 +10,13 @@ const getListadoPanoramaConfiguracion = params => {
 const guardarPanorama = params => {
     return models.panorama.create(params);
 }
+
+const actualizarPanorama = async params =>{
+    return await models.panorama.findByIdAndUpdate(params._id, params, { new: true, runValidators: true });
+}
  
 module.exports = {
     getListadoPanoramaConfiguracion,
-    guardarPanorama
+    guardarPanorama,
+    actualizarPanorama
 }

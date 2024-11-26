@@ -1,14 +1,10 @@
 'use strict';
 const panoramaDao = require('./panorama.dao');
-const json = require('./../configuracion/configuracion.jsons');
 
 /** Log4js */
 const log4js = require('log4js');
 log4js.configure('./server/lib/log4js.json');
 const log = log4js.getLogger('arbitraje');
-
-const uploads = require('./../configuracion/configuracion.upload');
-
 
 /**
  *

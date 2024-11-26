@@ -19,36 +19,37 @@ const guardarCategoriaBlog = async(req, res) =>{
      data.nicho = req.params.id;
      let categoria = null;
 
-     /**
-      * guardar Categoria en mysql excepto cuando sea de home, esa no necesita
-      */
      if(!data.home){
-        let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
-        const conexion = require('../../lib/conexion-mysql');
-        let conn = await conexion.conexion(dataConexion);
+       /**
+         * guardar Categoria en mysql excepto cuando sea de home, esa no necesita
+         */
+         let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
+         const conexion = require('../../lib/conexion-mysql');
+         let conn = await conexion.conexion(dataConexion);
+      }
         
       
-        if(data._id){
-           /**
-             * Se guarda en mysql
-             */
-           if(conn){
-              categoriaMysql = await daoMysql.actualizarCategoria(conn, {nombre: data.title, idCategoria: data.idCategoria});
-            }
-            categoria = await consultas.actualizarCategoria(data);
-        }else{
-            /**
-             * Se guarda en mysql
-             */
-            if(conn){
-               categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
-               data.idCategoria = categoriaMysql.insertId;
-            }
+      if(data._id){
+         /**
+           * Se guarda en mysql
+           */
+         if(!data.home && conn){
+            categoriaMysql = await daoMysql.actualizarCategoria(conn, {nombre: data.title, idCategoria: data.idCategoria});
+         }
+         categoria = await consultas.actualizarCategoria(data);
+      }else{
+         /**
+           * Se guarda en mysql
+           */
+         if(!data.home && conn){
+            categoriaMysql = await daoMysql.guardarCategoriaNicho(conn, {nombre: data.title});
+            data.idCategoria = categoriaMysql.insertId;
+         }
 
-            //Se guarda en mongodb
-            categoria = await consultas.guardarCategoriaBlog(data);
-        }
-     }
+         //Se guarda en mongodb
+         categoria = await consultas.guardarCategoriaBlog(data);
+      }
+     
       
      if(!data.home){
         let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
