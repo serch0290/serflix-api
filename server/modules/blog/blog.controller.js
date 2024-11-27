@@ -17,7 +17,7 @@ const guardarCategoriaBlog = async(req, res) =>{
     try{
      let data = req.body.categoria, categoriaMysql = null;
      data.nicho = req.params.id;
-     let categoria = null;
+     let categoria = null, conn = null;
 
      if(!data.home){
        /**
@@ -25,7 +25,7 @@ const guardarCategoriaBlog = async(req, res) =>{
          */
          let dataConexion = await nichosDao.consultaConfigBD({id: data.nicho});
          const conexion = require('../../lib/conexion-mysql');
-         let conn = await conexion.conexion(dataConexion);
+         conn = await conexion.conexion(dataConexion);
       }
         
       

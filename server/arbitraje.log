@@ -3573,3 +3573,21 @@ cp: server/nichos/completo_casa/assets/css/components/comentarios.css: No such f
     at routingDefault (webpack:///./server/modules/configuracion/configuracion.controller.js?:500:23)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
     at async generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:395:3)
+[2024-11-27T16:30:27.408] [FATAL] arbitraje - Metodo: actualizarCamposBDDev {"commands":["cp server/nichos/oficina_completo/assets/json/about-us.json /Applications/XAMPP/htdocs/oficina_completo/assets/json","cp server/nichos/oficina_completo/assets/json/sobre-mi.json /Applications/XAMPP/htdocs/oficina_completo/assets/json","cp -r server/nichos/autores/46e3d2f8-aa7b-4436-9b5e-77b210e9ef69 /Applications/XAMPP/htdocs/oficina_completo/assets/images/autores"],"campo":{"_id":"673abef0f8d34998caedab48","$set":{"ambiente.dev":true}}} Error: Command failed: cp -r server/nichos/autores/46e3d2f8-aa7b-4436-9b5e-77b210e9ef69 /Applications/XAMPP/htdocs/oficina_completo/assets/images/autores
+cp: server/nichos/autores/46e3d2f8-aa7b-4436-9b5e-77b210e9ef69: No such file or directory
+
+    at ChildProcess.exithandler (child_process.js:303:12)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Socket.<anonymous> (internal/child_process.js:441:11)
+    at Socket.emit (events.js:315:20)
+    at Pipe.<anonymous> (net.js:674:12) {
+  killed: false,
+  code: 1,
+  signal: null,
+  cmd: 'cp -r server/nichos/autores/46e3d2f8-aa7b-4436-9b5e-77b210e9ef69 /Applications/XAMPP/htdocs/oficina_completo/assets/images/autores'
+}
+[2024-11-27T16:45:37.728] [FATAL] arbitraje - Metodo: guardarCategoriaBlog {"categoria":{"h1":"Perros","title":"Perros","url":"/perros","menu":true,"breadcrumb":[{"name":"Inicio","link":"/https://oficinacompleto.com"},{"name":"Perros"}],"nicho":"673d0e6222d9799d26e956bf","noticiasLateral":{"title":"Lo más reciente"},"intereses":{"title":"Tambien te puede interesar"},"local":true,"dev":false,"prod":false},"nicho":{"nombre":"oficina_completo"}}673d0e6222d9799d26e956bf ReferenceError: conn is not defined
+    at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:44:27)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
