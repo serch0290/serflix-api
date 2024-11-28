@@ -237,6 +237,17 @@ const schemaPanorama = new Schema({
 
 const panorama = mongoose.model('panorama', schemaPanorama);
 
+const schemaVersion = new Schema({
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    home: {
+        versionLocal: Number,
+        versionDev: Number,
+        versionProd: Number
+    }
+});
+
+const version = mongoose.model('version', schemaVersion);
+
 
 module.exports = {
     nicho,
@@ -251,5 +262,6 @@ module.exports = {
     footer,
     autor,
     privacidad,
-    panorama
+    panorama,
+    version
 }
