@@ -12,6 +12,7 @@ const daoMysql = require('../nichos/nichos-mysql.dao');
 const uploads = require('./../configuracion/configuracion.upload');
 const helpers = require('../../lib/helpers');
 const fs = require('fs');
+const versionDao = require('./../version/version.dao');
 
 const guardarCategoriaBlog = async(req, res) =>{
     try{
@@ -153,6 +154,8 @@ const guardarCategoriaBlog = async(req, res) =>{
    try{
       let home = req.body.home;
       let noticia = null;
+
+      let version = versionDao.getVersion({id: req.body.nicho.id});
       
       let menu = [];
       let pathMenu = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/menu.json';
@@ -171,8 +174,14 @@ const guardarCategoriaBlog = async(req, res) =>{
       }else{
          noticia = await consultas.actualizarHome(home);
       }
+
+      let versionActual = version.home.versionLocal;
+      if([version.home.versionLocal, version.home.versionDev, version.home.versionProd].every(val => val === version.versionLocal)){
+          version.home.versionLocal = ++versionActual;
+          versionDao.actualizarVersion(version);
+      }
       
-      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home.json';
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home_'+ versionActual +'.json';
       json.generarJsonNoticia(noticia, path);
       res.status(200).send(noticia);
    }catch(error){

@@ -112,6 +112,11 @@ const categoriaSchema = new Schema({
     local: Boolean,
     dev: Boolean,
     prod: Boolean,
+    version: {
+        local: {type: Number, default: 0},
+        dev: {type: Number, default: 0},
+        pro: {type: Number, default: 0}
+    },
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' } 
 });
 
@@ -144,6 +149,11 @@ const noticiaSchema = new Schema({
     fechaCreacion: {
         type: Date,
         default: Date.now
+    },
+    version: {
+        local: {type: Number, default: 0},
+        dev: {type: Number, default: 0},
+        pro: {type: Number, default: 0}
     },
     fechaModificacion: Date,
     noticiasLateral: { type: Schema.Types.Mixed },
@@ -240,9 +250,9 @@ const panorama = mongoose.model('panorama', schemaPanorama);
 const schemaVersion = new Schema({
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
     home: {
-        versionLocal: Number,
-        versionDev: Number,
-        versionProd: Number
+        versionLocal: { type: Number, default: 0},
+        versionDev: { type: Number, default: 0},
+        versionProd: { type: Number, default: 0},
     }
 });
 

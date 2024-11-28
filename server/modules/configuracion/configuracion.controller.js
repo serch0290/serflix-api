@@ -15,6 +15,7 @@ const uploads = require('./configuracion.upload');
 const json = require('./../configuracion/configuracion.jsons');
 
 const footerDao = require('./../footer/footer.dao');
+const versionDao = require('./../version/version.dao');
 
 
 /**
@@ -158,6 +159,9 @@ const generarCapetasProyecto = async(req, res) =>{
 	let response = {};
 	req.body.carpetas.local = true;
 	req.body.nicho = req.params.id;
+
+	await versionDao.guardarVersion({nicho: req.params.id});
+
 	if(data._id){
 	    response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
 	}else{
