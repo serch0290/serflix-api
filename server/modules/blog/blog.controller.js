@@ -155,15 +155,25 @@ const guardarCategoriaBlog = async(req, res) =>{
       let home = req.body.home;
       let noticia = null;
 
-      let version = versionDao.getVersion({id: req.body.nicho.id});
+      /**
+       * Manejo de la version de los archivos
+       */
+      let versionActual = home.version.local;
+      if([home.version.local, home.version.dev].every(val => val === home.version.local)){
+          ++versionActual;
+          consultas.actualizarCategoria({_id: home._id, $set : {
+                                         version:{local: versionActual}
+                                         }
+                                        });
+      }
       
-      let menu = [];
+      /*let menu = [];
       let pathMenu = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/menu.json';
       json.generarJsonNoticia(menu, pathMenu);
 
       let footer = [];
       let pathFooter = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/footer.json';
-      json.generarJsonNoticia(footer, pathFooter);
+      json.generarJsonNoticia(footer, pathFooter);*/
 
       let recomendadas = { "title": "Lo más nuevo" };
       let pathRecomandadas = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/noticias-recomended.json';
@@ -173,12 +183,6 @@ const guardarCategoriaBlog = async(req, res) =>{
          noticia = await consultas.guardarHome(home);
       }else{
          noticia = await consultas.actualizarHome(home);
-      }
-
-      let versionActual = version.home.versionLocal;
-      if([version.home.versionLocal, version.home.versionDev, version.home.versionProd].every(val => val === version.versionLocal)){
-          version.home.versionLocal = ++versionActual;
-          versionDao.actualizarVersion(version);
       }
       
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/home_'+ versionActual +'.json';

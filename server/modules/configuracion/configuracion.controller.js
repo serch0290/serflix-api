@@ -378,8 +378,10 @@ const guardarIconNicho = async(req, res) =>{
 		data = req.params;
 		let categorias = await noticiasDao.consultaListadoCategorias(data);
 
+		let home = categorias.find(item=> item.home);
+
 		let routing = [];
-		routing.push({url: '/', descripcion: '-', file: 'sp_index.php'});
+		routing.push({url: '/', descripcion: '-', file: 'sp_index.php', version: home.version.local});
 		//routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
 		for(let categoria of categorias){
 			if(!categoria.home){

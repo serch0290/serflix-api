@@ -249,10 +249,15 @@ const panorama = mongoose.model('panorama', schemaPanorama);
 
 const schemaVersion = new Schema({
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
-    home: {
-        versionLocal: { type: Number, default: 0},
-        versionDev: { type: Number, default: 0},
-        versionProd: { type: Number, default: 0},
+    menu: {
+        local: { type: Number, default: 0},
+        dev: { type: Number, default: 0},
+        prod: { type: Number, default: 0}
+    },
+    footer: {
+        local: { type: Number, default: 0},
+        dev: { type: Number, default: 0},
+        prod: { type: Number, default: 0}
     }
 });
 
