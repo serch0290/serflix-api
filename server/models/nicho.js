@@ -207,14 +207,6 @@ const schemaAutor = new Schema({
     autor: String,
     descripcion: String,
     descripcionLarga: String,
-    home: Boolean,
-    sobremi: Boolean,
-    ambiente:{
-      local: Boolean,
-      dev: Boolean,
-      prod: Boolean,
-    },
-    breadcrumb: {type: [Schema.Types.Mixed]},
     img: String,
     img400: String,
     img800: String,
@@ -222,6 +214,26 @@ const schemaAutor = new Schema({
 });
 
 const autor = mongoose.model('autor', schemaAutor);
+
+const schemaAutorNicho  = new Schema({
+    nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
+    autor: { type: Schema.Types.ObjectId, ref: 'autor' },
+    ambiente:{
+        local: Boolean,
+        dev: Boolean,
+        prod: Boolean,
+    },
+    home: Boolean,
+    sobremi: Boolean,
+    breadcrumb: {type: [Schema.Types.Mixed]},
+    version: {
+        local: { type: Number, default: 0},
+        dev: { type: Number, default: 0},
+        prod: { type: Number, default: 0}
+    }
+});
+
+const autorNicho = mongoose.model('autorNicho', schemaAutorNicho);
 
 const schemaPrivacidad = new Schema({
     breadcrumb: {type: [Schema.Types.Mixed]},
@@ -278,5 +290,6 @@ module.exports = {
     autor,
     privacidad,
     panorama,
-    version
+    version,
+    autorNicho
 }

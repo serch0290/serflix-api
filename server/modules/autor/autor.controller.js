@@ -18,6 +18,17 @@ const getListadoAutores = async(req, res) =>{
     }
  }
 
+ const getAutorNicho = async(req, res) =>{
+    
+    try{
+        let autores = await consultas.getAutorNicho(req.params);
+        res.status(200).send(autores);
+    }catch(error){
+       log.fatal('Metodo: getAutorNicho ' + JSON.stringify(req.params), error);
+       res.status(500).send({ error: 'Ocurrió un error al consultar el autori del nicho' });
+    }
+ }
+
 /**
  * 
  * Se guarda autor
@@ -27,38 +38,63 @@ const saveAutores = async(req, res) =>{
         let data = req.body.autor;
         let autor = null;
 
-        if(data.sobremi) await consultas.actualizarEstatus({});//Se actualizan todos los estatus como que no son home por si cambie alguno por casualidad
-
         if(data._id){
            autor = await consultas.actualizarActor(data);
         }else{
            autor = await consultas.guardarAutores(data);
         }
 
+        res.status(200).send(autor);
+    }catch(error){
+       log.fatal('Metodo: saveAutores ' + JSON.stringify(req.body), error);
+       res.status(500).send({ error: 'Ocurrió un error al guardar autores' });
+    }
+ }
+
+ /**
+  * Se asigna un autor para el nicho
+  */
+ const saveAutorNicho = async(req, res) =>{
+    try{
+        let autor = req.body.autor, resNichoAutor = null;
+        let nichoAutor = req.body.nichoAutor;
+        let version = nichoAutor.version.local;
+
+
+        if([nichoAutor.version.local, nichoAutor.version.dev].every(val => val === version)){
+            nichoAutor.version.local = ++version;
+        }
+
+        if(nichoAutor._id){
+           resNichoAutor = await consultas.actualizarNichoAutor(nichoAutor);
+        }else{
+           resNichoAutor = await consultas.guardarNichoAutor(nichoAutor);
+        }
+
         if(data.home){
             let homeAutor = {
-                img: data.img400,
+                img: autor.img400,
                 title: 'Acerca de nosotros',
                 descripcion: autor.descripcion
             }
 
-            let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/about-us.json';
+            let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/about-us_'+version+'.json';
             json.generarJsonNoticia(homeAutor, path);
         }
 
         if(data.sobremi){
             let sobreMi = {
-                breadcrumb: autor.breadcrumb,
+                breadcrumb: nichoAutor.breadcrumb,
                 name: autor.autor,
-                img: data.img400,
+                img: autor.img400,
                 title: 'Acerca de Mi',
                 descripcion: autor.descripcionLarga
             }
 
-            let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/sobre-mi.json';
+            let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/sobre-mi_'+version+'.json';
             json.generarJsonNoticia(sobreMi, path);
         }
-        res.status(200).send(autor);
+        res.status(200).send(resNichoAutor);
     }catch(error){
        log.fatal('Metodo: saveAutores ' + JSON.stringify(req.body), error);
        res.status(500).send({ error: 'Ocurrió un error al guardar autores' });
@@ -87,5 +123,7 @@ const actualizarCamposBDDev = async(req, res)=>{
 module.exports = {
     getListadoAutores,
     saveAutores,
-    actualizarCamposBDDev
+    actualizarCamposBDDev,
+    saveAutorNicho,
+    getAutorNicho
 }

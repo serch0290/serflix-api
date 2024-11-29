@@ -16,6 +16,7 @@ const json = require('./../configuracion/configuracion.jsons');
 
 const footerDao = require('./../footer/footer.dao');
 const versionDao = require('./../version/version.dao');
+const autorDao = require('./../autor/autor.dao');
 
 
 /**
@@ -161,6 +162,14 @@ const generarCapetasProyecto = async(req, res) =>{
 	req.body.nicho = req.params.id;
 
 	await versionDao.guardarVersion({nicho: req.params.id});
+
+	let menu = [];
+    let pathMenu = 'server/nichos/' + req.params.nombre + '/assets/json/menu_0.json';
+    json.generarJsonNoticia(menu, pathMenu);
+
+    let footer = [];
+    let pathFooter = 'server/nichos/' + req.params.nombre + '/assets/json/footer_0.json';
+    json.generarJsonNoticia(footer, pathFooter);
 
 	if(data._id){
 	    response = await nichosDao.actualizarConfiguracionGeneral(req.body);	
@@ -377,6 +386,8 @@ const guardarIconNicho = async(req, res) =>{
 	try{
 		data = req.params;
 		let categorias = await noticiasDao.consultaListadoCategorias(data);
+		let versiones = await versionDao.getVersion(data);
+		let autor = await autorDao.getAutorNicho(data);
 
 		let home = categorias.find(item=> item.home);
 
@@ -401,7 +412,7 @@ const guardarIconNicho = async(req, res) =>{
 		await routingDefault(data.id, routing);
 
 		let path = 'server/nichos/' + req.body.proyecto;
-		await generarFileRoutingReal(routing, path);
+		await generarFileRoutingReal(routing, path, versiones, autor);
 
 		/**Actualizamos los campos en bd */
 		let campo = {
@@ -442,13 +453,17 @@ const guardarIconNicho = async(req, res) =>{
  /**
  * Función que genera el archivos con las rutas de la página 
  */
-const generarFileRoutingReal = async (entradas, path) => {
+const generarFileRoutingReal = async (entradas, path, version, autor) => {
 	let html = `<?php 
 					$rutas = [`;
 	for(let entrada of entradas){
 		html += `'${entrada.url}' => ['${entrada.descripcion}', '${entrada.file}'],`;
 	}
 	html += `  ];
+
+	    $versionMenu = ${version.menu.local};
+		$versionFooter = ${version.footer.local};
+		$versionAutor = ${autor.version.local};
 			?>`;
   
 	fs.writeFileSync(path + '/routing.php', html);

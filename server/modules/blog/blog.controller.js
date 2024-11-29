@@ -166,14 +166,6 @@ const guardarCategoriaBlog = async(req, res) =>{
                                          }
                                         });
       }
-      
-      /*let menu = [];
-      let pathMenu = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/menu.json';
-      json.generarJsonNoticia(menu, pathMenu);
-
-      let footer = [];
-      let pathFooter = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/footer.json';
-      json.generarJsonNoticia(footer, pathFooter);*/
 
       let recomendadas = { "title": "Lo más nuevo" };
       let pathRecomandadas = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/noticias-recomended.json';
