@@ -50,10 +50,18 @@ const guardarCategoriaBlog = async(req, res) =>{
          //Se guarda en mongodb
          categoria = await consultas.guardarCategoriaBlog(data);
       }
-     
-      
-     if(!data.home){
-        let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '.json';
+
+      if(!data.home){
+         let version = categoria.version.local;
+         if([categoria.version.local, categoria.version.dev].every(val => val === categoria.version.local)){
+             ++version;
+             consultas.actualizarCategoria({_id: categoria._id, $set : {
+                  'version.local': version
+               }
+             });
+         }
+
+        let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + categoria.url + '_' + version + '.json';
         json.generarJsonNoticia(categoria, path);
      }
       
@@ -130,7 +138,16 @@ const guardarCategoriaBlog = async(req, res) =>{
          noticia = await consultas.guardarNoticia(data);
       }
 
-      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '.json';
+      let version = noticia.version.local;
+         if([noticia.version.local, noticia.version.dev].every(val => val === version)){
+             ++version;
+             consultas.actualizarNoticia({_id: noticia._id, $set : {
+                  'version.local': version
+               }
+             });
+         }
+
+      let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '_' + version + '.json';
       json.generarJsonNoticia(noticia, path);
 
       res.status(200).send(noticia);

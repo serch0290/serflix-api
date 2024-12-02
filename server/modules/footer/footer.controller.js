@@ -5,6 +5,7 @@ const log = log4js.getLogger('arbitraje');
 const consultas  = require('./footer.dao');
 const json = require('./../configuracion/configuracion.jsons');
 const uploads = require('./../configuracion/configuracion.upload');
+const versionDao = require('./../version/version.dao');
 
 /**
  *
@@ -16,6 +17,13 @@ const uploads = require('./../configuracion/configuracion.upload');
         let data = req.body;
         let response = null;
         let path = null;
+
+        let version = data.footer.version.local;
+        if([data.footer.version.local, data.footer.version.dev].every(val => val === version)){
+            ++version;
+            data.footer.version.local = version;
+        }
+
         if(data._id){
            let campo = { 
               $push: { footer: data.footer },
@@ -37,12 +45,22 @@ const uploads = require('./../configuracion/configuracion.upload');
 
         //generamos el archivo json de la sección que se genero
         if(data.footer.json){
-           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.footer.fileJson;
+           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.footer.fileJson + '_' + data.footer.version.local + '.json';
            json.generarJsonNoticia(data.breadcrumb, path);
         }
 
+        let versionDao1 = await versionDao.getVersion({id: data.nicho});
+        let versionFooter = versionDao1.footer.version.local;
+        if([versionDao1.footer.version.local, versionDao1.footer.version.dev].every(val => val === versionFooter)){
+            ++versionFooter;
+            versionDao.actualizarVersion({_id: versionDao1._id, $set : {
+              'footer.version.local': versionFooter
+              }
+             });
+        }
+
         //Generamos el json de la pagina del menu
-        path = 'server/nichos/' + req.body.nombre + '/assets/json/footer.json';
+        path = 'server/nichos/' + req.body.nombre + '/assets/json/footer_'+versionFooter+'.json';
         json.generarJsonNoticia(response.footer, path);
 
         res.status(200).send(response);

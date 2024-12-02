@@ -2,7 +2,6 @@ const conexion = require('../../lib/conexion-mongo');
 const models = require('../../models/nicho');
 
 const guardarCategoriaBlog = async params => {
-    console.log('data categoria: ', params);
     return await models.categoria.create(params);
 }
 

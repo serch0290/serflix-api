@@ -399,11 +399,11 @@ const guardarIconNicho = async(req, res) =>{
 		for(let categoria of categorias){
 			if(!categoria.home){
 				//routing.push({url: '/' + req.body.dominio + categoria.url, descripcion: '-', file: 'sp_category.php'});
-				routing.push({url: categoria.url, descripcion: '-', file: 'sp_category.php'});
+				routing.push({url: categoria.url, descripcion: '-', file: 'sp_category.php', version: categoria.version.local});
 				categoria.noticias = await noticiasDao.consultaListadoNoticias({id: categoria._id});
 				for(let noticia of categoria.noticias){
 					//routing.push({url: '/' + req.body.dominio + categoria.url + '/' + noticia.url, descripcion: '-', file: 'sp_noticia.php'});
-					routing.push({url: noticia.url, descripcion: '-', file: 'sp_noticia.php'});
+					routing.push({url: noticia.url, descripcion: '-', file: 'sp_noticia.php', version: noticia.version.local});
 				}
 			}
 		}
