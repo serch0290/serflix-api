@@ -71,7 +71,7 @@ const saveAutores = async(req, res) =>{
            resNichoAutor = await consultas.guardarNichoAutor(nichoAutor);
         }
 
-        if(data.home){
+        if(nichoAutor.home){
             let homeAutor = {
                 img: autor.img400,
                 title: 'Acerca de nosotros',
@@ -82,7 +82,7 @@ const saveAutores = async(req, res) =>{
             json.generarJsonNoticia(homeAutor, path);
         }
 
-        if(data.sobremi){
+        if(nichoAutor.sobremi){
             let sobreMi = {
                 breadcrumb: nichoAutor.breadcrumb,
                 name: autor.autor,
@@ -112,7 +112,7 @@ const actualizarCamposBDDev = async(req, res)=>{
       }
   
       const campo = req.body.campo;
-      let autor = await consultas.actualizarActor(campo);
+      let autor = await consultas.actualizarNichoAutor(campo);
       res.status(200).send({autor, msj: 'Se subieron los archivos del autor'});						
     }catch(error){
       log.fatal('Metodo: actualizarCamposBDDev ' + JSON.stringify(req.body), error);

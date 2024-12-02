@@ -128,9 +128,9 @@ const generarCapetasProyecto = async(req, res) =>{
     }
 
 	//Generamos la carpeta de assets/css
-	let json = assets + '/json';
-	if (!fs.existsSync(json)){
-	     fs.mkdirSync(json);
+	let jsons = assets + '/json';
+	if (!fs.existsSync(jsons)){
+	     fs.mkdirSync(jsons);
     }
 
 	//Generamos la carpeta de assets/css
@@ -390,9 +390,11 @@ const guardarIconNicho = async(req, res) =>{
 		let autor = await autorDao.getAutorNicho(data);
 
 		let home = categorias.find(item=> item.home);
+		let versionHome = 0;
+		if(home) versionHome = home.version.local;
 
 		let routing = [];
-		routing.push({url: '/', descripcion: '-', file: 'sp_index.php', version: home.version.local});
+		routing.push({url: '/', descripcion: '-', file: 'sp_index.php', version: versionHome});
 		//routing.push({url: '/' + req.body.dominio + '/', descripcion: '-', file: 'sp_index.php'});
 		for(let categoria of categorias){
 			if(!categoria.home){
@@ -457,15 +459,14 @@ const generarFileRoutingReal = async (entradas, path, version, autor) => {
 	let html = `<?php 
 					$rutas = [`;
 	for(let entrada of entradas){
-		html += `'${entrada.url}' => ['${entrada.descripcion}', '${entrada.file}'],`;
+		html += `'${entrada.url}' => ['${entrada.descripcion}', '${entrada.file}', ${entrada.version}],`;
 	}
 	html += `  ];
 
 	    $versionMenu = ${version.menu.local};
 		$versionFooter = ${version.footer.local};
-		$versionAutor = ${autor.version.local};
+		$versionAutor = ${autor ? autor.version.local : 0};
 			?>`;
-  
 	fs.writeFileSync(path + '/routing.php', html);
   }
 

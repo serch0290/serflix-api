@@ -62,6 +62,7 @@
         // Verificar si hay página o no
     if(isset($rutas[$request_final[0]])) {
         // Incluir el PHP adecuado
+        $version = $rutas[$request_final[0]][2];
         include __DIR__ . '/pages/' . $rutas[$request_final[0]][1];
     } else {
         // La página no existe

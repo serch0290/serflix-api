@@ -1,5 +1,5 @@
 <?php 
-   $menu = json_decode(file_get_contents('assets/json/menu.json'), false);
+   $menu = json_decode(file_get_contents('assets/json/menu_'.$versionMenu.'.json'), false);
 ?>
 
 <header class="site-header">

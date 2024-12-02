@@ -1,5 +1,5 @@
 <?php 
-   $filePathAbout = 'assets/json/about-us.json';
+   $filePathAbout = 'assets/json/about-us_'.$versionAutor.'.json';
    $aboutUs = null;
    if (file_exists($filePathAbout)) {
        $aboutUs = json_decode(file_get_contents($filePathAbout), false);

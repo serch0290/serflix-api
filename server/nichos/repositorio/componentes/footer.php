@@ -1,6 +1,6 @@
 <?php
 
-   $footer = json_decode(file_get_contents('assets/json/footer.json'), false);
+   $footer = json_decode(file_get_contents('assets/json/footer_'.$versionMenu.'.json'), false);
 
 ?>
 

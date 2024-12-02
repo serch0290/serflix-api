@@ -153,16 +153,17 @@ const guardarCategoriaBlog = async(req, res) =>{
  const saveHomeConfiguracion = async(req, res)=>{
    try{
       let home = req.body.home;
+      let categoria = req.body.categoria;
       let noticia = null;
 
       /**
        * Manejo de la version de los archivos
        */
-      let versionActual = home.version.local;
-      if([home.version.local, home.version.dev].every(val => val === home.version.local)){
+      let versionActual = categoria.version.local;
+      if([categoria.version.local, categoria.version.dev].every(val => val === categoria.version.local)){
           ++versionActual;
-          consultas.actualizarCategoria({_id: home._id, $set : {
-                                         version:{local: versionActual}
+          consultas.actualizarCategoria({_id: categoria._id, $set : {
+                                         'version.local': versionActual
                                          }
                                         });
       }

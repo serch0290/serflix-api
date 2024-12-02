@@ -3591,3 +3591,75 @@ cp: server/nichos/autores/46e3d2f8-aa7b-4436-9b5e-77b210e9ef69: No such file or 
     at guardarCategoriaBlog (webpack:///./server/modules/blog/blog.controller.js?:44:27)
     at runMicrotasks (<anonymous>)
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+[2024-11-29T23:24:00.639] [FATAL] arbitraje - Metodo: generarCapetasProyecto TypeError: json.generarJsonNoticia is not a function
+    at generarCapetasProyecto (webpack:///./server/modules/configuracion/configuracion.controller.js?:168:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:39:16.169] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo_casa","id":"674aa1e6ef8a9802d3ee85c1"} TypeError: Cannot read properties of undefined (reading 'version')
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:395:81)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:39:45.406] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo_casa","id":"674aa1e6ef8a9802d3ee85c1"} TypeError: Cannot read properties of undefined (reading 'version')
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:395:81)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:40:48.045] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo_casa","id":"674aa1e6ef8a9802d3ee85c1"} TypeError: Cannot read properties of undefined (reading 'version')
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:395:81)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:42:35.174] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo_casa","id":"674aa1e6ef8a9802d3ee85c1"} TypeError: Cannot read properties of undefined (reading 'version')
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:396:81)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:45:16.250] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo_casa","id":"674aa1e6ef8a9802d3ee85c1"} TypeError: Cannot read properties of null (reading 'version')
+    at generarFileRoutingReal (webpack:///./server/modules/configuracion/configuracion.controller.js?:468:27)
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:417:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-29T23:56:26.968] [FATAL] arbitraje - Metodo: actualizarCamposBD {"commands":["cp server/nichos/completo_casa/assets/json/conexion.json /Applications/XAMPP/htdocs/completo_casa/assets/json/conexion.json"],"campo":{"_id":"6742c46545c6281debb0546b","$set":{"ambiente.dev":true}}} Error: Command failed: cp server/nichos/completo_casa/assets/json/conexion.json /Applications/XAMPP/htdocs/completo_casa/assets/json/conexion.json
+cp: server/nichos/completo_casa/assets/json/conexion.json: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/json/conexion.json /Applications/XAMPP/htdocs/completo_casa/assets/json/conexion.json'
+}
+[2024-11-30T00:03:54.785] [FATAL] arbitraje - Metodo: saveHomeConfiguracion {"home":{"noticias_style1":{"pagination":{"name":"pagina","mask":"/pagina/#","prefix":"/pagina/","dominio":"https://casacompleto.com","paginasMostrar":6},"dominio":"https://casacompleto.com","prefijo":"https://casacompleto.com/pagina/","title":"Todas las noticias","mascara":"https://casacompleto.com/pagina/{idPagina}"},"h1":"Este es el home de la noticia","paginador":true,"categoria":"674aa8cab8893090846fde7b"},"nicho":{"id":"674280e333535d308f3bcdeb","nombre":"completo_casa"}} TypeError: Cannot read properties of undefined (reading 'local')
+    at saveHomeConfiguracion (webpack:///./server/modules/blog/blog.controller.js?:161:40)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-11-30T00:21:56.890] [FATAL] arbitraje - Metodo: subirModificaciones Error: Command failed: cp server/nichos/completo_casa/assets/json/busqueda.json /Applications/XAMPP/htdocs/completo_casa/assets/json
+cp: server/nichos/completo_casa/assets/json/busqueda.json: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/json/busqueda.json /Applications/XAMPP/htdocs/completo_casa/assets/json'
+}
+[2024-11-30T00:40:52.545] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"674ab295bd20cc09bc31008b","autor":"Autor con Nicho","descripcion":"Descripcion corta del autor con nicho","descripcionLarga":"<p>Bueno pues esto es solo una prueba de lo nuevo que hice haber como queda.</p>\n","img":"autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor.jpeg","img400":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_400.webp","img800":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_800.webp","img1024":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_1024.webp","__v":0,"selected":true},"nichoAutor":{"home":true,"sobremi":true,"ambiente":{"local":true,"dev":false,"prod":false},"breadcrumb":[{"name":"Inicio","link":"https://casacompleto.com"},{"name":"Sobre Mi"}],"nicho":"674280e333535d308f3bcdeb"},"nicho":{"nicho":"674280e333535d308f3bcdeb","nombre":"completo_casa","dominio":"https://casacompleto.com"}} TypeError: Cannot read properties of undefined (reading 'local')
+    at saveAutorNicho (webpack:///./server/modules/autor/autor.controller.js?:61:42)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:346:12)
+    at next (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:175:3)
+    at router (/Users/sergio/Documents/admin-nichos/serflix-api/node_modules/express/lib/router/index.js:47:12)
+[2024-11-30T00:43:38.328] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"674ab295bd20cc09bc31008b","autor":"Autor con Nicho","descripcion":"Descripcion corta del autor con nicho","descripcionLarga":"<p>Bueno pues esto es solo una prueba de lo nuevo que hice haber como queda.</p>\n","img":"autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor.jpeg","img400":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_400.webp","img800":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_800.webp","img1024":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_1024.webp","__v":0,"selected":true},"nichoAutor":{"version":{"local":1,"dev":0,"prod":0},"home":true,"sobremi":true,"ambiente":{"local":true,"dev":false,"prod":false},"breadcrumb":[{"name":"Inicio","link":"https://casacompleto.com"},{"name":"Sobre Mi"}],"nicho":"674280e333535d308f3bcdeb"},"nicho":{"nicho":"674280e333535d308f3bcdeb","nombre":"completo_casa","dominio":"https://casacompleto.com"}} ReferenceError: data is not defined
+    at saveAutorNicho (webpack:///./server/modules/autor/autor.controller.js?:74:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)

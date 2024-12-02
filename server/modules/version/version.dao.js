@@ -4,6 +4,7 @@ const models = require('../../models/nicho');
 
 
 const getVersion = params => {
+    console.log('params version: ', params);
    return models.version.findOne({nicho: params.id});
 }
 

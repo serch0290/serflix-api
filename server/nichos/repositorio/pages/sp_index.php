@@ -5,7 +5,7 @@
     //Quitamos las variables que puedan llegar por url
     $request_final = explode("?", $request);
     
-    $home = json_decode(file_get_contents('assets/json/home.json'), false);
+    $home = json_decode(file_get_contents('assets/json/home_'.$version.'.json'), false);
     $conexion = new Conexion();
     $conn = $conexion->connect();
     $conn->query("SET lc_time_names = 'es_ES'");
