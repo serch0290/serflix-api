@@ -18,12 +18,6 @@ const versionDao = require('./../version/version.dao');
         let response = null;
         let path = null;
 
-        let version = data.footer.version.local;
-        if([data.footer.version.local, data.footer.version.dev].every(val => val === version)){
-            ++version;
-            data.footer.version.local = version;
-        }
-
         if(data._id){
            let campo = { 
               $push: { footer: data.footer },
@@ -45,15 +39,16 @@ const versionDao = require('./../version/version.dao');
 
         //generamos el archivo json de la sección que se genero
         if(data.footer.json){
-           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.footer.fileJson + '_' + data.footer.version.local + '.json';
+           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.footer.fileJson;
            json.generarJsonNoticia(data.breadcrumb, path);
         }
 
-        let versionDao1 = await versionDao.getVersion({id: data.nicho});
-        let versionFooter = versionDao1.footer.version.local;
-        if([versionDao1.footer.version.local, versionDao1.footer.version.dev].every(val => val === versionFooter)){
+
+        let { footer, _id } = await versionDao.getVersion({id: data.nicho});
+        let versionFooter = footer.version.local;
+        if([footer.version.local, footer.version.dev].every(val => val === versionFooter)){
             ++versionFooter;
-            versionDao.actualizarVersion({_id: versionDao1._id, $set : {
+            versionDao.actualizarVersion({_id: _id, $set : {
               'footer.version.local': versionFooter
               }
              });

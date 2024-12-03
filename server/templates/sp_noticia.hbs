@@ -4,7 +4,7 @@
   //Quitamos las variables que puedan llegar por url
   $request_final = explode("?", $request);
   //Obtenemos toda la configuración de la noticia
-  $noticia = json_decode(file_get_contents('assets/json' . $request_final[0] . '.json'), false);
+  $noticia = json_decode(file_get_contents('assets/json' . $request_final[0] . '_' . $version . '.json'), false);
 
   $detalleNoticia = $noticia->detalle;
 
@@ -89,6 +89,7 @@
       <meta charset="utf-8">
       <link rel="icon" href="https://definanzas.top/wp-content/uploads/cropped-icono-definanzas-top-32x32.png"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+      <title><?php echo $noticia->title; ?></title>
       <link  rel="stylesheet" href="{{nombre}}/assets/css/dynamic.css">
       <link  rel="stylesheet" href="{{nombre}}/assets/css/general.css">
       <link  rel="stylesheet" href="{{nombre}}/assets/css/components/noticia.css">

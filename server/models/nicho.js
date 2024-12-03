@@ -102,6 +102,7 @@ const categoriaSchema = new Schema({
     url: String,
     idCategoria: Number,
     title: String,
+    mTitle: String,
     breadcrumb: {type: Schema.Types.Mixed},
     noticiasLateral: {
         title: String
@@ -125,6 +126,7 @@ const categoria = mongoose.model('Categorias', categoriaSchema);
 const noticiaSchema = new Schema({
     breadcrumb: {type: Schema.Types.Mixed},
     nombre: String,
+    title: String,
     descripcion: String,
     url: String,
     estatusPublicacion: Number,
@@ -165,6 +167,7 @@ const noticia = mongoose.model('Noticias', noticiaSchema);
 
 const homeSchema = new Schema({
    h1: String,
+   title: String,
    noticias_style1: {
     type: Schema.Types.Mixed
    },
@@ -242,6 +245,12 @@ const schemaPrivacidad = new Schema({
     local: Boolean,
     dev: Boolean,
     prod: Boolean,
+    title: String,
+    version: {
+        local: { type: Number, default: 0},
+        dev: { type: Number, default: 0},
+        prod: { type: Number, default: 0}
+    },
     nicho: { type: Schema.Types.ObjectId, ref: 'Nicho' },
     json: String,
     h1: String

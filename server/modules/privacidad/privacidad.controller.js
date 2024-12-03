@@ -23,8 +23,17 @@ const uploads = require('./../configuracion/configuracion.upload');
            response = await consultas.guardarPrivacidad(data);
         }
 
+        let version = response.version.local;
+        if([response.version.local, response.version.dev].every(val => val === version)){
+            ++version;
+            await consultas.actualizarPrivacidad({_id: response._id, $set : {
+                'version.local': version
+              }
+            });
+        }
+
         //generamos el archivo json de la sección que se genero
-        path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.json;
+        path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.json + '_' + version + '.json';
         json.generarJsonNoticia(data, path);
 
         res.status(200).send(response);

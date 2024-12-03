@@ -17,6 +17,7 @@ const json = require('./../configuracion/configuracion.jsons');
 const footerDao = require('./../footer/footer.dao');
 const versionDao = require('./../version/version.dao');
 const autorDao = require('./../autor/autor.dao');
+const privacidadDao = require('./../privacidad/privacidad.dao');
 
 
 /**
@@ -388,6 +389,7 @@ const guardarIconNicho = async(req, res) =>{
 		let categorias = await noticiasDao.consultaListadoCategorias(data);
 		let versiones = await versionDao.getVersion(data);
 		let autor = await autorDao.getAutorNicho(data);
+		let privacidad = await privacidadDao.getPrivacidad(data);
 
 		let home = categorias.find(item=> item.home);
 		let versionHome = 0;
@@ -411,7 +413,7 @@ const guardarIconNicho = async(req, res) =>{
 		/**
 		 * Se valida si hay rutas default que agregar del sitio
 		 */
-		await routingDefault(data.id, routing);
+		await routingDefault(data.id, routing, privacidad);
 
 		let path = 'server/nichos/' + req.body.proyecto;
 		await generarFileRoutingReal(routing, path, versiones, autor);
@@ -516,12 +518,34 @@ const generarFileRoutingReal = async (entradas, path, version, autor) => {
 	 }
   }
 
-  const routingDefault = async(nicho, routing) =>{
+  const routingDefault = async(nicho, routing, privacidad) =>{
 	try{
 		let footer = await footerDao.getFooter({id: nicho});
 		if(!footer) return;
+
+		let version = 0;
 		for(let f of footer.footer){
-			routing.push({url: f.urlAlone, descripcion: '-', file: f.file});
+			switch(f.id){
+				case 2://Asivo legal
+					let data = privacidad.find(item=> item.tipo == 3);
+					if(data){
+					   version = data.version.local;
+					}
+				  break;
+				case 3://Cookies
+					let data1 = privacidad.find(item=> item.tipo == 2);
+					if(data1){
+					   version = data1.version.local;
+					}
+				  break;
+				case 4://privacidad
+					let data2 = privacidad.find(item=> item.tipo == 1);
+					if(data2){
+					   version = data2.version.local;
+					}
+				  break;
+			}
+			routing.push({url: f.urlAlone, descripcion: '-', file: f.file, version: version});
 		}
 	}catch(error){
 		throw error;
