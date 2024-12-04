@@ -45,8 +45,9 @@ const versionDao = require('./../version/version.dao');
 
 
         let { footer, _id } = await versionDao.getVersion({id: data.nicho});
-        let versionFooter = footer.version.local;
-        if([footer.version.local, footer.version.dev].every(val => val === versionFooter)){
+        console.log('footer: ', footer, 'id:', _id);
+        let versionFooter = footer.local;
+        if([footer.local, footer.dev].every(val => val === versionFooter)){
             ++versionFooter;
             versionDao.actualizarVersion({_id: _id, $set : {
               'footer.version.local': versionFooter

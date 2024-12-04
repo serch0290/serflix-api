@@ -5,6 +5,7 @@ const log = log4js.getLogger('arbitraje');
 const consultas  = require('./menus.dao');
 const json = require('./../configuracion/configuracion.jsons');
 const uploads = require('./../configuracion/configuracion.upload');
+const versionDao = require('./../version/version.dao');
 
 /**
  *
@@ -35,8 +36,18 @@ const uploads = require('./../configuracion/configuracion.upload');
         }
 
 
+       let { menu, _id } = await versionDao.getVersion({id: data.nicho});
+        let versionMenu = menu.local;
+        if([menu.local, menu.dev].every(val => val === versionMenu)){
+            ++versionMenu;
+            versionDao.actualizarVersion({_id: _id, $set : {
+              'menu.version.local': versionMenu
+              }
+             });
+        }
+
         //Generamos el json de la pagina del menu
-        let path = 'server/nichos/' + req.body.nombre + '/assets/json/menu.json';
+        let path = 'server/nichos/' + req.body.nombre + '/assets/json/menu_'+versionMenu+'.json';
         json.generarJsonNoticia(response.menu, path);
 
         res.status(200).send(response);

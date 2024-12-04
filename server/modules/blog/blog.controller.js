@@ -148,6 +148,7 @@ const guardarCategoriaBlog = async(req, res) =>{
          }
 
       let path = 'server/nichos/' + req.body.nicho.nombre + '/assets/json/' + noticia.url + '_' + version + '.json';
+      console.log('path noticia: ', path);
       json.generarJsonNoticia(noticia, path);
 
       res.status(200).send(noticia);

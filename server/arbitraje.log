@@ -3663,3 +3663,62 @@ cp: server/nichos/completo_casa/assets/json/busqueda.json: No such file or direc
 [2024-11-30T00:43:38.328] [FATAL] arbitraje - Metodo: saveAutores {"autor":{"_id":"674ab295bd20cc09bc31008b","autor":"Autor con Nicho","descripcion":"Descripcion corta del autor con nicho","descripcionLarga":"<p>Bueno pues esto es solo una prueba de lo nuevo que hice haber como queda.</p>\n","img":"autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor.jpeg","img400":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_400.webp","img800":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_800.webp","img1024":"https://casacompleto.com/assets/images/autores/0705e2bc-f543-4cba-86b2-00a36e172b27/autor_1024.webp","__v":0,"selected":true},"nichoAutor":{"version":{"local":1,"dev":0,"prod":0},"home":true,"sobremi":true,"ambiente":{"local":true,"dev":false,"prod":false},"breadcrumb":[{"name":"Inicio","link":"https://casacompleto.com"},{"name":"Sobre Mi"}],"nicho":"674280e333535d308f3bcdeb"},"nicho":{"nicho":"674280e333535d308f3bcdeb","nombre":"completo_casa","dominio":"https://casacompleto.com"}} ReferenceError: data is not defined
     at saveAutorNicho (webpack:///./server/modules/autor/autor.controller.js?:74:9)
     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-03T21:37:18.346] [FATAL] arbitraje - Metodo: generarRouring {"dominio":"https://casacompleto.com","proyecto":"completo-casa"} Error: ENOENT: no such file or directory, open 'server/nichos/completo-casa/routing.php'
+    at Object.openSync (node:fs:596:3)
+    at Object.writeFileSync (node:fs:2322:35)
+    at generarFileRoutingReal (webpack:///./server/modules/configuracion/configuracion.controller.js?:472:5)
+    at generarRouting (webpack:///./server/modules/configuracion/configuracion.controller.js?:419:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  errno: -2,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'server/nichos/completo-casa/routing.php'
+}
+[2024-12-03T21:37:22.712] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: cp server/nichos/completo-casa/routing.php /Applications/XAMPP/htdocs/completo-casa
+cp: server/nichos/completo-casa/routing.php: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo-casa/routing.php /Applications/XAMPP/htdocs/completo-casa'
+}
+[2024-12-03T21:37:22.715] [FATAL] arbitraje - Metodo: subirModificacionesDEV Error: Command failed: mkdir /Applications/XAMPP/htdocs/completo-casa/assets/images/noticias/1733282728084
+mkdir: /Applications/XAMPP/htdocs/completo-casa/assets/images/noticias: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'mkdir /Applications/XAMPP/htdocs/completo-casa/assets/images/noticias/1733282728084'
+}
+[2024-12-03T21:52:52.331] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"674280e333535d308f3bcdeb","footer":{"id":1,"name":"Sobre mi","url":"https://casacompleto.com/sobre-mi","urlAlone":"/sobre-mi","file":"sp_about_me.php"},"nombre":"completo_casa","breadcrumb":{"breadcrumb":[{"name":"Inicio","link":"https://casacompleto.com"},{"name":"Sobre mi"}]}} TypeError: Cannot read properties of undefined (reading 'local')
+    at saveFooter (webpack:///./server/modules/footer/footer.controller.js?:48:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-03T22:06:08.402] [FATAL] arbitraje - Metodo: saveMenu {"nicho":"674280e333535d308f3bcdeb","footer":{"id":1,"name":"Sobre mi","url":"https://casacompleto.com/sobre-mi","urlAlone":"/sobre-mi","file":"sp_about_me.php"},"nombre":"completo_casa","breadcrumb":{"breadcrumb":[{"name":"Inicio","link":"https://casacompleto.com"},{"name":"Sobre mi"}]}} TypeError: Cannot read properties of undefined (reading 'local')
+    at saveFooter (webpack:///./server/modules/footer/footer.controller.js?:49:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-03T22:08:44.683] [FATAL] arbitraje - Metodo: subirModificacionesMenu Error: Command failed: cp server/nichos/completo_casa/assets/json/footer.json /Applications/XAMPP/htdocs/completo_casa/assets/json
+cp: server/nichos/completo_casa/assets/json/footer.json: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/json/footer.json /Applications/XAMPP/htdocs/completo_casa/assets/json'
+}
