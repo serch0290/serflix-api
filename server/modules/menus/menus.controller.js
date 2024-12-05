@@ -81,11 +81,18 @@ const getMenu = async (req, res) => {
 	try{
         let id = req.params.id;
 		for(let command of req.body.comandos){
-            await uploads.subirCarpetasPruebas(command);
-        }
+        await uploads.subirCarpetasPruebas(command);
+    }
+
+    let { menus, _id } = await versionDao.getVersion({id: req.params.nicho});
+    let versionMenu = menus.local;
+    versionDao.actualizarVersion({_id: _id, $set : {
+      'menu.version.dev': versionMenu
+      }
+    });
 		
 		let menu = await consultas.agregarNuevoMenu({_id: id, campo: req.body.campo});
-	    res.status(200).send({menu, msj: 'Se subio archivo de menú a pruebas'});
+	  res.status(200).send({menu, msj: 'Se subio archivo de menú a pruebas'});
 	}catch(error){
 	  log.fatal('Metodo: subirModificacionesMenu', error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones del menu a dev o prod' });

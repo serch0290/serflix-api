@@ -91,7 +91,15 @@ const versionDao = require('./../version/version.dao');
             let id = req.params.id;
             for(let command of req.body.comandos){
                 await uploads.subirCarpetasPruebas(command);
-            }
+            } 
+
+            let { footer, _id } = await versionDao.getVersion({id: req.params.nicho});
+
+            let versionFooter = footer.local;
+            versionDao.actualizarVersion({_id: _id, $set : {
+                'footer.version.dev': versionFooter
+                }
+            });
             
             let categoria = await consultas.agregarNuevoFooter({_id: id, campo: req.body.campo});
             res.status(200).send({categoria, msj: 'Se subio archivo de footer a pruebas'});
