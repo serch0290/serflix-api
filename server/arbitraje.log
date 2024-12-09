@@ -3722,3 +3722,29 @@ cp: server/nichos/completo_casa/assets/json/footer.json: No such file or directo
   signal: null,
   cmd: 'cp server/nichos/completo_casa/assets/json/footer.json /Applications/XAMPP/htdocs/completo_casa/assets/json'
 }
+[2024-12-08T11:56:17.545] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: Cannot destructure property 'footer' of '(intermediate value)' as it is null.
+    at subirModificacionesMenu (webpack:///./server/modules/footer/footer.controller.js?:97:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-08T12:00:00.494] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: Cannot destructure property 'footer' of '(intermediate value)' as it is null.
+    at subirModificacionesMenu (webpack:///./server/modules/footer/footer.controller.js?:97:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-08T12:16:53.114] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: Cannot read properties of undefined (reading 'local')
+    at subirModificacionesMenu (webpack:///./server/modules/menus/menus.controller.js?:88:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-08T12:20:46.119] [FATAL] arbitraje - Metodo: subirModificacionesMenu TypeError: Cannot read properties of undefined (reading 'local')
+    at subirModificacionesMenu (webpack:///./server/modules/menus/menus.controller.js?:88:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-12-08T13:09:33.260] [FATAL] arbitraje - Metodo: subirModificacionesPrivacidad Error: Command failed: cp server/nichos/completo_casa/assets/json/aviso-legal /Applications/XAMPP/htdocs/completo_casa/assets/json
+cp: server/nichos/completo_casa/assets/json/aviso-legal: No such file or directory
+
+    at ChildProcess.exithandler (node:child_process:422:12)
+    at ChildProcess.emit (node:events:517:28)
+    at maybeClose (node:internal/child_process:1098:16)
+    at Socket.<anonymous> (node:internal/child_process:450:11)
+    at Socket.emit (node:events:517:28)
+    at Pipe.<anonymous> (node:net:350:12) {
+  code: 1,
+  killed: false,
+  signal: null,
+  cmd: 'cp server/nichos/completo_casa/assets/json/aviso-legal /Applications/XAMPP/htdocs/completo_casa/assets/json'
+}

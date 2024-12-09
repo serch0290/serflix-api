@@ -41,7 +41,7 @@ const versionDao = require('./../version/version.dao');
         if([menu.local, menu.dev].every(val => val === versionMenu)){
             ++versionMenu;
             versionDao.actualizarVersion({_id: _id, $set : {
-              'menu.version.local': versionMenu
+              'menu.local': versionMenu
               }
              });
         }
@@ -84,15 +84,16 @@ const getMenu = async (req, res) => {
         await uploads.subirCarpetasPruebas(command);
     }
 
-    let { menus, _id } = await versionDao.getVersion({id: req.params.nicho});
-    let versionMenu = menus.local;
+    let { menu, _id } = await versionDao.getVersion({id: req.body.nicho});
+
+    let versionMenu = menu.local;
     versionDao.actualizarVersion({_id: _id, $set : {
-      'menu.version.dev': versionMenu
+      'menu.dev': versionMenu
       }
     });
 		
-		let menu = await consultas.agregarNuevoMenu({_id: id, campo: req.body.campo});
-	  res.status(200).send({menu, msj: 'Se subio archivo de menú a pruebas'});
+		let menus = await consultas.agregarNuevoMenu({_id: id, campo: req.body.campo});
+	  res.status(200).send({menus, msj: 'Se subio archivo de menú a pruebas'});
 	}catch(error){
 	  log.fatal('Metodo: subirModificacionesMenu', error);
 	  res.status(500).send({ error: 'Ocurrió un error al subir modificaciones del menu a dev o prod' });

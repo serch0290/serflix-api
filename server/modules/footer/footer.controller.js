@@ -17,6 +17,7 @@ const versionDao = require('./../version/version.dao');
         let data = req.body;
         let response = null;
         let path = null;
+        console.log('Guardar i actualizar footer');
 
         if(data._id){
            let campo = { 
@@ -45,12 +46,11 @@ const versionDao = require('./../version/version.dao');
 
 
         let { footer, _id } = await versionDao.getVersion({id: data.nicho});
-        console.log('footer: ', footer, 'id:', _id);
         let versionFooter = footer.local;
         if([footer.local, footer.dev].every(val => val === versionFooter)){
             ++versionFooter;
             versionDao.actualizarVersion({_id: _id, $set : {
-              'footer.version.local': versionFooter
+              'footer.local': versionFooter
               }
              });
         }
@@ -93,11 +93,11 @@ const versionDao = require('./../version/version.dao');
                 await uploads.subirCarpetasPruebas(command);
             } 
 
-            let { footer, _id } = await versionDao.getVersion({id: req.params.nicho});
+            let { footer, _id } = await versionDao.getVersion({id: req.body.nicho});
 
             let versionFooter = footer.local;
             versionDao.actualizarVersion({_id: _id, $set : {
-                'footer.version.dev': versionFooter
+                'footer.dev': versionFooter
                 }
             });
             
@@ -121,10 +121,20 @@ const versionDao = require('./../version/version.dao');
          if(data.selected.json){
           path = 'server/nichos/' + req.body.nombre + '/assets/json/' + data.selected.fileJson;
           json.generarJsonNoticia(data.breadcrumb, path);
-       }
+         }
+
+         let { footer, _id } = await versionDao.getVersion({id: data.idNicho});
+        let versionFooter = footer.local;
+        if([footer.local, footer.dev].every(val => val === versionFooter)){
+            ++versionFooter;
+            versionDao.actualizarVersion({_id: _id, $set : {
+              'footer.local': versionFooter
+              }
+             });
+        }
 
        //Generamos el json de la pagina del menu
-       path = 'server/nichos/' + req.body.nombre + '/assets/json/footer.json';
+       path = 'server/nichos/' + req.body.nombre + '/assets/json/footer_'+versionFooter+'.json';
        json.generarJsonNoticia(response.footer, path);
 
        res.status(200).send(response);

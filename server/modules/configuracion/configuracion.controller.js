@@ -413,7 +413,7 @@ const guardarIconNicho = async(req, res) =>{
 		/**
 		 * Se valida si hay rutas default que agregar del sitio
 		 */
-		await routingDefault(data.id, routing, privacidad);
+		await routingDefault(data.id, routing, privacidad, autor);
 
 		let path = 'server/nichos/' + req.body.proyecto;
 		await generarFileRoutingReal(routing, path, versiones, autor);
@@ -518,7 +518,7 @@ const generarFileRoutingReal = async (entradas, path, version, autor) => {
 	 }
   }
 
-  const routingDefault = async(nicho, routing, privacidad) =>{
+  const routingDefault = async(nicho, routing, privacidad, autor) =>{
 	try{
 		let footer = await footerDao.getFooter({id: nicho});
 		if(!footer) return;
@@ -526,6 +526,9 @@ const generarFileRoutingReal = async (entradas, path, version, autor) => {
 		let version = 0;
 		for(let f of footer.footer){
 			switch(f.id){
+				case 1://sobre mi
+					version = autor.version.local;
+					break;
 				case 2://Asivo legal
 					let data = privacidad.find(item=> item.tipo == 3);
 					if(data){
